@@ -74,7 +74,6 @@ test("snapshot update refuses to overwrite unrecognized files", async () => {
   });
 });
 
-
 test("snapshot updates respect the project write lock", async () => {
   await withProject(async (root) => {
     const configSource = await fs.readFile(
