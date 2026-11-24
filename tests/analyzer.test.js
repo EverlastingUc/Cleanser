@@ -54,6 +54,7 @@ test("uses compiler symbols to find unused declarations without flagging exports
       "export {};",
       "export const publicValue = 1;",
       "const unusedValue = 2;",
+      "let unusedMutableValue = 3;",
       "function unusedFunction(_ignored: string, used: number) { return used; }",
       "class UnusedClass {}",
     ].join("\n");
@@ -66,10 +67,36 @@ test("uses compiler symbols to find unused declarations without flagging exports
 
     assert.deepEqual(
       unused.map((finding) => finding.ruleId),
-      ["unused-constant", "unused-function", "unused-class"],
+      [
+        "unused-constant",
+        "unused-variable",
+        "unused-function",
+        "unused-class",
+      ],
     );
     assert.ok(unused.every((finding) => finding.filePath === "sample.ts"));
     assert.equal(await fs.readFile(file, "utf8"), source);
+  });
+});
+
+test("detects empty function and empty catch bodies independently", async () => {
+  await withProject(async (root) => {
+    const source = [
+      "export function emptyFunction() {}",
+      "export function handlesFailure() {",
+      "  try {",
+      "    throw new Error('failure');",
+      "  } catch (error) {}",
+      "}",
+    ].join("\n");
+    await fs.writeFile(path.join(root, "empty-bodies.ts"), source);
+
+    const findings = await analyzeProject({ root, config: DEFAULT_CONFIG });
+    const ruleIds = findings.map((finding) => finding.ruleId);
+
+    assert.equal(ruleIds.filter((ruleId) => ruleId === "empty-function").length, 1);
+    assert.equal(ruleIds.filter((ruleId) => ruleId === "empty-catch").length, 1);
+    assert.equal(ruleIds.includes("empty-block"), false);
   });
 });
 
