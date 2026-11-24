@@ -67,12 +67,7 @@ test("uses compiler symbols to find unused declarations without flagging exports
 
     assert.deepEqual(
       unused.map((finding) => finding.ruleId),
-      [
-        "unused-constant",
-        "unused-variable",
-        "unused-function",
-        "unused-class",
-      ],
+      ["unused-constant", "unused-variable", "unused-function", "unused-class"],
     );
     assert.ok(unused.every((finding) => finding.filePath === "sample.ts"));
     assert.equal(await fs.readFile(file, "utf8"), source);
