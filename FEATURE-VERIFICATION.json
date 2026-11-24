@@ -17,7 +17,7 @@
     "scope": "Static feature-by-feature reconciliation of every canonical catalogue entry against the relevant source-module surface and existing category-level test files.",
     "limitations": [
       "A linked source module or category test file is supporting evidence, not proof that every individual feature works correctly.",
-      "Runtime verification is recorded only at workflow-job level; no individual feature has been marked as independently runtime-verified.",
+      "Other catalogue categories are verified at workflow-job level; Code Quality Detection entries use explicit feature-level assertions.",
       "The remote working environment could not clone the repository or execute npm locally; GitHub Actions logs are the available runtime evidence.",
       "Catalogue descriptions and declared status remain unchanged in feature-catalogue.json; unsupported status changes were not made."
     ],
@@ -548,365 +548,320 @@
       "name": "Unused variable detection",
       "category": "Code Quality Detection",
       "catalogueStatus": "Implemented",
-      "reviewOutcome": "implementation-surface-present; category-tests-linked",
+    "reviewOutcome": "individual-finding-assertions-added; awaiting CI",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
       "sourceEvidence": [
         "src/analyzer.js",
         "src/dependency-graph.js",
         "src/control-flow.js"
       ],
-      "testEvidence": [
-        "tests/analyzer.test.js",
-        "tests/dependency-graph.test.js"
-      ],
-      "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
-      "runtimeVerification": "not_individually_verified"
+    "testEvidence": ["tests/analyzer.test.js"],
+    "evidenceGranularity": "individual-finding-assertions; awaiting CI",
+    "runtimeVerification": "pending-ci"
     },
     {
       "id": 22,
       "name": "Unused function detection",
       "category": "Code Quality Detection",
       "catalogueStatus": "Implemented",
-      "reviewOutcome": "implementation-surface-present; category-tests-linked",
+    "reviewOutcome": "individual-finding-assertions-added; awaiting CI",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
       "sourceEvidence": [
         "src/analyzer.js",
         "src/dependency-graph.js",
         "src/control-flow.js"
       ],
-      "testEvidence": [
-        "tests/analyzer.test.js",
-        "tests/dependency-graph.test.js"
-      ],
-      "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
-      "runtimeVerification": "not_individually_verified"
+    "testEvidence": ["tests/analyzer.test.js"],
+    "evidenceGranularity": "individual-finding-assertions; awaiting CI",
+    "runtimeVerification": "pending-ci"
     },
     {
       "id": 23,
       "name": "Unused imports detection",
       "category": "Code Quality Detection",
       "catalogueStatus": "Implemented",
-      "reviewOutcome": "implementation-surface-present; category-tests-linked",
+    "reviewOutcome": "individual-finding-assertions-added; awaiting CI",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
       "sourceEvidence": [
         "src/analyzer.js",
         "src/dependency-graph.js",
         "src/control-flow.js"
       ],
-      "testEvidence": [
-        "tests/analyzer.test.js",
-        "tests/dependency-graph.test.js"
-      ],
-      "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
-      "runtimeVerification": "not_individually_verified"
+    "testEvidence": ["tests/analyzer.test.js"],
+    "evidenceGranularity": "individual-finding-assertions; awaiting CI",
+    "runtimeVerification": "pending-ci"
     },
     {
       "id": 24,
       "name": "Unused parameters detection",
       "category": "Code Quality Detection",
       "catalogueStatus": "Implemented",
-      "reviewOutcome": "implementation-surface-present; category-tests-linked",
+    "reviewOutcome": "individual-finding-assertions-added; awaiting CI",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
       "sourceEvidence": [
         "src/analyzer.js",
         "src/dependency-graph.js",
         "src/control-flow.js"
       ],
-      "testEvidence": [
-        "tests/analyzer.test.js",
-        "tests/dependency-graph.test.js"
-      ],
-      "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
-      "runtimeVerification": "not_individually_verified"
+    "testEvidence": ["tests/analyzer.test.js"],
+    "evidenceGranularity": "individual-finding-assertions; awaiting CI",
+    "runtimeVerification": "pending-ci"
     },
     {
       "id": 25,
       "name": "Unused classes detection",
       "category": "Code Quality Detection",
       "catalogueStatus": "Implemented",
-      "reviewOutcome": "implementation-surface-present; category-tests-linked",
+    "reviewOutcome": "individual-finding-assertions-added; awaiting CI",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
       "sourceEvidence": [
         "src/analyzer.js",
         "src/dependency-graph.js",
         "src/control-flow.js"
       ],
-      "testEvidence": [
-        "tests/analyzer.test.js",
-        "tests/dependency-graph.test.js"
-      ],
-      "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
-      "runtimeVerification": "not_individually_verified"
+    "testEvidence": ["tests/analyzer.test.js"],
+    "evidenceGranularity": "individual-finding-assertions; awaiting CI",
+    "runtimeVerification": "pending-ci"
     },
     {
       "id": 26,
       "name": "Unused constants detection",
       "category": "Code Quality Detection",
       "catalogueStatus": "Implemented",
-      "reviewOutcome": "implementation-surface-present; category-tests-linked",
+    "reviewOutcome": "individual-finding-assertions-added; awaiting CI",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
       "sourceEvidence": [
         "src/analyzer.js",
         "src/dependency-graph.js",
         "src/control-flow.js"
       ],
-      "testEvidence": [
-        "tests/analyzer.test.js",
-        "tests/dependency-graph.test.js"
-      ],
-      "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
-      "runtimeVerification": "not_individually_verified"
+    "testEvidence": ["tests/analyzer.test.js"],
+    "evidenceGranularity": "individual-finding-assertions; awaiting CI",
+    "runtimeVerification": "pending-ci"
     },
     {
       "id": 27,
       "name": "Duplicate declaration detection",
       "category": "Code Quality Detection",
       "catalogueStatus": "Implemented",
-      "reviewOutcome": "implementation-surface-present; category-tests-linked",
+    "reviewOutcome": "individual-finding-assertions-added; awaiting CI",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
       "sourceEvidence": [
         "src/analyzer.js",
         "src/dependency-graph.js",
         "src/control-flow.js"
       ],
-      "testEvidence": [
-        "tests/analyzer.test.js",
-        "tests/dependency-graph.test.js"
-      ],
-      "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
-      "runtimeVerification": "not_individually_verified"
+    "testEvidence": ["tests/analyzer.test.js"],
+    "evidenceGranularity": "individual-finding-assertions; awaiting CI",
+    "runtimeVerification": "pending-ci"
     },
     {
       "id": 28,
       "name": "Duplicate import detection",
       "category": "Code Quality Detection",
       "catalogueStatus": "Implemented",
-      "reviewOutcome": "implementation-surface-present; category-tests-linked",
+    "reviewOutcome": "individual-finding-assertions-added; awaiting CI",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
       "sourceEvidence": [
         "src/analyzer.js",
         "src/dependency-graph.js",
         "src/control-flow.js"
       ],
-      "testEvidence": [
-        "tests/analyzer.test.js",
-        "tests/dependency-graph.test.js"
-      ],
-      "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
-      "runtimeVerification": "not_individually_verified"
+    "testEvidence": ["tests/analyzer.test.js"],
+    "evidenceGranularity": "individual-finding-assertions; awaiting CI",
+    "runtimeVerification": "pending-ci"
     },
     {
       "id": 29,
       "name": "Duplicate code detection",
       "category": "Code Quality Detection",
       "catalogueStatus": "Partial",
-      "reviewOutcome": "implementation-and-isolated-test-added; awaiting-ci",
-      "catalogueScopeNotes": "Exact normalized function bodies are compared within one file; cross-file and near-duplicate detection remain.",
+    "reviewOutcome": "individual-finding-assertions-added; awaiting CI",
+    "catalogueScopeNotes": "Exact normalized function bodies are compared across project files; near-duplicate detection remains out of scope.",
       "sourceEvidence": [
         "src/analyzer.js",
         "src/dependency-graph.js",
         "src/control-flow.js"
       ],
-      "testEvidence": ["tests/analyzer.test.js"],
-      "evidenceGranularity": "isolated-test-added; awaiting CI",
-      "runtimeVerification": "pending-ci"
+    "testEvidence": ["tests/analyzer.test.js"],
+    "evidenceGranularity": "individual-finding-assertions; awaiting CI",
+    "runtimeVerification": "pending-ci"
     },
     {
       "id": 30,
       "name": "Dead code detection",
       "category": "Code Quality Detection",
       "catalogueStatus": "Partial",
-      "reviewOutcome": "implementation-and-isolated-test-added; awaiting-ci",
+    "reviewOutcome": "individual-finding-assertions-added; awaiting CI",
       "catalogueScopeNotes": "The analyzer reports unused local bindings and compiler-proven unreachable statements. Whole-file reachability and cross-module dead-code removal are not implemented.",
       "sourceEvidence": [
         "src/analyzer.js",
         "src/dependency-graph.js",
         "src/control-flow.js"
       ],
-      "testEvidence": ["tests/analyzer.test.js"],
-      "evidenceGranularity": "isolated-test-added; awaiting CI",
-      "runtimeVerification": "pending-ci"
+    "testEvidence": ["tests/analyzer.test.js"],
+    "evidenceGranularity": "individual-finding-assertions; awaiting CI",
+    "runtimeVerification": "pending-ci"
     },
     {
       "id": 31,
       "name": "Unreachable code detection",
       "category": "Code Quality Detection",
       "catalogueStatus": "Implemented",
-      "reviewOutcome": "implementation-surface-present; category-tests-linked",
+    "reviewOutcome": "individual-finding-assertions-added; awaiting CI",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
       "sourceEvidence": [
         "src/analyzer.js",
         "src/dependency-graph.js",
         "src/control-flow.js"
       ],
-      "testEvidence": [
-        "tests/analyzer.test.js",
-        "tests/dependency-graph.test.js"
-      ],
-      "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
-      "runtimeVerification": "not_individually_verified"
+    "testEvidence": ["tests/analyzer.test.js"],
+    "evidenceGranularity": "individual-finding-assertions; awaiting CI",
+    "runtimeVerification": "pending-ci"
     },
     {
       "id": 32,
       "name": "Empty function detection",
       "category": "Code Quality Detection",
       "catalogueStatus": "Implemented",
-      "reviewOutcome": "implementation-surface-present; category-tests-linked",
+    "reviewOutcome": "individual-finding-assertions-added; awaiting CI",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
       "sourceEvidence": [
         "src/analyzer.js",
         "src/dependency-graph.js",
         "src/control-flow.js"
       ],
-      "testEvidence": [
-        "tests/analyzer.test.js",
-        "tests/dependency-graph.test.js"
-      ],
-      "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
-      "runtimeVerification": "not_individually_verified"
+    "testEvidence": ["tests/analyzer.test.js"],
+    "evidenceGranularity": "individual-finding-assertions; awaiting CI",
+    "runtimeVerification": "pending-ci"
     },
     {
       "id": 33,
       "name": "Empty block detection",
       "category": "Code Quality Detection",
       "catalogueStatus": "Implemented",
-      "reviewOutcome": "implementation-surface-present; category-tests-linked",
+    "reviewOutcome": "individual-finding-assertions-added; awaiting CI",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
       "sourceEvidence": [
         "src/analyzer.js",
         "src/dependency-graph.js",
         "src/control-flow.js"
       ],
-      "testEvidence": [
-        "tests/analyzer.test.js",
-        "tests/dependency-graph.test.js"
-      ],
-      "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
-      "runtimeVerification": "not_individually_verified"
+    "testEvidence": ["tests/analyzer.test.js"],
+    "evidenceGranularity": "individual-finding-assertions; awaiting CI",
+    "runtimeVerification": "pending-ci"
     },
     {
       "id": 34,
       "name": "Empty catch block detection",
       "category": "Code Quality Detection",
       "catalogueStatus": "Implemented",
-      "reviewOutcome": "implementation-surface-present; category-tests-linked",
+    "reviewOutcome": "individual-finding-assertions-added; awaiting CI",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
       "sourceEvidence": [
         "src/analyzer.js",
         "src/dependency-graph.js",
         "src/control-flow.js"
       ],
-      "testEvidence": [
-        "tests/analyzer.test.js",
-        "tests/dependency-graph.test.js"
-      ],
-      "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
-      "runtimeVerification": "not_individually_verified"
+    "testEvidence": ["tests/analyzer.test.js"],
+    "evidenceGranularity": "individual-finding-assertions; awaiting CI",
+    "runtimeVerification": "pending-ci"
     },
     {
       "id": 35,
       "name": "Redundant statements detection",
       "category": "Code Quality Detection",
       "catalogueStatus": "Partial",
-      "reviewOutcome": "implementation-and-isolated-test-added; awaiting-ci",
+    "reviewOutcome": "individual-finding-assertions-added; awaiting CI",
       "catalogueScopeNotes": "Detects final bare returns and standalone pure array or object literal expressions. VS Code can remove only comment-free pure literal statements; broader redundant-statement analysis is not implemented.",
       "sourceEvidence": [
         "src/analyzer.js",
         "src/dependency-graph.js",
         "src/control-flow.js"
       ],
-      "testEvidence": ["tests/analyzer.test.js"],
-      "evidenceGranularity": "isolated-test-added; awaiting CI",
-      "runtimeVerification": "pending-ci"
+    "testEvidence": ["tests/analyzer.test.js"],
+    "evidenceGranularity": "individual-finding-assertions; awaiting CI",
+    "runtimeVerification": "pending-ci"
     },
     {
       "id": 36,
       "name": "Redundant conditions detection",
       "category": "Code Quality Detection",
       "catalogueStatus": "Partial",
-      "reviewOutcome": "implementation-and-isolated-test-added; awaiting-ci",
+    "reviewOutcome": "individual-finding-assertions-added; awaiting CI",
       "catalogueScopeNotes": "The analyzer detects constant conditions and repeated stable conditions in else-if chains; broader logical-equivalence analysis is not implemented.",
       "sourceEvidence": [
         "src/analyzer.js",
         "src/dependency-graph.js",
         "src/control-flow.js"
       ],
-      "testEvidence": ["tests/analyzer.test.js"],
-      "evidenceGranularity": "isolated-test-added; awaiting CI",
-      "runtimeVerification": "pending-ci"
+    "testEvidence": ["tests/analyzer.test.js"],
+    "evidenceGranularity": "individual-finding-assertions; awaiting CI",
+    "runtimeVerification": "pending-ci"
     },
     {
       "id": 37,
       "name": "Unnecessary expressions detection",
       "category": "Code Quality Detection",
       "catalogueStatus": "Implemented",
-      "reviewOutcome": "implementation-surface-present; category-tests-linked",
+    "reviewOutcome": "individual-finding-assertions-added; awaiting CI",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
       "sourceEvidence": [
         "src/analyzer.js",
         "src/dependency-graph.js",
         "src/control-flow.js"
       ],
-      "testEvidence": [
-        "tests/analyzer.test.js",
-        "tests/dependency-graph.test.js"
-      ],
-      "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
-      "runtimeVerification": "not_individually_verified"
+    "testEvidence": ["tests/analyzer.test.js"],
+    "evidenceGranularity": "individual-finding-assertions; awaiting CI",
+    "runtimeVerification": "pending-ci"
     },
     {
       "id": 38,
       "name": "Constant condition detection",
       "category": "Code Quality Detection",
       "catalogueStatus": "Implemented",
-      "reviewOutcome": "implementation-surface-present; category-tests-linked",
+    "reviewOutcome": "individual-finding-assertions-added; awaiting CI",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
       "sourceEvidence": [
         "src/analyzer.js",
         "src/dependency-graph.js",
         "src/control-flow.js"
       ],
-      "testEvidence": [
-        "tests/analyzer.test.js",
-        "tests/dependency-graph.test.js"
-      ],
-      "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
-      "runtimeVerification": "not_individually_verified"
+    "testEvidence": ["tests/analyzer.test.js"],
+    "evidenceGranularity": "individual-finding-assertions; awaiting CI",
+    "runtimeVerification": "pending-ci"
     },
     {
       "id": 39,
       "name": "Unused labels detection",
       "category": "Code Quality Detection",
       "catalogueStatus": "Implemented",
-      "reviewOutcome": "implementation-surface-present; category-tests-linked",
+    "reviewOutcome": "individual-finding-assertions-added; awaiting CI",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
       "sourceEvidence": [
         "src/analyzer.js",
         "src/dependency-graph.js",
         "src/control-flow.js"
       ],
-      "testEvidence": [
-        "tests/analyzer.test.js",
-        "tests/dependency-graph.test.js"
-      ],
-      "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
-      "runtimeVerification": "not_individually_verified"
+    "testEvidence": ["tests/analyzer.test.js"],
+    "evidenceGranularity": "individual-finding-assertions; awaiting CI",
+    "runtimeVerification": "pending-ci"
     },
     {
       "id": 40,
       "name": "Unnecessary type declarations detection",
       "category": "Code Quality Detection",
       "catalogueStatus": "Partial",
-      "reviewOutcome": "implementation-and-isolated-test-added; awaiting-ci",
+    "reviewOutcome": "individual-finding-assertions-added; awaiting CI",
       "catalogueScopeNotes": "The analyzer reports redundant primitive annotations on mutable variables initialized from simple numeric, string, boolean, and bigint literals. Public API intent, contextual typing, const literal widening, and non-literal initializers are preserved; no annotations are removed automatically.",
       "sourceEvidence": [
         "src/analyzer.js",
         "src/dependency-graph.js",
         "src/control-flow.js"
       ],
-      "testEvidence": ["tests/analyzer.test.js"],
-      "evidenceGranularity": "isolated-test-added; awaiting CI",
-      "runtimeVerification": "pending-ci"
+    "testEvidence": ["tests/analyzer.test.js"],
+    "evidenceGranularity": "individual-finding-assertions; awaiting CI",
+    "runtimeVerification": "pending-ci"
     },
     {
       "id": 41,
