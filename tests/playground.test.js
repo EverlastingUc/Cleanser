@@ -43,6 +43,23 @@ test("playground formats local input without writing project files", async () =>
     assert.equal((await formatted.json()).formatted, "const answer = 42;\n");
     assert.equal(await fs.readFile(originalPath, "utf8"), original);
 
+    const caseInsensitiveContentType = await fetch(
+      new URL("/format", playground.url),
+      {
+        method: "POST",
+        headers: { "Content-Type": "Application/JSON ; charset=UTF-8" },
+        body: JSON.stringify({
+          language: "javascript",
+          source: "const compatible=42",
+        }),
+      },
+    );
+    assert.equal(caseInsensitiveContentType.status, 200);
+    assert.equal(
+      (await caseInsensitiveContentType.json()).formatted,
+      "const compatible = 42;\\n",
+    );
+
     const invalid = await fetch(new URL("/format", playground.url), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
