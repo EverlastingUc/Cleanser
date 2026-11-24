@@ -94,8 +94,14 @@ test("detects empty function and empty catch bodies independently", async () => 
     const findings = await analyzeProject({ root, config: DEFAULT_CONFIG });
     const ruleIds = findings.map((finding) => finding.ruleId);
 
-    assert.equal(ruleIds.filter((ruleId) => ruleId === "empty-function").length, 1);
-    assert.equal(ruleIds.filter((ruleId) => ruleId === "empty-catch").length, 1);
+    assert.equal(
+      ruleIds.filter((ruleId) => ruleId === "empty-function").length,
+      1,
+    );
+    assert.equal(
+      ruleIds.filter((ruleId) => ruleId === "empty-catch").length,
+      1,
+    );
     assert.equal(ruleIds.includes("empty-block"), false);
   });
 });
