@@ -159,3 +159,49 @@ test("LSP initializes and returns AST-verified formatting edits", async () => {
     await fs.rm(root, { recursive: true, force: true });
   }
 });
+
+
+test("LSP rejects oversized frame headers and payload declarations", async () => {
+  const invalidFrames = [
+    {
+      frame: "X".repeat(8 * 1024 + 1),
+      expected: /header exceeds the 8 KB limit/,
+    },
+    {
+      frame: `Content-Length: ${16 * 1024 * 1024 + 1}\\r\\n\\r\\n`,
+      expected: /message exceeds the 16 MB size limit/,
+    },
+  ];
+
+  for (const { frame, expected } of invalidFrames) {
+    const child = spawn(process.execPath, [cliPath, "lsp"], {
+      stdio: ["pipe", "pipe", "pipe"],
+      windowsHide: true,
+    });
+    let stderr = "";
+    child.stderr.setEncoding("utf8");
+    child.stderr.on("data", (chunk) => {
+      stderr += chunk;
+    });
+
+    const closed = new Promise((resolve, reject) => {
+      const timeout = setTimeout(() => {
+        child.kill();
+        reject(new Error("LSP server did not exit after invalid input."));
+      }, 5000);
+      child.once("error", (error) => {
+        clearTimeout(timeout);
+        reject(error);
+      });
+      child.once("close", (code) => {
+        clearTimeout(timeout);
+        resolve(code);
+      });
+    });
+
+    child.stdin.end(Buffer.from(frame, "ascii"));
+    const code = await closed;
+    assert.equal(code, 0, stderr);
+    assert.match(stderr, expected);
+  }
+});
