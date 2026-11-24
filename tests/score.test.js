@@ -11,7 +11,7 @@ test("cleanup score is deterministic, read-only, and improves after formatting",
   const root = await fs.mkdtemp(path.join(os.tmpdir(), "cleanser-score-"));
   try {
     const file = path.join(root, "answer.js");
-    const source = "export const answer=42";
+    const source = "/** The answer constant. */\nexport const answer=42";
     await fs.writeFile(file, source);
 
     const first = await reportCleanupScore({ root, config: DEFAULT_CONFIG });

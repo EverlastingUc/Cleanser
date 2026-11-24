@@ -166,7 +166,7 @@ test("rules and explain commands show effective preset and rule severities", asy
     assert.equal(runCli(["init"], root).status, 0);
     const configPath = path.join(root, CONFIG_FILE);
     const template = await fs.readFile(configPath, "utf8");
-    const configured = template.replace(
+    const configured = template.replace(/\r\n/g, "\n").replace(
       "preset: recommended\n    rules: {}",
       "preset: strict\n    rules:\n      redundant-return: info",
     );
