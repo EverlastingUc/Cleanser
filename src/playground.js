@@ -151,9 +151,11 @@ export async function startPlaygroundServer({
       return;
     }
     if (request.method === "POST" && request.url === "/format") {
-      if (
-        request.headers["content-type"]?.split(";")[0]?.trim().toLowerCase() !== "application/json"
-      ) {
+      const mediaType = (request.headers["content-type"] ?? "")
+        .split(";")[0]
+        .trim()
+        .toLowerCase();
+      if (mediaType !== "application/json") {
         sendJson(response, 415, {
           error: "Content-Type must be application/json.",
         });
