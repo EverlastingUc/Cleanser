@@ -57,7 +57,7 @@ test("playground formats local input without writing project files", async () =>
     assert.equal(caseInsensitiveContentType.status, 200);
     assert.equal(
       (await caseInsensitiveContentType.json()).formatted,
-      "const compatible = 42;\\n",
+      "const compatible = 42;\n",
     );
 
     const invalid = await fetch(new URL("/format", playground.url), {
