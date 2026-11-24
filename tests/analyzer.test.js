@@ -386,7 +386,7 @@ test("verifies all five partial code-quality rules with isolated runtime fixture
         "  const three = two + 1;",
         "  return three;",
         "}",
-      ].join("\\n"),
+      ].join("\n"),
     );
     await fs.writeFile(
       path.join(root, "duplicate-b.ts"),
@@ -397,7 +397,7 @@ test("verifies all five partial code-quality rules with isolated runtime fixture
         "  const three = two + 1;",
         "  return three;",
         "}",
-      ].join("\\n"),
+      ].join("\n"),
     );
     await fs.writeFile(
       path.join(root, "dead.ts"),
@@ -415,7 +415,7 @@ test("verifies all five partial code-quality rules with isolated runtime fixture
         "  if (flag) return 2; else if (flag) return 3;",
         "  return 4;",
         "}",
-      ].join("\\n"),
+      ].join("\n"),
     );
     await fs.writeFile(
       path.join(root, "types.ts"),
