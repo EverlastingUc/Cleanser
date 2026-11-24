@@ -3272,6 +3272,7 @@ export async function analyzeProject({
     noLib: true,
     noResolve: true,
     allowUnreachableCode: false,
+    // Ask TypeScript to report labels that are never targeted by break/continue.
     allowUnusedLabels: false,
     skipLibCheck: true,
     target: ts.ScriptTarget.Latest,
