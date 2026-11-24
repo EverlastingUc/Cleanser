@@ -73,3 +73,26 @@ test("snapshot update refuses to overwrite unrecognized files", async () => {
     assert.equal(await fs.readFile(snapshotPath, "utf8"), original);
   });
 });
+
+
+test("snapshot updates respect the project write lock", async () => {
+  await withProject(async (root) => {
+    const configSource = await fs.readFile(
+      new URL("../templates/cleanser.clns", import.meta.url),
+      "utf8",
+    );
+    await fs.writeFile(path.join(root, ".cleanser.clns"), configSource);
+    await fs.writeFile(path.join(root, "sample.js"), "const value=1");
+    const config = await loadConfig(root);
+    await fs.writeFile(
+      path.join(root, ".cleanser.lock"),
+      JSON.stringify({ pid: 12345, startedAt: "test" }),
+    );
+
+    await assert.rejects(
+      runFormatSnapshot({ config, root, update: true }),
+      /Another Cleanser write operation holds \.cleanser\.lock/,
+    );
+    await assert.rejects(fs.access(path.join(root, SNAPSHOT_FILE)));
+  });
+});
