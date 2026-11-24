@@ -37,7 +37,10 @@ const CI_CONFIGS = Object.freeze({
   },
 });
 
-async function createCiConfigOperation({ root = process.cwd(), provider } = {}) {
+async function createCiConfigOperation({
+  root = process.cwd(),
+  provider,
+} = {}) {
   if (!Object.hasOwn(CI_CONFIGS, provider)) {
     throw new Error('CI provider must be "gitlab" or "bitbucket".');
   }
