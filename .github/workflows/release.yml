@@ -24,8 +24,10 @@ jobs:
             echo "Tag '$GITHUB_REF_NAME' does not match package.json version '$expected'." >&2
             exit 1
           fi
-      - run: npm install
+      - run: npm ci
       - run: npm test
+      - run: npm run check
+      - run: npm audit --audit-level=high
       - run: npm run vscode:package
       - name: Attach VSIX to GitHub release
         env:
