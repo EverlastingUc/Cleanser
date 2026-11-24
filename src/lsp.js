@@ -10,6 +10,8 @@ import {
 import { loadConfig } from "./config.js";
 
 const HEADER_END = Buffer.from("\r\n\r\n");
+const MAX_HEADER_BYTES = 8 * 1024;
+const MAX_MESSAGE_BYTES = 16 * 1024 * 1024;
 
 function lineEndPosition(source) {
   const lines = source.split(/\r\n|\r|\n/u);
@@ -80,11 +82,26 @@ function minimalTextEdit(source, formatted) {
 
 function createMessageParser(onMessage, onError) {
   let buffer = Buffer.alloc(0);
+  let failed = false;
   return (chunk) => {
+    if (failed) return;
     buffer = Buffer.concat([buffer, chunk]);
     while (true) {
       const headerEnd = buffer.indexOf(HEADER_END);
-      if (headerEnd < 0) return;
+      if (headerEnd < 0) {
+        if (buffer.length > MAX_HEADER_BYTES) {
+          failed = true;
+          buffer = Buffer.alloc(0);
+          onError("LSP message header exceeds the 8 KB limit.");
+        }
+        return;
+      }
+      if (headerEnd > MAX_HEADER_BYTES) {
+        failed = true;
+        buffer = Buffer.alloc(0);
+        onError("LSP message header exceeds the 8 KB limit.");
+        return;
+      }
       const header = buffer.subarray(0, headerEnd).toString("ascii");
       const lengthMatch = header.match(/(?:^|\r\n)content-length:\s*(\d+)/i);
       if (!lengthMatch) {
@@ -97,6 +114,12 @@ function createMessageParser(onMessage, onError) {
         buffer = buffer.subarray(headerEnd + HEADER_END.length);
         onError("LSP Content-Length must be a non-negative safe integer.");
         continue;
+      }
+      if (contentLength > MAX_MESSAGE_BYTES) {
+        failed = true;
+        buffer = Buffer.alloc(0);
+        onError("LSP message exceeds the 16 MB size limit.");
+        return;
       }
       const messageStart = headerEnd + HEADER_END.length;
       const messageEnd = messageStart + contentLength;
