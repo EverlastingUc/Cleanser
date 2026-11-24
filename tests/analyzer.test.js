@@ -401,7 +401,15 @@ test("verifies all five partial code-quality rules with isolated runtime fixture
     );
     await fs.writeFile(
       path.join(root, "dead.ts"),
-      "export function dead() { return 1; const unreachable = 2; }",
+      "export function dead(unusedParameter: number) { return 1; const unreachable = 2; }",
+    );
+    await fs.writeFile(
+      path.join(root, "empty-block.ts"),
+      "export function emptyBlock(flag: boolean) { if (flag) {} }",
+    );
+    await fs.writeFile(
+      path.join(root, "unused-label.ts"),
+      "export function labels() { unusedLabel: { 1; } }",
     );
     await fs.writeFile(
       path.join(root, "redundant.ts"),
@@ -432,6 +440,9 @@ test("verifies all five partial code-quality rules with isolated runtime fixture
       "constant-condition",
       "repeated-branch-condition",
       "redundant-type-annotation",
+      "unused-parameter",
+      "empty-block",
+      "unused-label",
     ]) {
       assert.ok(byRule(ruleId).length > 0, `Expected runtime evidence for ${ruleId}.`);
     }
