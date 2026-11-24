@@ -707,9 +707,7 @@
           "src/dependency-graph.js",
           "src/control-flow.js"
         ],
-        "testEvidence": [
-          "tests/analyzer.test.js"
-        ],
+        "testEvidence": ["tests/analyzer.test.js"],
         "evidenceGranularity": "isolated-test-added; awaiting CI",
         "runtimeVerification": "pending-ci"
       },
@@ -725,9 +723,7 @@
           "src/dependency-graph.js",
           "src/control-flow.js"
         ],
-        "testEvidence": [
-          "tests/analyzer.test.js"
-        ],
+        "testEvidence": ["tests/analyzer.test.js"],
         "evidenceGranularity": "isolated-test-added; awaiting CI",
         "runtimeVerification": "pending-ci"
       },
@@ -819,9 +815,7 @@
           "src/dependency-graph.js",
           "src/control-flow.js"
         ],
-        "testEvidence": [
-          "tests/analyzer.test.js"
-        ],
+        "testEvidence": ["tests/analyzer.test.js"],
         "evidenceGranularity": "isolated-test-added; awaiting CI",
         "runtimeVerification": "pending-ci"
       },
@@ -837,9 +831,7 @@
           "src/dependency-graph.js",
           "src/control-flow.js"
         ],
-        "testEvidence": [
-          "tests/analyzer.test.js"
-        ],
+        "testEvidence": ["tests/analyzer.test.js"],
         "evidenceGranularity": "isolated-test-added; awaiting CI",
         "runtimeVerification": "pending-ci"
       },
@@ -912,9 +904,7 @@
           "src/dependency-graph.js",
           "src/control-flow.js"
         ],
-        "testEvidence": [
-          "tests/analyzer.test.js"
-        ],
+        "testEvidence": ["tests/analyzer.test.js"],
         "evidenceGranularity": "isolated-test-added; awaiting CI",
         "runtimeVerification": "pending-ci"
       },
