@@ -695,7 +695,7 @@
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
-          {
+      {
         "id": 29,
         "name": "Duplicate code detection",
         "category": "Code Quality Detection",
@@ -713,7 +713,7 @@
         "evidenceGranularity": "isolated-test-added; awaiting CI",
         "runtimeVerification": "pending-ci"
       },
-          {
+      {
         "id": 30,
         "name": "Dead code detection",
         "category": "Code Quality Detection",
@@ -807,7 +807,7 @@
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
-          {
+      {
         "id": 35,
         "name": "Redundant statements detection",
         "category": "Code Quality Detection",
@@ -825,7 +825,7 @@
         "evidenceGranularity": "isolated-test-added; awaiting CI",
         "runtimeVerification": "pending-ci"
       },
-          {
+      {
         "id": 36,
         "name": "Redundant conditions detection",
         "category": "Code Quality Detection",
@@ -900,7 +900,7 @@
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
-          {
+      {
         "id": 40,
         "name": "Unnecessary type declarations detection",
         "category": "Code Quality Detection",
