@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { withProjectWriteLock } from "./cleaner.js";
 
 const CI_CONFIGS = Object.freeze({
   gitlab: {
@@ -36,7 +37,7 @@ const CI_CONFIGS = Object.freeze({
   },
 });
 
-export async function createCiConfig({ root = process.cwd(), provider } = {}) {
+async function createCiConfigOperation({ root = process.cwd(), provider } = {}) {
   if (!Object.hasOwn(CI_CONFIGS, provider)) {
     throw new Error('CI provider must be "gitlab" or "bitbucket".');
   }
@@ -63,4 +64,12 @@ export async function createCiConfig({ root = process.cwd(), provider } = {}) {
   }
   await handle.close();
   return { provider, filePath: config.filePath };
+}
+
+export async function createCiConfig(options = {}) {
+  const { root = process.cwd(), provider } = options;
+  if (!Object.hasOwn(CI_CONFIGS, provider)) {
+    throw new Error('CI provider must be "gitlab" or "bitbucket".');
+  }
+  return withProjectWriteLock(root, () => createCiConfigOperation(options));
 }
