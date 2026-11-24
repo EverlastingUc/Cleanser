@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import {
   collectProjectFiles,
+  withProjectWriteLock,
   formatSource,
   writeAtomically,
 } from "./cleaner.js";
@@ -70,7 +71,7 @@ async function readExistingSnapshot(snapshotPath) {
   }
 }
 
-export async function runFormatSnapshot({
+async function runFormatSnapshotOperation({
   config,
   root = process.cwd(),
   update = false,
@@ -151,4 +152,10 @@ export async function runFormatSnapshot({
     },
     differences,
   };
+}
+
+export async function runFormatSnapshot(options = {}) {
+  if (options.update !== true) return runFormatSnapshotOperation(options);
+  const root = options.root ?? process.cwd();
+  return withProjectWriteLock(root, () => runFormatSnapshotOperation(options));
 }
