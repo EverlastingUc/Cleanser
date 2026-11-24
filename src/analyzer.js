@@ -3175,6 +3175,50 @@ export function listRules() {
   return RULES.map((rule) => ({ ...rule }));
 }
 
+function analyzeCrossFileDuplicateCode(sourceFiles, root) {
+  const printer = ts.createPrinter({ removeComments: true });
+  const firstByBody = new Map();
+  const findings = [];
+
+  for (const sourceFile of sourceFiles) {
+    if (sourceFile.parseDiagnostics.length > 0) continue;
+
+    function visit(node) {
+      if (
+        ts.isFunctionLike(node) &&
+        node.body &&
+        ts.isBlock(node.body) &&
+        node.body.statements.length >= 4
+      ) {
+        const normalizedBody = printer
+          .printNode(ts.EmitHint.Unspecified, node.body, sourceFile)
+          .trim();
+        const previous = firstByBody.get(normalizedBody);
+        if (previous && previous.filePath !== sourceFile.fileName) {
+          findings.push(
+            createFinding(
+              sourceFile,
+              root,
+              "duplicate-code",
+              node.name ?? node,
+              `Function body duplicates code in ${previous.filePath}.`,
+            ),
+          );
+        } else if (!previous) {
+          firstByBody.set(normalizedBody, {
+            filePath: sourceFile.fileName,
+          });
+        }
+      }
+      ts.forEachChild(node, visit);
+    }
+
+    visit(sourceFile);
+  }
+
+  return findings;
+}
+
 export async function analyzeProject({
   root = process.cwd(),
   config,
@@ -3298,6 +3342,8 @@ export async function analyzeProject({
       findings,
     );
   }
+
+  findings.push(...analyzeCrossFileDuplicateCode(sourceFiles, absoluteRoot));
 
   const dependencyGraph = await buildDependencyGraph({
     root: absoluteRoot,
