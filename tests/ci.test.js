@@ -32,7 +32,6 @@ test("CI starters cover GitLab and Bitbucket without overwriting files", async (
   }
 });
 
-
 test("CI starter generation respects the project write lock", async () => {
   const root = await fs.mkdtemp(path.join(os.tmpdir(), "cleanser-ci-lock-"));
   try {
