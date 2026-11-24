@@ -844,7 +844,6 @@ test("clean change limit prevents the CLI from writing any file", async () => {
   });
 });
 
-
 test("init respects an active Cleanser project write lock", async () => {
   await withTempProject(async (root) => {
     await fs.writeFile(
