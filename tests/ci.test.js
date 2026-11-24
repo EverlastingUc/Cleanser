@@ -31,3 +31,21 @@ test("CI starters cover GitLab and Bitbucket without overwriting files", async (
     await fs.rm(root, { recursive: true, force: true });
   }
 });
+
+
+test("CI starter generation respects the project write lock", async () => {
+  const root = await fs.mkdtemp(path.join(os.tmpdir(), "cleanser-ci-lock-"));
+  try {
+    await fs.writeFile(
+      path.join(root, ".cleanser.lock"),
+      JSON.stringify({ pid: 12345, startedAt: "test" }),
+    );
+    await assert.rejects(
+      createCiConfig({ root, provider: "gitlab" }),
+      /Another Cleanser write operation holds \.cleanser\.lock/,
+    );
+    await assert.rejects(fs.access(path.join(root, ".gitlab-ci.yml")));
+  } finally {
+    await fs.rm(root, { recursive: true, force: true });
+  }
+});
