@@ -1073,7 +1073,8 @@ async function init() {
     try {
       await fs.lstat(jsonTarget);
       throw new Error(
-        CONFIG_JSON_FILE + " already exists. It was not changed and no YAML config was created.",
+        CONFIG_JSON_FILE +
+          " already exists. It was not changed and no YAML config was created.",
       );
     } catch (error) {
       if (error.code !== "ENOENT") throw error;
@@ -1099,9 +1100,10 @@ async function init() {
       if (error.code === "EEXIST") {
         throw new Error(CONFIG_FILE + " already exists. It was not changed.");
       }
-      throw new Error("Could not create " + CONFIG_FILE + ": " + error.message, {
-        cause: error,
-      });
+      throw new Error(
+        `Could not create ${CONFIG_FILE}: ${error.message}`,
+        { cause: error },
+      );
     }
 
     console.log("Created " + CONFIG_FILE);
