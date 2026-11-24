@@ -13,6 +13,23 @@ const HEADER_END = Buffer.from("\r\n\r\n");
 const MAX_HEADER_BYTES = 8 * 1024;
 const MAX_MESSAGE_BYTES = 16 * 1024 * 1024;
 
+function partialHeaderDelimiterLength(buffer) {
+  for (
+    let length = Math.min(HEADER_END.length - 1, buffer.length);
+    length > 0;
+    length--
+  ) {
+    if (
+      buffer
+        .subarray(buffer.length - length)
+        .equals(HEADER_END.subarray(0, length))
+    ) {
+      return length;
+    }
+  }
+  return 0;
+}
+
 function lineEndPosition(source) {
   const lines = source.split(/\r\n|\r|\n/u);
   return {
@@ -114,7 +131,9 @@ function createMessageParser(onMessage, onError) {
         offset = nextOffset;
         headerEnd = buffer.indexOf(HEADER_END);
         if (headerEnd < 0) {
-          if (buffer.length > MAX_HEADER_BYTES + HEADER_END.length - 1) {
+          const headerBytes =
+            buffer.length - partialHeaderDelimiterLength(buffer);
+          if (headerBytes > MAX_HEADER_BYTES) {
             fail("LSP message header exceeds the 8 KB limit.");
           }
           return;
