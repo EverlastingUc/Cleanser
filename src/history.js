@@ -146,7 +146,6 @@ async function restoreBackupOperation({ root = process.cwd(), filePath } = {}) {
   };
 }
 
-
 export async function restoreBackup(options = {}) {
   const { root = process.cwd() } = options;
   return withProjectWriteLock(root, () => restoreBackupOperation(options));
