@@ -2,6 +2,7 @@ import { randomUUID } from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
 import YAML from "yaml";
+import { withProjectWriteLock } from "./cleaner.js";
 import {
   CONFIG_FILE,
   CONFIG_JSON_FILE,
@@ -9,7 +10,7 @@ import {
   loadConfig,
 } from "./config.js";
 
-export async function migrateConfigFormat({ root = process.cwd(), to } = {}) {
+async function migrateConfigFormatOperation({ root = process.cwd(), to } = {}) {
   if (to !== "clns" && to !== "json") {
     throw new Error('Target format must be "clns" or "json".');
   }
@@ -46,16 +47,22 @@ export async function migrateConfigFormat({ root = process.cwd(), to } = {}) {
     to === "json"
       ? `${JSON.stringify(rawConfig, null, 2)}\n`
       : YAML.stringify(rawConfig);
+  let handle;
+  let targetCreated = false;
   try {
-    await fs.writeFile(targetPath, targetText, {
-      encoding: "utf8",
-      flag: "wx",
-      mode: sourceStats.mode & 0o777,
-    });
+    handle = await fs.open(targetPath, "wx", sourceStats.mode & 0o777);
+    targetCreated = true;
+    await handle.writeFile(targetText, "utf8");
+    await handle.sync();
+    await handle.close();
   } catch (error) {
+    await handle?.close().catch(() => {});
+    if (targetCreated) {
+      await fs.rm(targetPath, { force: true }).catch(() => {});
+    }
     if (error.code === "EEXIST") {
       throw new Error(
-        `${targetName} already exists; Cleanser left it unchanged.`,
+        targetName + " already exists; Cleanser left it unchanged.",
       );
     }
     throw error;
@@ -87,4 +94,9 @@ export async function migrateConfigFormat({ root = process.cwd(), to } = {}) {
   }
 
   return { from: sourceName, to: targetName };
+}
+
+export async function migrateConfigFormat(options = {}) {
+  const { root = process.cwd() } = options;
+  return withProjectWriteLock(root, () => migrateConfigFormatOperation(options));
 }
