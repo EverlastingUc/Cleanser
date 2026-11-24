@@ -431,7 +431,8 @@ test("verifies all five partial code-quality rules with isolated runtime fixture
     );
 
     const findings = await analyzeProject({ root, config: DEFAULT_CONFIG });
-    const byRule = (ruleId) => findings.filter((finding) => finding.ruleId === ruleId);
+    const byRule = (ruleId) =>
+      findings.filter((finding) => finding.ruleId === ruleId);
 
     for (const ruleId of [
       "duplicate-code",
@@ -444,18 +445,25 @@ test("verifies all five partial code-quality rules with isolated runtime fixture
       "empty-block",
       "unused-label",
     ]) {
-      assert.ok(byRule(ruleId).length > 0, `Expected runtime evidence for ${ruleId}.`);
+      assert.ok(
+        byRule(ruleId).length > 0,
+        `Expected runtime evidence for ${ruleId}.`,
+      );
     }
 
     assert.ok(
-      byRule("duplicate-code").some((finding) => finding.filePath === "duplicate-b.ts"),
+      byRule("duplicate-code").some(
+        (finding) => finding.filePath === "duplicate-b.ts",
+      ),
       "Cross-file duplicate bodies should be reported at the later occurrence.",
     );
     assert.ok(
       byRule("unreachable-code").some((finding) => finding.filePath === "dead.ts"),
     );
     assert.ok(
-      byRule("redundant-type-annotation").some((finding) => finding.filePath === "types.ts"),
+      byRule("redundant-type-annotation").some(
+        (finding) => finding.filePath === "types.ts",
+      ),
     );
   });
 });
