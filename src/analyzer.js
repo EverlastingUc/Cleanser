@@ -3085,7 +3085,11 @@ function collectUnusedBindings(
     if (ruleId === "unused-parameter" && name.text.startsWith("_")) return;
     if (!moduleLike && isTopLevelDeclaration(name, sourceFile)) return;
     const symbol = checker.getSymbolAtLocation(name);
-    if (symbol && !isExportedBinding(name, sourceFile, checker)) {
+    if (
+      symbol &&
+      (ruleId === "unused-parameter" ||
+        !isExportedBinding(name, sourceFile, checker))
+    ) {
       candidates.push({ name, symbol, ruleId });
     }
   }
