@@ -843,3 +843,17 @@ test("clean change limit prevents the CLI from writing any file", async () => {
     await assert.rejects(fs.access(path.join(root, ".cleanser.lock")));
   });
 });
+
+
+test("init respects an active Cleanser project write lock", async () => {
+  await withTempProject(async (root) => {
+    await fs.writeFile(
+      path.join(root, ".cleanser.lock"),
+      JSON.stringify({ pid: 12345, startedAt: "test" }),
+    );
+    const result = runCli(["init"], root);
+    assert.equal(result.status, 1);
+    assert.match(result.stderr, /Another Cleanser write operation holds/);
+    await assert.rejects(fs.access(path.join(root, CONFIG_FILE)));
+  });
+});
