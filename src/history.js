@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { writeAtomically } from "./cleaner.js";
+import { withProjectWriteLock, writeAtomically } from "./cleaner.js";
 
 const BACKUP_DIRECTORY = ".cleanser-backups";
 
@@ -90,7 +90,7 @@ export async function listBackups({ root = process.cwd() } = {}) {
   return backups;
 }
 
-export async function restoreBackup({ root = process.cwd(), filePath } = {}) {
+async function restoreBackupOperation({ root = process.cwd(), filePath } = {}) {
   const absoluteRoot = path.resolve(root);
   const relativePath = normalizeRelativePath(filePath);
   const segments = relativePath.split("/");
@@ -144,4 +144,10 @@ export async function restoreBackup({ root = process.cwd(), filePath } = {}) {
     filePath: relativePath,
     bytes: backupStats.size,
   };
+}
+
+
+export async function restoreBackup(options = {}) {
+  const { root = process.cwd() } = options;
+  return withProjectWriteLock(root, () => restoreBackupOperation(options));
 }
