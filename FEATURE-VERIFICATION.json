@@ -29,11 +29,19 @@
   },
   "categoryEvidence": {
     "Code Formatting Engine": {
-      "source": ["src/cleaner.js", "src/editorconfig.js", "src/verification.js"],
+      "source": [
+        "src/cleaner.js",
+        "src/editorconfig.js",
+        "src/verification.js"
+      ],
       "tests": ["tests/cleaner.test.js", "tests/editorconfig.test.js"]
     },
     "Code Quality Detection": {
-      "source": ["src/analyzer.js", "src/dependency-graph.js", "src/control-flow.js"],
+      "source": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/control-flow.js"
+      ],
       "tests": ["tests/analyzer.test.js", "tests/dependency-graph.test.js"]
     },
     "Code Optimization": {
@@ -41,7 +49,11 @@
       "tests": ["tests/analyzer.test.js", "tests/cleaner.test.js"]
     },
     "Import and Dependency Management": {
-      "source": ["src/analyzer.js", "src/dependency-graph.js", "src/project-audit.js"],
+      "source": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/project-audit.js"
+      ],
       "tests": [
         "tests/analyzer.test.js",
         "tests/dependency-graph.test.js",
@@ -50,7 +62,11 @@
     },
     "Security and Risk Detection": {
       "source": ["src/analyzer.js", "src/risk.js", "src/cleaner.js"],
-      "tests": ["tests/analyzer.test.js", "tests/risk.test.js", "tests/cleaner.test.js"]
+      "tests": [
+        "tests/analyzer.test.js",
+        "tests/risk.test.js",
+        "tests/cleaner.test.js"
+      ]
     },
     "Code Complexity Analysis": {
       "source": ["src/analyzer.js", "src/metrics.js"],
@@ -70,7 +86,11 @@
       ]
     },
     "Project Cleanup": {
-      "source": ["src/project-audit.js", "src/cleaner.js", "src/dependency-graph.js"],
+      "source": [
+        "src/project-audit.js",
+        "src/cleaner.js",
+        "src/dependency-graph.js"
+      ],
       "tests": [
         "tests/project-audit.test.js",
         "tests/cleaner.test.js",
@@ -79,7 +99,10 @@
     },
     "Documentation and Comment Analysis": {
       "source": ["src/documentation-audit.js", "src/project-audit.js"],
-      "tests": ["tests/documentation-audit.test.js", "tests/project-audit.test.js"]
+      "tests": [
+        "tests/documentation-audit.test.js",
+        "tests/project-audit.test.js"
+      ]
     },
     "Git Intelligence": {
       "source": ["src/git-tools.js", "src/history.js", "src/hooks.js"],
@@ -105,7 +128,12 @@
       ]
     },
     "Advanced Safety System": {
-      "source": ["src/cleaner.js", "src/risk.js", "src/history.js", "src/hooks.js"],
+      "source": [
+        "src/cleaner.js",
+        "src/risk.js",
+        "src/history.js",
+        "src/hooks.js"
+      ],
       "tests": [
         "tests/cleaner.test.js",
         "tests/risk.test.js",
@@ -123,7 +151,11 @@
       "tests": ["tests/project-audit.test.js"]
     },
     "Configuration System": {
-      "source": ["src/config.js", "src/config-migration.js", "src/editorconfig.js"],
+      "source": [
+        "src/config.js",
+        "src/config-migration.js",
+        "src/editorconfig.js"
+      ],
       "tests": [
         "tests/config.test.js",
         "tests/config-migration.test.js",
@@ -141,11 +173,19 @@
         "src/analyzer.js",
         "src/cleaner.js"
       ],
-      "tests": ["tests/lsp.test.js", "tests/analyzer.test.js", "tests/cleaner.test.js"]
+      "tests": [
+        "tests/lsp.test.js",
+        "tests/analyzer.test.js",
+        "tests/cleaner.test.js"
+      ]
     },
     "GitHub and CI/CD": {
       "source": ["src/ci.js", "src/pull-request-report.js", "src/git-tools.js"],
-      "tests": ["tests/ci.test.js", "tests/git-tools.test.js", "tests/cli.test.js"]
+      "tests": [
+        "tests/ci.test.js",
+        "tests/git-tools.test.js",
+        "tests/cli.test.js"
+      ]
     },
     "Performance and Scalability": {
       "source": [
@@ -190,7 +230,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Prettier formats JS/JSX/TS/TSX/MJS/CJS/MTS/CTS, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue.",
-      "sourceEvidence": ["src/cleaner.js", "src/editorconfig.js", "src/verification.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/editorconfig.js",
+        "src/verification.js"
+      ],
       "testEvidence": ["tests/cleaner.test.js", "tests/editorconfig.test.js"],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
@@ -202,7 +246,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue.",
-      "sourceEvidence": ["src/cleaner.js", "src/editorconfig.js", "src/verification.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/editorconfig.js",
+        "src/verification.js"
+      ],
       "testEvidence": ["tests/cleaner.test.js", "tests/editorconfig.test.js"],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
@@ -214,7 +262,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue.",
-      "sourceEvidence": ["src/cleaner.js", "src/editorconfig.js", "src/verification.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/editorconfig.js",
+        "src/verification.js"
+      ],
       "testEvidence": ["tests/cleaner.test.js", "tests/editorconfig.test.js"],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
@@ -226,7 +278,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue.",
-      "sourceEvidence": ["src/cleaner.js", "src/editorconfig.js", "src/verification.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/editorconfig.js",
+        "src/verification.js"
+      ],
       "testEvidence": ["tests/cleaner.test.js", "tests/editorconfig.test.js"],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
@@ -238,7 +294,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue.",
-      "sourceEvidence": ["src/cleaner.js", "src/editorconfig.js", "src/verification.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/editorconfig.js",
+        "src/verification.js"
+      ],
       "testEvidence": ["tests/cleaner.test.js", "tests/editorconfig.test.js"],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
@@ -250,7 +310,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue.",
-      "sourceEvidence": ["src/cleaner.js", "src/editorconfig.js", "src/verification.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/editorconfig.js",
+        "src/verification.js"
+      ],
       "testEvidence": ["tests/cleaner.test.js", "tests/editorconfig.test.js"],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
@@ -262,7 +326,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue.",
-      "sourceEvidence": ["src/cleaner.js", "src/editorconfig.js", "src/verification.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/editorconfig.js",
+        "src/verification.js"
+      ],
       "testEvidence": ["tests/cleaner.test.js", "tests/editorconfig.test.js"],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
@@ -274,7 +342,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue.",
-      "sourceEvidence": ["src/cleaner.js", "src/editorconfig.js", "src/verification.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/editorconfig.js",
+        "src/verification.js"
+      ],
       "testEvidence": ["tests/cleaner.test.js", "tests/editorconfig.test.js"],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
@@ -286,7 +358,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue.",
-      "sourceEvidence": ["src/cleaner.js", "src/editorconfig.js", "src/verification.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/editorconfig.js",
+        "src/verification.js"
+      ],
       "testEvidence": ["tests/cleaner.test.js", "tests/editorconfig.test.js"],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
@@ -298,7 +374,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue.",
-      "sourceEvidence": ["src/cleaner.js", "src/editorconfig.js", "src/verification.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/editorconfig.js",
+        "src/verification.js"
+      ],
       "testEvidence": ["tests/cleaner.test.js", "tests/editorconfig.test.js"],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
@@ -310,7 +390,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue.",
-      "sourceEvidence": ["src/cleaner.js", "src/editorconfig.js", "src/verification.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/editorconfig.js",
+        "src/verification.js"
+      ],
       "testEvidence": ["tests/cleaner.test.js", "tests/editorconfig.test.js"],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
@@ -322,7 +406,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue.",
-      "sourceEvidence": ["src/cleaner.js", "src/editorconfig.js", "src/verification.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/editorconfig.js",
+        "src/verification.js"
+      ],
       "testEvidence": ["tests/cleaner.test.js", "tests/editorconfig.test.js"],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
@@ -334,7 +422,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue.",
-      "sourceEvidence": ["src/cleaner.js", "src/editorconfig.js", "src/verification.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/editorconfig.js",
+        "src/verification.js"
+      ],
       "testEvidence": ["tests/cleaner.test.js", "tests/editorconfig.test.js"],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
@@ -346,7 +438,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue.",
-      "sourceEvidence": ["src/cleaner.js", "src/editorconfig.js", "src/verification.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/editorconfig.js",
+        "src/verification.js"
+      ],
       "testEvidence": ["tests/cleaner.test.js", "tests/editorconfig.test.js"],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
@@ -358,7 +454,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue.",
-      "sourceEvidence": ["src/cleaner.js", "src/editorconfig.js", "src/verification.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/editorconfig.js",
+        "src/verification.js"
+      ],
       "testEvidence": ["tests/cleaner.test.js", "tests/editorconfig.test.js"],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
@@ -370,7 +470,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue.",
-      "sourceEvidence": ["src/cleaner.js", "src/editorconfig.js", "src/verification.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/editorconfig.js",
+        "src/verification.js"
+      ],
       "testEvidence": ["tests/cleaner.test.js", "tests/editorconfig.test.js"],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
@@ -382,7 +486,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue.",
-      "sourceEvidence": ["src/cleaner.js", "src/editorconfig.js", "src/verification.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/editorconfig.js",
+        "src/verification.js"
+      ],
       "testEvidence": ["tests/cleaner.test.js", "tests/editorconfig.test.js"],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
@@ -394,7 +502,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue.",
-      "sourceEvidence": ["src/cleaner.js", "src/editorconfig.js", "src/verification.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/editorconfig.js",
+        "src/verification.js"
+      ],
       "testEvidence": ["tests/cleaner.test.js", "tests/editorconfig.test.js"],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
@@ -406,7 +518,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue.",
-      "sourceEvidence": ["src/cleaner.js", "src/editorconfig.js", "src/verification.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/editorconfig.js",
+        "src/verification.js"
+      ],
       "testEvidence": ["tests/cleaner.test.js", "tests/editorconfig.test.js"],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
@@ -418,7 +534,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue.",
-      "sourceEvidence": ["src/cleaner.js", "src/editorconfig.js", "src/verification.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/editorconfig.js",
+        "src/verification.js"
+      ],
       "testEvidence": ["tests/cleaner.test.js", "tests/editorconfig.test.js"],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
@@ -430,8 +550,15 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/control-flow.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/dependency-graph.test.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/control-flow.js"
+      ],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/dependency-graph.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -442,8 +569,15 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/control-flow.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/dependency-graph.test.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/control-flow.js"
+      ],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/dependency-graph.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -454,8 +588,15 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/control-flow.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/dependency-graph.test.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/control-flow.js"
+      ],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/dependency-graph.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -466,8 +607,15 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/control-flow.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/dependency-graph.test.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/control-flow.js"
+      ],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/dependency-graph.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -478,8 +626,15 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/control-flow.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/dependency-graph.test.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/control-flow.js"
+      ],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/dependency-graph.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -490,8 +645,15 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/control-flow.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/dependency-graph.test.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/control-flow.js"
+      ],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/dependency-graph.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -502,8 +664,15 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/control-flow.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/dependency-graph.test.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/control-flow.js"
+      ],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/dependency-graph.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -514,8 +683,15 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/control-flow.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/dependency-graph.test.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/control-flow.js"
+      ],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/dependency-graph.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -526,8 +702,15 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Exact normalized function bodies are compared within one file; cross-file and near-duplicate detection remain.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/control-flow.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/dependency-graph.test.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/control-flow.js"
+      ],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/dependency-graph.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -538,8 +721,15 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "The analyzer reports unused local bindings and compiler-proven unreachable statements. Whole-file reachability and cross-module dead-code removal are not implemented.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/control-flow.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/dependency-graph.test.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/control-flow.js"
+      ],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/dependency-graph.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -550,8 +740,15 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/control-flow.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/dependency-graph.test.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/control-flow.js"
+      ],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/dependency-graph.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -562,8 +759,15 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/control-flow.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/dependency-graph.test.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/control-flow.js"
+      ],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/dependency-graph.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -574,8 +778,15 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/control-flow.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/dependency-graph.test.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/control-flow.js"
+      ],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/dependency-graph.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -586,8 +797,15 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/control-flow.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/dependency-graph.test.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/control-flow.js"
+      ],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/dependency-graph.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -598,8 +816,15 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Detects final bare returns and standalone pure array or object literal expressions. VS Code can remove only comment-free pure literal statements; broader redundant-statement analysis is not implemented.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/control-flow.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/dependency-graph.test.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/control-flow.js"
+      ],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/dependency-graph.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -610,8 +835,15 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "The analyzer detects constant conditions and repeated stable conditions in else-if chains; broader logical-equivalence analysis is not implemented.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/control-flow.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/dependency-graph.test.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/control-flow.js"
+      ],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/dependency-graph.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -622,8 +854,15 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/control-flow.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/dependency-graph.test.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/control-flow.js"
+      ],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/dependency-graph.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -634,8 +873,15 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/control-flow.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/dependency-graph.test.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/control-flow.js"
+      ],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/dependency-graph.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -646,8 +892,15 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/control-flow.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/dependency-graph.test.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/control-flow.js"
+      ],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/dependency-graph.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -658,8 +911,15 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "The analyzer reports redundant primitive annotations on mutable variables initialized from simple numeric, string, boolean, and bigint literals. Public API intent, contextual typing, const literal widening, and non-literal initializers are preserved; no annotations are removed automatically.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/control-flow.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/dependency-graph.test.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/control-flow.js"
+      ],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/dependency-graph.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -910,7 +1170,11 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "The analyzer reports consecutive type-only imports out of lexical order, and VS Code offers a quick fix for comment-free runs. Value and side-effect imports are never reordered.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/project-audit.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/project-audit.js"
+      ],
       "testEvidence": [
         "tests/analyzer.test.js",
         "tests/dependency-graph.test.js",
@@ -926,7 +1190,11 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Reports missing blank lines at top-level import boundaries across built-in, package, alias, and relative groups. VS Code offers a comment-free fix that inserts a blank line without changing import order.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/project-audit.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/project-audit.js"
+      ],
       "testEvidence": [
         "tests/analyzer.test.js",
         "tests/dependency-graph.test.js",
@@ -942,7 +1210,11 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "The analyzer reports duplicate module imports for review; it does not merge import declarations.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/project-audit.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/project-audit.js"
+      ],
       "testEvidence": [
         "tests/analyzer.test.js",
         "tests/dependency-graph.test.js",
@@ -958,7 +1230,11 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "The analyzer detects unused imports with compiler symbols; automatic removal is not implemented.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/project-audit.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/project-audit.js"
+      ],
       "testEvidence": [
         "tests/analyzer.test.js",
         "tests/dependency-graph.test.js",
@@ -974,7 +1250,11 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Flags relative paths with interior dot or empty segments for review; resolver and symlink behavior prevent automatic normalization.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/project-audit.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/project-audit.js"
+      ],
       "testEvidence": [
         "tests/analyzer.test.js",
         "tests/dependency-graph.test.js",
@@ -990,7 +1270,11 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Reports mixed extensionful and extensionless relative import styles in one file; leaves paths unchanged because TypeScript resolution may depend on them.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/project-audit.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/project-audit.js"
+      ],
       "testEvidence": [
         "tests/analyzer.test.js",
         "tests/dependency-graph.test.js",
@@ -1006,7 +1290,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Tarjan strongly connected components find cycles in configured local JS/TS modules.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/project-audit.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/project-audit.js"
+      ],
       "testEvidence": [
         "tests/analyzer.test.js",
         "tests/dependency-graph.test.js",
@@ -1022,7 +1310,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Unresolved relative JS/TS imports are reported; package names and alias configuration are outside scope.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/project-audit.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/project-audit.js"
+      ],
       "testEvidence": [
         "tests/analyzer.test.js",
         "tests/dependency-graph.test.js",
@@ -1038,7 +1330,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "The read-only audit compares static JS/TS imports, re-exports, literal require(), and literal import() package names with root npm dependency sections; it ignores Node built-ins, relative imports, common aliases, URL schemes, and the VS Code host API when declared.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/project-audit.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/project-audit.js"
+      ],
       "testEvidence": [
         "tests/analyzer.test.js",
         "tests/dependency-graph.test.js",
@@ -1054,7 +1350,11 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "The audit reports candidate direct dependencies absent from scanned JS/TS imports and recognized package-script executables. Config-driven, generated, and dynamic references can be missed, so the result is informational.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/project-audit.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/project-audit.js"
+      ],
       "testEvidence": [
         "tests/analyzer.test.js",
         "tests/dependency-graph.test.js",
@@ -1070,7 +1370,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "The read-only audit reports an npm package repeated across root dependency sections.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/project-audit.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/project-audit.js"
+      ],
       "testEvidence": [
         "tests/analyzer.test.js",
         "tests/dependency-graph.test.js",
@@ -1086,7 +1390,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "The read-only audit warns when one npm package has different declared ranges across root dependency sections.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/project-audit.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/project-audit.js"
+      ],
       "testEvidence": [
         "tests/analyzer.test.js",
         "tests/dependency-graph.test.js",
@@ -1102,7 +1410,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "graph --format=mermaid emits a deterministic local module graph.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/project-audit.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/project-audit.js"
+      ],
       "testEvidence": [
         "tests/analyzer.test.js",
         "tests/dependency-graph.test.js",
@@ -1118,7 +1430,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "graph emits deterministic tree, Mermaid, or JSON dependency views.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/project-audit.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/project-audit.js"
+      ],
       "testEvidence": [
         "tests/analyzer.test.js",
         "tests/dependency-graph.test.js",
@@ -1134,7 +1450,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "The read-only audit compares package name, version, and root dependency declarations between package.json and package-lock.json and reports malformed or orphaned lockfiles.",
-      "sourceEvidence": ["src/analyzer.js", "src/dependency-graph.js", "src/project-audit.js"],
+      "sourceEvidence": [
+        "src/analyzer.js",
+        "src/dependency-graph.js",
+        "src/project-audit.js"
+      ],
       "testEvidence": [
         "tests/analyzer.test.js",
         "tests/dependency-graph.test.js",
@@ -1151,7 +1471,11 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Deterministic credential-name plus literal-value patterns; matched values are never printed.",
       "sourceEvidence": ["src/analyzer.js", "src/risk.js", "src/cleaner.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/risk.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/risk.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1163,7 +1487,11 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Deterministic password-name plus literal-value patterns; placeholder values are ignored.",
       "sourceEvidence": ["src/analyzer.js", "src/risk.js", "src/cleaner.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/risk.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/risk.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1175,7 +1503,11 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Detects PEM private-key markers in source literals.",
       "sourceEvidence": ["src/analyzer.js", "src/risk.js", "src/cleaner.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/risk.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/risk.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1187,7 +1519,11 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Detects executable URL schemes and embedded URL credentials.",
       "sourceEvidence": ["src/analyzer.js", "src/risk.js", "src/cleaner.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/risk.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/risk.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1199,7 +1535,11 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Detects direct eval calls.",
       "sourceEvidence": ["src/analyzer.js", "src/risk.js", "src/cleaner.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/risk.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/risk.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1211,7 +1551,11 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Detects Function constructor calls and constructions.",
       "sourceEvidence": ["src/analyzer.js", "src/risk.js", "src/cleaner.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/risk.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/risk.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1223,7 +1567,11 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Detects dynamic command arguments or shell-enabled options on recognized child_process APIs.",
       "sourceEvidence": ["src/analyzer.js", "src/risk.js", "src/cleaner.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/risk.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/risk.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1235,7 +1583,11 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Detects literal remote HTTP URLs and exempts localhost addresses.",
       "sourceEvidence": ["src/analyzer.js", "src/risk.js", "src/cleaner.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/risk.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/risk.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1247,7 +1599,11 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Detects md5 or sha1 arguments to createHash/createHmac calls.",
       "sourceEvidence": ["src/analyzer.js", "src/risk.js", "src/cleaner.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/risk.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/risk.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1259,7 +1615,11 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Detects Math.random calls; the rule does not infer whether the use is security-sensitive.",
       "sourceEvidence": ["src/analyzer.js", "src/risk.js", "src/cleaner.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/risk.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/risk.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1271,7 +1631,11 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Detects dynamic first arguments to query, execute, and raw calls.",
       "sourceEvidence": ["src/analyzer.js", "src/risk.js", "src/cleaner.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/risk.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/risk.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1283,7 +1647,11 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Detects innerHTML/outerHTML assignment and dangerouslySetInnerHTML attributes.",
       "sourceEvidence": ["src/analyzer.js", "src/risk.js", "src/cleaner.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/risk.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/risk.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1295,7 +1663,11 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Detects path.join/resolve with dynamic arguments named like request or file input.",
       "sourceEvidence": ["src/analyzer.js", "src/risk.js", "src/cleaner.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/risk.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/risk.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1307,7 +1679,11 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Detects general deserialize/unserialize calls and vm execution methods.",
       "sourceEvidence": ["src/analyzer.js", "src/risk.js", "src/cleaner.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/risk.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/risk.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1319,7 +1695,11 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Detects world-accessible numeric modes for common filesystem operations.",
       "sourceEvidence": ["src/analyzer.js", "src/risk.js", "src/cleaner.js"],
-      "testEvidence": ["tests/analyzer.test.js", "tests/risk.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/analyzer.test.js",
+        "tests/risk.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1639,7 +2019,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Read-only project audit detects zero-byte regular files.",
-      "sourceEvidence": ["src/project-audit.js", "src/cleaner.js", "src/dependency-graph.js"],
+      "sourceEvidence": [
+        "src/project-audit.js",
+        "src/cleaner.js",
+        "src/dependency-graph.js"
+      ],
       "testEvidence": [
         "tests/project-audit.test.js",
         "tests/cleaner.test.js",
@@ -1655,7 +2039,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Read-only project audit reports empty directories outside skipped paths.",
-      "sourceEvidence": ["src/project-audit.js", "src/cleaner.js", "src/dependency-graph.js"],
+      "sourceEvidence": [
+        "src/project-audit.js",
+        "src/cleaner.js",
+        "src/dependency-graph.js"
+      ],
       "testEvidence": [
         "tests/project-audit.test.js",
         "tests/cleaner.test.js",
@@ -1671,7 +2059,11 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Audit reports JavaScript/TypeScript modules unreachable from resolvable package entrypoints; dynamic imports, framework conventions, direct script usage, and non-JS assets are not inferred, so findings are informational candidates only.",
-      "sourceEvidence": ["src/project-audit.js", "src/cleaner.js", "src/dependency-graph.js"],
+      "sourceEvidence": [
+        "src/project-audit.js",
+        "src/cleaner.js",
+        "src/dependency-graph.js"
+      ],
       "testEvidence": [
         "tests/project-audit.test.js",
         "tests/cleaner.test.js",
@@ -1687,7 +2079,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Read-only project audit groups same-extension files by byte size and SHA-256; it reports exact content matches only.",
-      "sourceEvidence": ["src/project-audit.js", "src/cleaner.js", "src/dependency-graph.js"],
+      "sourceEvidence": [
+        "src/project-audit.js",
+        "src/cleaner.js",
+        "src/dependency-graph.js"
+      ],
       "testEvidence": [
         "tests/project-audit.test.js",
         "tests/cleaner.test.js",
@@ -1703,7 +2099,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Read-only project audit scans bounded JavaScript, TypeScript, markup, style, JSON, YAML, and documentation references for common image, audio, video, font, and PDF assets. Unreferenced assets are informational candidates only; dynamic paths and generated references may be missed, and no files are deleted.",
-      "sourceEvidence": ["src/project-audit.js", "src/cleaner.js", "src/dependency-graph.js"],
+      "sourceEvidence": [
+        "src/project-audit.js",
+        "src/cleaner.js",
+        "src/dependency-graph.js"
+      ],
       "testEvidence": [
         "tests/project-audit.test.js",
         "tests/cleaner.test.js",
@@ -1719,7 +2119,11 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Read-only audit reports root tsconfig.json or jsconfig.json as informational candidates only when matching sources, recognized TypeScript tools, and (for TypeScript) project references are absent. Editor-only, generated, and external-tool usage cannot be inferred.",
-      "sourceEvidence": ["src/project-audit.js", "src/cleaner.js", "src/dependency-graph.js"],
+      "sourceEvidence": [
+        "src/project-audit.js",
+        "src/cleaner.js",
+        "src/dependency-graph.js"
+      ],
       "testEvidence": [
         "tests/project-audit.test.js",
         "tests/cleaner.test.js",
@@ -1735,7 +2139,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Read-only project audit detects common editor and temporary-file suffixes.",
-      "sourceEvidence": ["src/project-audit.js", "src/cleaner.js", "src/dependency-graph.js"],
+      "sourceEvidence": [
+        "src/project-audit.js",
+        "src/cleaner.js",
+        "src/dependency-graph.js"
+      ],
       "testEvidence": [
         "tests/project-audit.test.js",
         "tests/cleaner.test.js",
@@ -1751,7 +2159,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Read-only project audit detects backup suffixes and files under .cleanser-backups/.",
-      "sourceEvidence": ["src/project-audit.js", "src/cleaner.js", "src/dependency-graph.js"],
+      "sourceEvidence": [
+        "src/project-audit.js",
+        "src/cleaner.js",
+        "src/dependency-graph.js"
+      ],
       "testEvidence": [
         "tests/project-audit.test.js",
         "tests/cleaner.test.js",
@@ -1767,7 +2179,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Read-only project audit reports common build output directories and does not traverse them.",
-      "sourceEvidence": ["src/project-audit.js", "src/cleaner.js", "src/dependency-graph.js"],
+      "sourceEvidence": [
+        "src/project-audit.js",
+        "src/cleaner.js",
+        "src/dependency-graph.js"
+      ],
       "testEvidence": [
         "tests/project-audit.test.js",
         "tests/cleaner.test.js",
@@ -1783,7 +2199,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Read-only project audit detects .log files.",
-      "sourceEvidence": ["src/project-audit.js", "src/cleaner.js", "src/dependency-graph.js"],
+      "sourceEvidence": [
+        "src/project-audit.js",
+        "src/cleaner.js",
+        "src/dependency-graph.js"
+      ],
       "testEvidence": [
         "tests/project-audit.test.js",
         "tests/cleaner.test.js",
@@ -1799,7 +2219,11 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "The read-only audit reports JS/TS files named *.test.*, *.spec.*, or under __tests__ when no common test or suite call is present. Dynamic test registration and other language runners are not detected.",
-      "sourceEvidence": ["src/project-audit.js", "src/cleaner.js", "src/dependency-graph.js"],
+      "sourceEvidence": [
+        "src/project-audit.js",
+        "src/cleaner.js",
+        "src/dependency-graph.js"
+      ],
       "testEvidence": [
         "tests/project-audit.test.js",
         "tests/cleaner.test.js",
@@ -1815,7 +2239,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Audit reports missing ignore patterns for existing generated directories.",
-      "sourceEvidence": ["src/project-audit.js", "src/cleaner.js", "src/dependency-graph.js"],
+      "sourceEvidence": [
+        "src/project-audit.js",
+        "src/cleaner.js",
+        "src/dependency-graph.js"
+      ],
       "testEvidence": [
         "tests/project-audit.test.js",
         "tests/cleaner.test.js",
@@ -1831,7 +2259,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Audit compares recognized configuration files by filename and SHA-256 content.",
-      "sourceEvidence": ["src/project-audit.js", "src/cleaner.js", "src/dependency-graph.js"],
+      "sourceEvidence": [
+        "src/project-audit.js",
+        "src/cleaner.js",
+        "src/dependency-graph.js"
+      ],
       "testEvidence": [
         "tests/project-audit.test.js",
         "tests/cleaner.test.js",
@@ -1847,7 +2279,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Audit reports file count, directory count, byte total, and extension counts.",
-      "sourceEvidence": ["src/project-audit.js", "src/cleaner.js", "src/dependency-graph.js"],
+      "sourceEvidence": [
+        "src/project-audit.js",
+        "src/cleaner.js",
+        "src/dependency-graph.js"
+      ],
       "testEvidence": [
         "tests/project-audit.test.js",
         "tests/cleaner.test.js",
@@ -1863,7 +2299,11 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Audit lists cleanup candidates without deleting them; interactive cleanup and approval are not implemented.",
-      "sourceEvidence": ["src/project-audit.js", "src/cleaner.js", "src/dependency-graph.js"],
+      "sourceEvidence": [
+        "src/project-audit.js",
+        "src/cleaner.js",
+        "src/dependency-graph.js"
+      ],
       "testEvidence": [
         "tests/project-audit.test.js",
         "tests/cleaner.test.js",
@@ -1880,7 +2320,10 @@
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "JSDoc coverage checks exported functions, classes, interfaces, type aliases, enums, and variables; other declaration forms and languages remain outside scope.",
       "sourceEvidence": ["src/documentation-audit.js", "src/project-audit.js"],
-      "testEvidence": ["tests/documentation-audit.test.js", "tests/project-audit.test.js"],
+      "testEvidence": [
+        "tests/documentation-audit.test.js",
+        "tests/project-audit.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1892,7 +2335,10 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Exported function, method, and class descriptions are checked through the missing-function-documentation rule.",
       "sourceEvidence": ["src/documentation-audit.js", "src/project-audit.js"],
-      "testEvidence": ["tests/documentation-audit.test.js", "tests/project-audit.test.js"],
+      "testEvidence": [
+        "tests/documentation-audit.test.js",
+        "tests/project-audit.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1904,7 +2350,10 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Documented public functions are checked for missing @param tags on named parameters.",
       "sourceEvidence": ["src/documentation-audit.js", "src/project-audit.js"],
-      "testEvidence": ["tests/documentation-audit.test.js", "tests/project-audit.test.js"],
+      "testEvidence": [
+        "tests/documentation-audit.test.js",
+        "tests/project-audit.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1916,7 +2365,10 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Documented public functions that return a value are checked for @returns tags.",
       "sourceEvidence": ["src/documentation-audit.js", "src/project-audit.js"],
-      "testEvidence": ["tests/documentation-audit.test.js", "tests/project-audit.test.js"],
+      "testEvidence": [
+        "tests/documentation-audit.test.js",
+        "tests/project-audit.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1928,7 +2380,10 @@
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Public function JSDoc checks flag duplicate @param tags and names that do not match parameters; coverage also reports missing descriptions, parameter tags, and return tags. Other invalid-tag and declaration forms are not validated.",
       "sourceEvidence": ["src/documentation-audit.js", "src/project-audit.js"],
-      "testEvidence": ["tests/documentation-audit.test.js", "tests/project-audit.test.js"],
+      "testEvidence": [
+        "tests/documentation-audit.test.js",
+        "tests/project-audit.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1940,7 +2395,10 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Explicit TODO due dates in [due: YYYY-MM-DD] form are reported after the date passes.",
       "sourceEvidence": ["src/documentation-audit.js", "src/project-audit.js"],
-      "testEvidence": ["tests/documentation-audit.test.js", "tests/project-audit.test.js"],
+      "testEvidence": [
+        "tests/documentation-audit.test.js",
+        "tests/project-audit.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1952,7 +2410,10 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "FIXME comments are reported with source locations.",
       "sourceEvidence": ["src/documentation-audit.js", "src/project-audit.js"],
-      "testEvidence": ["tests/documentation-audit.test.js", "tests/project-audit.test.js"],
+      "testEvidence": [
+        "tests/documentation-audit.test.js",
+        "tests/project-audit.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1964,7 +2425,10 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Repeated substantive comments are detected within each JS/TS file; short and license comments are excluded.",
       "sourceEvidence": ["src/documentation-audit.js", "src/project-audit.js"],
-      "testEvidence": ["tests/documentation-audit.test.js", "tests/project-audit.test.js"],
+      "testEvidence": [
+        "tests/documentation-audit.test.js",
+        "tests/project-audit.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1976,7 +2440,10 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Empty JS/TS comments are reported with source locations.",
       "sourceEvidence": ["src/documentation-audit.js", "src/project-audit.js"],
-      "testEvidence": ["tests/documentation-audit.test.js", "tests/project-audit.test.js"],
+      "testEvidence": [
+        "tests/documentation-audit.test.js",
+        "tests/project-audit.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -1988,7 +2455,10 @@
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Conservative syntax-shaped comment patterns flag likely disabled code; this heuristic can miss or misclassify prose.",
       "sourceEvidence": ["src/documentation-audit.js", "src/project-audit.js"],
-      "testEvidence": ["tests/documentation-audit.test.js", "tests/project-audit.test.js"],
+      "testEvidence": [
+        "tests/documentation-audit.test.js",
+        "tests/project-audit.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -2000,7 +2470,10 @@
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Partial: local Markdown links are checked offline; remote URLs are not requested or validated.",
       "sourceEvidence": ["src/documentation-audit.js", "src/project-audit.js"],
-      "testEvidence": ["tests/documentation-audit.test.js", "tests/project-audit.test.js"],
+      "testEvidence": [
+        "tests/documentation-audit.test.js",
+        "tests/project-audit.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -2012,7 +2485,10 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Missing local Markdown targets and heading references in linked Markdown documents are reported.",
       "sourceEvidence": ["src/documentation-audit.js", "src/project-audit.js"],
-      "testEvidence": ["tests/documentation-audit.test.js", "tests/project-audit.test.js"],
+      "testEvidence": [
+        "tests/documentation-audit.test.js",
+        "tests/project-audit.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -2024,7 +2500,10 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Prettier formats Markdown files included by the project configuration.",
       "sourceEvidence": ["src/documentation-audit.js", "src/project-audit.js"],
-      "testEvidence": ["tests/documentation-audit.test.js", "tests/project-audit.test.js"],
+      "testEvidence": [
+        "tests/documentation-audit.test.js",
+        "tests/project-audit.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -2036,7 +2515,10 @@
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "ATX and Setext headings are checked for level jumps; generated heading semantics are not fully modeled.",
       "sourceEvidence": ["src/documentation-audit.js", "src/project-audit.js"],
-      "testEvidence": ["tests/documentation-audit.test.js", "tests/project-audit.test.js"],
+      "testEvidence": [
+        "tests/documentation-audit.test.js",
+        "tests/project-audit.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -2048,7 +2530,10 @@
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Partial: project audit reports Markdown document, heading, and local-link counts.",
       "sourceEvidence": ["src/documentation-audit.js", "src/project-audit.js"],
-      "testEvidence": ["tests/documentation-audit.test.js", "tests/project-audit.test.js"],
+      "testEvidence": [
+        "tests/documentation-audit.test.js",
+        "tests/project-audit.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -2644,7 +3129,12 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Read-only check and analyze commands provide preview-like validation without writes.",
-      "sourceEvidence": ["src/cleaner.js", "src/risk.js", "src/history.js", "src/hooks.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/risk.js",
+        "src/history.js",
+        "src/hooks.js"
+      ],
       "testEvidence": [
         "tests/cleaner.test.js",
         "tests/risk.test.js",
@@ -2662,7 +3152,12 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "preview shows unified formatting diffs without writes; large files use a bounded full-file diff fallback.",
-      "sourceEvidence": ["src/cleaner.js", "src/risk.js", "src/history.js", "src/hooks.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/risk.js",
+        "src/history.js",
+        "src/hooks.js"
+      ],
       "testEvidence": [
         "tests/cleaner.test.js",
         "tests/risk.test.js",
@@ -2680,7 +3175,12 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "clean --interactive asks for approval for every changed file; a missing or non-yes answer declines the change. Piped answers support deterministic scripts.",
-      "sourceEvidence": ["src/cleaner.js", "src/risk.js", "src/history.js", "src/hooks.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/risk.js",
+        "src/history.js",
+        "src/hooks.js"
+      ],
       "testEvidence": [
         "tests/cleaner.test.js",
         "tests/risk.test.js",
@@ -2698,7 +3198,12 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Interactive approvals apply independently per file. Declined files are not backed up or written; approved files retain transactional rollback protections.",
-      "sourceEvidence": ["src/cleaner.js", "src/risk.js", "src/history.js", "src/hooks.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/risk.js",
+        "src/history.js",
+        "src/hooks.js"
+      ],
       "testEvidence": [
         "tests/cleaner.test.js",
         "tests/risk.test.js",
@@ -2716,7 +3221,12 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "VS Code exposes low-risk fixes as individually accepted quick-fix actions, and analysis rules support per-rule severity overrides; a persisted approval policy for every rule is not included.",
-      "sourceEvidence": ["src/cleaner.js", "src/risk.js", "src/history.js", "src/hooks.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/risk.js",
+        "src/history.js",
+        "src/hooks.js"
+      ],
       "testEvidence": [
         "tests/cleaner.test.js",
         "tests/risk.test.js",
@@ -2734,7 +3244,12 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Deterministic change-risk labels classify AST-equivalent formatting as SAFE, unverified changes as LOW, and semantic, destructive, or AST-mismatched changes as REVIEW.",
-      "sourceEvidence": ["src/cleaner.js", "src/risk.js", "src/history.js", "src/hooks.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/risk.js",
+        "src/history.js",
+        "src/hooks.js"
+      ],
       "testEvidence": [
         "tests/cleaner.test.js",
         "tests/risk.test.js",
@@ -2752,7 +3267,12 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Confidence is HIGH when a parser comparison resolves equivalence, MEDIUM when no equivalence result is supplied, and LOW when the parser is unavailable. Interactive prompts include both risk and confidence.",
-      "sourceEvidence": ["src/cleaner.js", "src/risk.js", "src/history.js", "src/hooks.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/risk.js",
+        "src/history.js",
+        "src/hooks.js"
+      ],
       "testEvidence": [
         "tests/cleaner.test.js",
         "tests/risk.test.js",
@@ -2770,7 +3290,12 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Backups are created before formatter writes when configured.",
-      "sourceEvidence": ["src/cleaner.js", "src/risk.js", "src/history.js", "src/hooks.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/risk.js",
+        "src/history.js",
+        "src/hooks.js"
+      ],
       "testEvidence": [
         "tests/cleaner.test.js",
         "tests/risk.test.js",
@@ -2788,7 +3313,12 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Cleanser preflights all files, creates required backups before replacement, applies atomic replacements under a project lock, and attempts rollback if a batch write fails.",
-      "sourceEvidence": ["src/cleaner.js", "src/risk.js", "src/history.js", "src/hooks.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/risk.js",
+        "src/history.js",
+        "src/hooks.js"
+      ],
       "testEvidence": [
         "tests/cleaner.test.js",
         "tests/risk.test.js",
@@ -2806,7 +3336,12 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Changed files are replaced atomically after formatting succeeds.",
-      "sourceEvidence": ["src/cleaner.js", "src/risk.js", "src/history.js", "src/hooks.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/risk.js",
+        "src/history.js",
+        "src/hooks.js"
+      ],
       "testEvidence": [
         "tests/cleaner.test.js",
         "tests/risk.test.js",
@@ -2824,7 +3359,12 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Write runs acquire an exclusive .cleanser.lock file and release it after completion; existing locks stop overlapping Cleanser write runs with owner details when available.",
-      "sourceEvidence": ["src/cleaner.js", "src/risk.js", "src/history.js", "src/hooks.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/risk.js",
+        "src/history.js",
+        "src/hooks.js"
+      ],
       "testEvidence": [
         "tests/cleaner.test.js",
         "tests/risk.test.js",
@@ -2842,7 +3382,12 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Symlinked files and directories are skipped by project scanning.",
-      "sourceEvidence": ["src/cleaner.js", "src/risk.js", "src/history.js", "src/hooks.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/risk.js",
+        "src/history.js",
+        "src/hooks.js"
+      ],
       "testEvidence": [
         "tests/cleaner.test.js",
         "tests/risk.test.js",
@@ -2860,7 +3405,12 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Project-relative paths and backup paths are checked against traversal.",
-      "sourceEvidence": ["src/cleaner.js", "src/risk.js", "src/history.js", "src/hooks.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/risk.js",
+        "src/history.js",
+        "src/hooks.js"
+      ],
       "testEvidence": [
         "tests/cleaner.test.js",
         "tests/risk.test.js",
@@ -2878,7 +3428,12 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Partial: Cleanser verifies the source is still a safe regular file and unchanged before replacing it; durable hash manifests are not stored.",
-      "sourceEvidence": ["src/cleaner.js", "src/risk.js", "src/history.js", "src/hooks.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/risk.js",
+        "src/history.js",
+        "src/hooks.js"
+      ],
       "testEvidence": [
         "tests/cleaner.test.js",
         "tests/risk.test.js",
@@ -2896,7 +3451,12 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Partial: undo <file> --yes restores the first original backup; redo and multi-step history are not available.",
-      "sourceEvidence": ["src/cleaner.js", "src/risk.js", "src/history.js", "src/hooks.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/risk.js",
+        "src/history.js",
+        "src/hooks.js"
+      ],
       "testEvidence": [
         "tests/cleaner.test.js",
         "tests/risk.test.js",
@@ -2914,7 +3474,12 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Atomic replacement prevents partially written individual files, original backups remain available, and a process crash leaves an explicit lock file; automatic transaction journal replay is not implemented.",
-      "sourceEvidence": ["src/cleaner.js", "src/risk.js", "src/history.js", "src/hooks.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/risk.js",
+        "src/history.js",
+        "src/hooks.js"
+      ],
       "testEvidence": [
         "tests/cleaner.test.js",
         "tests/risk.test.js",
@@ -2932,7 +3497,12 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Configuration safety.protected_paths patterns exclude matching files and directory trees from project cleanup; node_modules, .git, and Cleanser backups remain protected by default.",
-      "sourceEvidence": ["src/cleaner.js", "src/risk.js", "src/history.js", "src/hooks.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/risk.js",
+        "src/history.js",
+        "src/hooks.js"
+      ],
       "testEvidence": [
         "tests/cleaner.test.js",
         "tests/risk.test.js",
@@ -2950,7 +3520,12 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Configurable safety.maximum_changed_files and safety.maximum_change_bytes and CLI --max-files/--max-bytes limits reject the full batch before writes when exceeded.",
-      "sourceEvidence": ["src/cleaner.js", "src/risk.js", "src/history.js", "src/hooks.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/risk.js",
+        "src/history.js",
+        "src/hooks.js"
+      ],
       "testEvidence": [
         "tests/cleaner.test.js",
         "tests/risk.test.js",
@@ -2968,7 +3543,12 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "check and analyze are read-only modes.",
-      "sourceEvidence": ["src/cleaner.js", "src/risk.js", "src/history.js", "src/hooks.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/risk.js",
+        "src/history.js",
+        "src/hooks.js"
+      ],
       "testEvidence": [
         "tests/cleaner.test.js",
         "tests/risk.test.js",
@@ -2986,7 +3566,12 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Partial: safe mode is enforced and aggressive mode is explicitly rejected.",
-      "sourceEvidence": ["src/cleaner.js", "src/risk.js", "src/history.js", "src/hooks.js"],
+      "sourceEvidence": [
+        "src/cleaner.js",
+        "src/risk.js",
+        "src/history.js",
+        "src/hooks.js"
+      ],
       "testEvidence": [
         "tests/cleaner.test.js",
         "tests/risk.test.js",
@@ -3005,7 +3590,10 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "JavaScript formatting and AST analysis are supported.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3017,7 +3605,10 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "TypeScript formatting and AST analysis are supported.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3029,7 +3620,10 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "JSX formatting and AST analysis are supported.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3041,7 +3635,10 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "TSX formatting and AST analysis are supported.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3053,7 +3650,10 @@
       "reviewOutcome": "not-implemented-as-catalogued",
       "catalogueScopeNotes": "Not implemented yet.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3065,7 +3665,10 @@
       "reviewOutcome": "not-implemented-as-catalogued",
       "catalogueScopeNotes": "Not implemented yet.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3077,7 +3680,10 @@
       "reviewOutcome": "not-implemented-as-catalogued",
       "catalogueScopeNotes": "Not implemented yet.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3089,7 +3695,10 @@
       "reviewOutcome": "not-implemented-as-catalogued",
       "catalogueScopeNotes": "Not implemented yet.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3101,7 +3710,10 @@
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Java formatting is available through the bundled Prettier Java plugin and is guarded by AST equivalence checks. General-purpose Java static analysis is not included.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3113,7 +3725,10 @@
       "reviewOutcome": "not-implemented-as-catalogued",
       "catalogueScopeNotes": "Not implemented yet.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3125,7 +3740,10 @@
       "reviewOutcome": "not-implemented-as-catalogued",
       "catalogueScopeNotes": "Not implemented yet.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3137,7 +3755,10 @@
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "PHP formatting is available through the bundled Prettier PHP plugin and is guarded by AST equivalence checks. General-purpose PHP static analysis is not included.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3149,7 +3770,10 @@
       "reviewOutcome": "not-implemented-as-catalogued",
       "catalogueScopeNotes": "Not implemented yet.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3161,7 +3785,10 @@
       "reviewOutcome": "not-implemented-as-catalogued",
       "catalogueScopeNotes": "Not implemented yet.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3173,7 +3800,10 @@
       "reviewOutcome": "not-implemented-as-catalogued",
       "catalogueScopeNotes": "Not implemented yet.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3185,7 +3815,10 @@
       "reviewOutcome": "not-implemented-as-catalogued",
       "catalogueScopeNotes": "Not implemented yet.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3197,7 +3830,10 @@
       "reviewOutcome": "not-implemented-as-catalogued",
       "catalogueScopeNotes": "Not implemented yet.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3209,7 +3845,10 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Formatted by Prettier and available to the VS Code formatter.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3221,7 +3860,10 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Formatted by Prettier and available to the VS Code formatter.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3233,7 +3875,10 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Formatted by Prettier and available to the VS Code formatter.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3245,7 +3890,10 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Formatted by Prettier and available to the VS Code formatter.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3257,7 +3905,10 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Formatted by Prettier and available to the VS Code formatter.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3269,7 +3920,10 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Formatted by Prettier and available to the VS Code formatter.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3281,7 +3935,10 @@
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Offline TOML formatting is bundled; semantic TOML analysis is not provided.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3293,7 +3950,10 @@
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Offline XML and SVG formatting is bundled; semantic XML analysis is not provided.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3305,7 +3965,10 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Formatted by Prettier and available to the VS Code formatter.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3317,7 +3980,10 @@
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Offline SQL formatting is bundled and write safety uses a default MySQL AST plus exact token preservation; unsupported dialects are safely refused. Database-schema analysis is not provided.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3329,7 +3995,10 @@
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Offline Bash, Zsh, KornShell, and Bats formatting is bundled; shell execution and semantic analysis are not performed.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3341,7 +4010,10 @@
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Offline PowerShell formatting is bundled with alias rewriting and key sorting disabled; semantic analysis is not provided.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3353,7 +4025,10 @@
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Formatted by Prettier and available to the VS Code formatter.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3365,7 +4040,10 @@
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Offline Svelte formatting is bundled; framework-specific semantic analysis is not provided.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3377,7 +4055,10 @@
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Offline Astro formatting is bundled; framework-specific semantic analysis is not provided.",
       "sourceEvidence": ["src/cleaner.js", "src/language-adapters.js"],
-      "testEvidence": ["tests/cleaner.test.js", "tests/language-adapters.test.js"],
+      "testEvidence": [
+        "tests/cleaner.test.js",
+        "tests/language-adapters.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -3580,7 +4261,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Strict YAML-based .cleanser.clns configuration is supported.",
-      "sourceEvidence": ["src/config.js", "src/config-migration.js", "src/editorconfig.js"],
+      "sourceEvidence": [
+        "src/config.js",
+        "src/config-migration.js",
+        "src/editorconfig.js"
+      ],
       "testEvidence": [
         "tests/config.test.js",
         "tests/config-migration.test.js",
@@ -3596,7 +4281,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Cleanser accepts strict .cleanser.json alongside .cleanser.clns, rejects duplicate JSON keys and ambiguous dual config files, and prevents init from creating a competing YAML config.",
-      "sourceEvidence": ["src/config.js", "src/config-migration.js", "src/editorconfig.js"],
+      "sourceEvidence": [
+        "src/config.js",
+        "src/config-migration.js",
+        "src/editorconfig.js"
+      ],
       "testEvidence": [
         "tests/config.test.js",
         "tests/config-migration.test.js",
@@ -3612,7 +4301,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "The project configuration uses validated YAML syntax.",
-      "sourceEvidence": ["src/config.js", "src/config-migration.js", "src/editorconfig.js"],
+      "sourceEvidence": [
+        "src/config.js",
+        "src/config-migration.js",
+        "src/editorconfig.js"
+      ],
       "testEvidence": [
         "tests/config.test.js",
         "tests/config-migration.test.js",
@@ -3628,7 +4321,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "A config may extend one relative YAML or JSON config inside the project root; inherited sections merge predictably, cycles and traversal are rejected, and nesting is capped.",
-      "sourceEvidence": ["src/config.js", "src/config-migration.js", "src/editorconfig.js"],
+      "sourceEvidence": [
+        "src/config.js",
+        "src/config-migration.js",
+        "src/editorconfig.js"
+      ],
       "testEvidence": [
         "tests/config.test.js",
         "tests/config-migration.test.js",
@@ -3644,7 +4341,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Ordered project-relative file-glob overrides apply folder-scoped formatting and analysis settings without requiring scattered nested config files.",
-      "sourceEvidence": ["src/config.js", "src/config-migration.js", "src/editorconfig.js"],
+      "sourceEvidence": [
+        "src/config.js",
+        "src/config-migration.js",
+        "src/editorconfig.js"
+      ],
       "testEvidence": [
         "tests/config.test.js",
         "tests/config-migration.test.js",
@@ -3660,7 +4361,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Each ordered file-glob override can set built-in analysis rules to off, info, warning, or error for matching files.",
-      "sourceEvidence": ["src/config.js", "src/config-migration.js", "src/editorconfig.js"],
+      "sourceEvidence": [
+        "src/config.js",
+        "src/config-migration.js",
+        "src/editorconfig.js"
+      ],
       "testEvidence": [
         "tests/config.test.js",
         "tests/config-migration.test.js",
@@ -3676,7 +4381,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Built-in rule severity can be overridden to info, warning, or error.",
-      "sourceEvidence": ["src/config.js", "src/config-migration.js", "src/editorconfig.js"],
+      "sourceEvidence": [
+        "src/config.js",
+        "src/config-migration.js",
+        "src/editorconfig.js"
+      ],
       "testEvidence": [
         "tests/config.test.js",
         "tests/config-migration.test.js",
@@ -3692,7 +4401,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Built-in analysis rules can be disabled with off in configuration.",
-      "sourceEvidence": ["src/config.js", "src/config-migration.js", "src/editorconfig.js"],
+      "sourceEvidence": [
+        "src/config.js",
+        "src/config-migration.js",
+        "src/editorconfig.js"
+      ],
       "testEvidence": [
         "tests/config.test.js",
         "tests/config-migration.test.js",
@@ -3708,7 +4421,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Configurable include/exclude glob patterns select project files.",
-      "sourceEvidence": ["src/config.js", "src/config-migration.js", "src/editorconfig.js"],
+      "sourceEvidence": [
+        "src/config.js",
+        "src/config-migration.js",
+        "src/editorconfig.js"
+      ],
       "testEvidence": [
         "tests/config.test.js",
         "tests/config-migration.test.js",
@@ -3724,7 +4441,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Built-in recommended, strict, and security presets are applied before per-rule overrides.",
-      "sourceEvidence": ["src/config.js", "src/config-migration.js", "src/editorconfig.js"],
+      "sourceEvidence": [
+        "src/config.js",
+        "src/config-migration.js",
+        "src/editorconfig.js"
+      ],
       "testEvidence": [
         "tests/config.test.js",
         "tests/config-migration.test.js",
@@ -3740,7 +4461,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Configuration schema, types, values, and unknown keys are validated.",
-      "sourceEvidence": ["src/config.js", "src/config-migration.js", "src/editorconfig.js"],
+      "sourceEvidence": [
+        "src/config.js",
+        "src/config-migration.js",
+        "src/editorconfig.js"
+      ],
       "testEvidence": [
         "tests/config.test.js",
         "tests/config-migration.test.js",
@@ -3756,7 +4481,11 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "config migrate converts between .cleanser.clns YAML and .cleanser.json while preserving validated settings and rolling back on validation failure. Schema-version migration is not available.",
-      "sourceEvidence": ["src/config.js", "src/config-migration.js", "src/editorconfig.js"],
+      "sourceEvidence": [
+        "src/config.js",
+        "src/config-migration.js",
+        "src/editorconfig.js"
+      ],
       "testEvidence": [
         "tests/config.test.js",
         "tests/config-migration.test.js",
@@ -3772,7 +4501,11 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Config loading gives actionable schema, inheritance, path and EditorConfig errors; doctor reports the selected config, override count, supported file count and discovered EditorConfig files. Editor integration and automatic repair suggestions remain.",
-      "sourceEvidence": ["src/config.js", "src/config-migration.js", "src/editorconfig.js"],
+      "sourceEvidence": [
+        "src/config.js",
+        "src/config-migration.js",
+        "src/editorconfig.js"
+      ],
       "testEvidence": [
         "tests/config.test.js",
         "tests/config-migration.test.js",
@@ -3788,7 +4521,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Prettier is an installed formatting engine with validated Cleanser options.",
-      "sourceEvidence": ["src/config.js", "src/config-migration.js", "src/editorconfig.js"],
+      "sourceEvidence": [
+        "src/config.js",
+        "src/config-migration.js",
+        "src/editorconfig.js"
+      ],
       "testEvidence": [
         "tests/config.test.js",
         "tests/config-migration.test.js",
@@ -3804,7 +4541,11 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Cleanser reads cascading .editorconfig files and honors root, common glob sections, indentation, line endings, print width and final-newline settings. It does not trim whitespace inside string data; charset conversion and numeric brace ranges are not supported.",
-      "sourceEvidence": ["src/config.js", "src/config-migration.js", "src/editorconfig.js"],
+      "sourceEvidence": [
+        "src/config.js",
+        "src/config-migration.js",
+        "src/editorconfig.js"
+      ],
       "testEvidence": [
         "tests/config.test.js",
         "tests/config-migration.test.js",
@@ -3820,7 +4561,11 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "cleanser eslint runs the ESLint API installed in the current project, renders deterministic text or JSON findings, and never installs dependencies or modifies files.",
-      "sourceEvidence": ["src/config.js", "src/config-migration.js", "src/editorconfig.js"],
+      "sourceEvidence": [
+        "src/config.js",
+        "src/config-migration.js",
+        "src/editorconfig.js"
+      ],
       "testEvidence": [
         "tests/config.test.js",
         "tests/config-migration.test.js",
@@ -3836,7 +4581,11 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Projects can safely extend a relative configuration file within the project root and layer local overrides. Remote shared packages and team-wide distribution are not implemented.",
-      "sourceEvidence": ["src/config.js", "src/config-migration.js", "src/editorconfig.js"],
+      "sourceEvidence": [
+        "src/config.js",
+        "src/config-migration.js",
+        "src/editorconfig.js"
+      ],
       "testEvidence": [
         "tests/config.test.js",
         "tests/config-migration.test.js",
@@ -4098,7 +4847,11 @@
         "src/analyzer.js",
         "src/cleaner.js"
       ],
-      "testEvidence": ["tests/lsp.test.js", "tests/analyzer.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/lsp.test.js",
+        "tests/analyzer.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4115,7 +4868,11 @@
         "src/analyzer.js",
         "src/cleaner.js"
       ],
-      "testEvidence": ["tests/lsp.test.js", "tests/analyzer.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/lsp.test.js",
+        "tests/analyzer.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4132,7 +4889,11 @@
         "src/analyzer.js",
         "src/cleaner.js"
       ],
-      "testEvidence": ["tests/lsp.test.js", "tests/analyzer.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/lsp.test.js",
+        "tests/analyzer.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4149,7 +4910,11 @@
         "src/analyzer.js",
         "src/cleaner.js"
       ],
-      "testEvidence": ["tests/lsp.test.js", "tests/analyzer.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/lsp.test.js",
+        "tests/analyzer.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4166,7 +4931,11 @@
         "src/analyzer.js",
         "src/cleaner.js"
       ],
-      "testEvidence": ["tests/lsp.test.js", "tests/analyzer.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/lsp.test.js",
+        "tests/analyzer.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4183,7 +4952,11 @@
         "src/analyzer.js",
         "src/cleaner.js"
       ],
-      "testEvidence": ["tests/lsp.test.js", "tests/analyzer.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/lsp.test.js",
+        "tests/analyzer.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4200,7 +4973,11 @@
         "src/analyzer.js",
         "src/cleaner.js"
       ],
-      "testEvidence": ["tests/lsp.test.js", "tests/analyzer.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/lsp.test.js",
+        "tests/analyzer.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4217,7 +4994,11 @@
         "src/analyzer.js",
         "src/cleaner.js"
       ],
-      "testEvidence": ["tests/lsp.test.js", "tests/analyzer.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/lsp.test.js",
+        "tests/analyzer.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4234,7 +5015,11 @@
         "src/analyzer.js",
         "src/cleaner.js"
       ],
-      "testEvidence": ["tests/lsp.test.js", "tests/analyzer.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/lsp.test.js",
+        "tests/analyzer.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4251,7 +5036,11 @@
         "src/analyzer.js",
         "src/cleaner.js"
       ],
-      "testEvidence": ["tests/lsp.test.js", "tests/analyzer.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/lsp.test.js",
+        "tests/analyzer.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4268,7 +5057,11 @@
         "src/analyzer.js",
         "src/cleaner.js"
       ],
-      "testEvidence": ["tests/lsp.test.js", "tests/analyzer.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/lsp.test.js",
+        "tests/analyzer.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4285,7 +5078,11 @@
         "src/analyzer.js",
         "src/cleaner.js"
       ],
-      "testEvidence": ["tests/lsp.test.js", "tests/analyzer.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/lsp.test.js",
+        "tests/analyzer.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4302,7 +5099,11 @@
         "src/analyzer.js",
         "src/cleaner.js"
       ],
-      "testEvidence": ["tests/lsp.test.js", "tests/analyzer.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/lsp.test.js",
+        "tests/analyzer.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4319,7 +5120,11 @@
         "src/analyzer.js",
         "src/cleaner.js"
       ],
-      "testEvidence": ["tests/lsp.test.js", "tests/analyzer.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/lsp.test.js",
+        "tests/analyzer.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4336,7 +5141,11 @@
         "src/analyzer.js",
         "src/cleaner.js"
       ],
-      "testEvidence": ["tests/lsp.test.js", "tests/analyzer.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/lsp.test.js",
+        "tests/analyzer.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4353,7 +5162,11 @@
         "src/analyzer.js",
         "src/cleaner.js"
       ],
-      "testEvidence": ["tests/lsp.test.js", "tests/analyzer.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/lsp.test.js",
+        "tests/analyzer.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4370,7 +5183,11 @@
         "src/analyzer.js",
         "src/cleaner.js"
       ],
-      "testEvidence": ["tests/lsp.test.js", "tests/analyzer.test.js", "tests/cleaner.test.js"],
+      "testEvidence": [
+        "tests/lsp.test.js",
+        "tests/analyzer.test.js",
+        "tests/cleaner.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4381,8 +5198,16 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "This repository has GitHub Actions for tests/releases; a reusable consumer-facing action is not provided.",
-      "sourceEvidence": ["src/ci.js", "src/pull-request-report.js", "src/git-tools.js"],
-      "testEvidence": ["tests/ci.test.js", "tests/git-tools.test.js", "tests/cli.test.js"],
+      "sourceEvidence": [
+        "src/ci.js",
+        "src/pull-request-report.js",
+        "src/git-tools.js"
+      ],
+      "testEvidence": [
+        "tests/ci.test.js",
+        "tests/git-tools.test.js",
+        "tests/cli.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4393,8 +5218,16 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "cleanser ci init gitlab creates a non-overwriting starter pipeline that installs dependencies, runs npm test, and runs npm run check; it does not operate a GitLab account or publish reports remotely.",
-      "sourceEvidence": ["src/ci.js", "src/pull-request-report.js", "src/git-tools.js"],
-      "testEvidence": ["tests/ci.test.js", "tests/git-tools.test.js", "tests/cli.test.js"],
+      "sourceEvidence": [
+        "src/ci.js",
+        "src/pull-request-report.js",
+        "src/git-tools.js"
+      ],
+      "testEvidence": [
+        "tests/ci.test.js",
+        "tests/git-tools.test.js",
+        "tests/cli.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4405,8 +5238,16 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "cleanser ci init bitbucket creates a non-overwriting pipeline starter that installs dependencies, runs npm test, and runs npm run check; it does not configure a Bitbucket account or upload reports remotely.",
-      "sourceEvidence": ["src/ci.js", "src/pull-request-report.js", "src/git-tools.js"],
-      "testEvidence": ["tests/ci.test.js", "tests/git-tools.test.js", "tests/cli.test.js"],
+      "sourceEvidence": [
+        "src/ci.js",
+        "src/pull-request-report.js",
+        "src/git-tools.js"
+      ],
+      "testEvidence": [
+        "tests/ci.test.js",
+        "tests/git-tools.test.js",
+        "tests/cli.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4417,8 +5258,16 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "pr-report --base=REF emits deterministic JSON or Markdown for committed changed paths, formatting debt, and analyzer findings; it does not post to GitHub.",
-      "sourceEvidence": ["src/ci.js", "src/pull-request-report.js", "src/git-tools.js"],
-      "testEvidence": ["tests/ci.test.js", "tests/git-tools.test.js", "tests/cli.test.js"],
+      "sourceEvidence": [
+        "src/ci.js",
+        "src/pull-request-report.js",
+        "src/git-tools.js"
+      ],
+      "testEvidence": [
+        "tests/ci.test.js",
+        "tests/git-tools.test.js",
+        "tests/cli.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4429,8 +5278,16 @@
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
       "catalogueScopeNotes": "Partial: SARIF results include stable rule IDs, severity, and locations; automated PR annotation publishing is not configured.",
-      "sourceEvidence": ["src/ci.js", "src/pull-request-report.js", "src/git-tools.js"],
-      "testEvidence": ["tests/ci.test.js", "tests/git-tools.test.js", "tests/cli.test.js"],
+      "sourceEvidence": [
+        "src/ci.js",
+        "src/pull-request-report.js",
+        "src/git-tools.js"
+      ],
+      "testEvidence": [
+        "tests/ci.test.js",
+        "tests/git-tools.test.js",
+        "tests/cli.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4441,8 +5298,16 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Analyzer and security commands exit non-zero when warning or error findings are present.",
-      "sourceEvidence": ["src/ci.js", "src/pull-request-report.js", "src/git-tools.js"],
-      "testEvidence": ["tests/ci.test.js", "tests/git-tools.test.js", "tests/cli.test.js"],
+      "sourceEvidence": [
+        "src/ci.js",
+        "src/pull-request-report.js",
+        "src/git-tools.js"
+      ],
+      "testEvidence": [
+        "tests/ci.test.js",
+        "tests/git-tools.test.js",
+        "tests/cli.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4453,8 +5318,16 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "clean, check, analyze, report, security, and preview can limit work to Git changed files.",
-      "sourceEvidence": ["src/ci.js", "src/pull-request-report.js", "src/git-tools.js"],
-      "testEvidence": ["tests/ci.test.js", "tests/git-tools.test.js", "tests/cli.test.js"],
+      "sourceEvidence": [
+        "src/ci.js",
+        "src/pull-request-report.js",
+        "src/git-tools.js"
+      ],
+      "testEvidence": [
+        "tests/ci.test.js",
+        "tests/git-tools.test.js",
+        "tests/cli.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4465,8 +5338,16 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "pr-report includes changed-file formatting results, verification risk, analyzer severity totals, and per-file findings in deterministic local JSON or Markdown.",
-      "sourceEvidence": ["src/ci.js", "src/pull-request-report.js", "src/git-tools.js"],
-      "testEvidence": ["tests/ci.test.js", "tests/git-tools.test.js", "tests/cli.test.js"],
+      "sourceEvidence": [
+        "src/ci.js",
+        "src/pull-request-report.js",
+        "src/git-tools.js"
+      ],
+      "testEvidence": [
+        "tests/ci.test.js",
+        "tests/git-tools.test.js",
+        "tests/cli.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4477,8 +5358,16 @@
       "catalogueStatus": "Planned",
       "reviewOutcome": "not-implemented-as-catalogued",
       "catalogueScopeNotes": "Not implemented yet.",
-      "sourceEvidence": ["src/ci.js", "src/pull-request-report.js", "src/git-tools.js"],
-      "testEvidence": ["tests/ci.test.js", "tests/git-tools.test.js", "tests/cli.test.js"],
+      "sourceEvidence": [
+        "src/ci.js",
+        "src/pull-request-report.js",
+        "src/git-tools.js"
+      ],
+      "testEvidence": [
+        "tests/ci.test.js",
+        "tests/git-tools.test.js",
+        "tests/cli.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4489,8 +5378,16 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "Machine-readable JSON and CSV analyzer reports are available.",
-      "sourceEvidence": ["src/ci.js", "src/pull-request-report.js", "src/git-tools.js"],
-      "testEvidence": ["tests/ci.test.js", "tests/git-tools.test.js", "tests/cli.test.js"],
+      "sourceEvidence": [
+        "src/ci.js",
+        "src/pull-request-report.js",
+        "src/git-tools.js"
+      ],
+      "testEvidence": [
+        "tests/ci.test.js",
+        "tests/git-tools.test.js",
+        "tests/cli.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
@@ -4501,8 +5398,16 @@
       "catalogueStatus": "Implemented",
       "reviewOutcome": "implementation-surface-present; category-tests-linked",
       "catalogueScopeNotes": "report --format=sarif emits SARIF 2.1.0 with deterministic rules and file locations.",
-      "sourceEvidence": ["src/ci.js", "src/pull-request-report.js", "src/git-tools.js"],
-      "testEvidence": ["tests/ci.test.js", "tests/git-tools.test.js", "tests/cli.test.js"],
+      "sourceEvidence": [
+        "src/ci.js",
+        "src/pull-request-report.js",
+        "src/git-tools.js"
+      ],
+      "testEvidence": [
+        "tests/ci.test.js",
+        "tests/git-tools.test.js",
+        "tests/cli.test.js"
+      ],
       "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
       "runtimeVerification": "not_individually_verified"
     },
