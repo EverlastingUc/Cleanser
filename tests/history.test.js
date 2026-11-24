@@ -109,3 +109,28 @@ test("restore CLI requires explicit confirmation before replacing a file", async
     );
   });
 });
+
+
+test("restore refuses to race an active Cleanser write operation", async () => {
+  await withProject(async (root) => {
+    await fs.mkdir(path.join(root, ".cleanser-backups"));
+    await fs.writeFile(
+      path.join(root, ".cleanser-backups", "sample.js"),
+      "original",
+    );
+    await fs.writeFile(path.join(root, "sample.js"), "current");
+    await fs.writeFile(
+      path.join(root, ".cleanser.lock"),
+      JSON.stringify({ pid: 12345, startedAt: "test" }),
+    );
+
+    await assert.rejects(
+      restoreBackup({ root, filePath: "sample.js" }),
+      /Another Cleanser write operation holds \.cleanser\.lock/,
+    );
+    assert.equal(
+      await fs.readFile(path.join(root, "sample.js"), "utf8"),
+      "current",
+    );
+  });
+});
