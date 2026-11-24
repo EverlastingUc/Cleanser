@@ -39,7 +39,7 @@
     "@prettier/plugin-xml": "^3.4.2",
     "node-sql-parser": "^5.4.0",
     "prettier": "^3.6.2",
-    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-astro": "^1.1.2",
     "prettier-plugin-java": "^2.12.0",
     "prettier-plugin-powershell": "^2.2.1",
     "prettier-plugin-sh": "^0.20.2",
