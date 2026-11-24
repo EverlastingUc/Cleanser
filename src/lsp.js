@@ -104,7 +104,7 @@ function createMessageParser(onMessage, onError) {
       let headerEnd = buffer.indexOf(HEADER_END);
       if (headerEnd < 0) {
         if (offset >= chunk.length) return;
-        const capacity = MAX_HEADER_BYTES + 1 - buffer.length;
+        const capacity = MAX_HEADER_BYTES + HEADER_END.length - buffer.length;
         if (capacity <= 0) {
           fail("LSP message header exceeds the 8 KB limit.");
           return;
@@ -114,7 +114,7 @@ function createMessageParser(onMessage, onError) {
         offset = nextOffset;
         headerEnd = buffer.indexOf(HEADER_END);
         if (headerEnd < 0) {
-          if (buffer.length > MAX_HEADER_BYTES) {
+          if (buffer.length > MAX_HEADER_BYTES + HEADER_END.length - 1) {
             fail("LSP message header exceeds the 8 KB limit.");
           }
           return;
@@ -131,6 +131,7 @@ function createMessageParser(onMessage, onError) {
       const messageStart = headerEnd + HEADER_END.length;
       if (!lengthMatch) {
         buffer = buffer.subarray(messageStart);
+        if (buffer.length === 0) buffer = Buffer.alloc(0);
         onError("LSP message is missing Content-Length.");
         continue;
       }
@@ -160,6 +161,7 @@ function createMessageParser(onMessage, onError) {
 
       const body = buffer.subarray(messageStart, messageEnd).toString("utf8");
       buffer = buffer.subarray(messageEnd);
+      if (buffer.length === 0) buffer = Buffer.alloc(0);
       try {
         onMessage(JSON.parse(body));
       } catch (error) {
