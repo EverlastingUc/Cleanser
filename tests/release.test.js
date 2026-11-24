@@ -15,6 +15,9 @@ test("package and lockfile versions match for reproducible installs", async () =
   assert.equal(lock.name, manifest.name);
   assert.equal(lock.version, manifest.version);
   assert.equal(lock.packages[""].version, manifest.version);
+  assert.deepEqual(lock.packages[""].dependencies, manifest.dependencies);
+  assert.deepEqual(lock.packages[""].devDependencies, manifest.devDependencies);
+  assert.deepEqual(lock.packages[""].engines, manifest.engines);
 });
 
 test("VS Code extension manifest points at packaged implementation files", async () => {
