@@ -375,6 +375,80 @@ test("measures conservative function, class, dependency, and duplication thresho
   });
 });
 
+test("verifies all five partial code-quality rules with isolated runtime fixtures", async () => {
+  await withProject(async (root) => {
+    await fs.writeFile(
+      path.join(root, "duplicate-a.ts"),
+      [
+        "export function first(value: number) {",
+        "  const one = value + 1;",
+        "  const two = one + 1;",
+        "  const three = two + 1;",
+        "  return three;",
+        "}",
+      ].join("\\n"),
+    );
+    await fs.writeFile(
+      path.join(root, "duplicate-b.ts"),
+      [
+        "export function second(value: number) {",
+        "  const one = value + 1;",
+        "  const two = one + 1;",
+        "  const three = two + 1;",
+        "  return three;",
+        "}",
+      ].join("\\n"),
+    );
+    await fs.writeFile(
+      path.join(root, "dead.ts"),
+      "export function dead() { return 1; const unreachable = 2; }",
+    );
+    await fs.writeFile(
+      path.join(root, "redundant.ts"),
+      "export function redundant() { 1 + 2; return; }",
+    );
+    await fs.writeFile(
+      path.join(root, "conditions.ts"),
+      [
+        "export function conditions(flag: boolean) {",
+        "  if (true) return 1;",
+        "  if (flag) return 2; else if (flag) return 3;",
+        "  return 4;",
+        "}",
+      ].join("\\n"),
+    );
+    await fs.writeFile(
+      path.join(root, "types.ts"),
+      "export let count: number = 1;",
+    );
+
+    const findings = await analyzeProject({ root, config: DEFAULT_CONFIG });
+    const byRule = (ruleId) => findings.filter((finding) => finding.ruleId === ruleId);
+
+    for (const ruleId of [
+      "duplicate-code",
+      "unreachable-code",
+      "redundant-expression",
+      "constant-condition",
+      "repeated-branch-condition",
+      "redundant-type-annotation",
+    ]) {
+      assert.ok(byRule(ruleId).length > 0, `Expected runtime evidence for ${ruleId}.`);
+    }
+
+    assert.ok(
+      byRule("duplicate-code").some((finding) => finding.filePath === "duplicate-b.ts"),
+      "Cross-file duplicate bodies should be reported at the later occurrence.",
+    );
+    assert.ok(
+      byRule("unreachable-code").some((finding) => finding.filePath === "dead.ts"),
+    );
+    assert.ok(
+      byRule("redundant-type-annotation").some((finding) => finding.filePath === "types.ts"),
+    );
+  });
+});
+
 test("reports duplicate imports, declarations, and unreachable statements", async () => {
   await withProject(async (root) => {
     const source = [
