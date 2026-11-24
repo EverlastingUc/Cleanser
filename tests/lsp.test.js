@@ -168,7 +168,7 @@ test("LSP rejects oversized frame headers and payload declarations", async () =>
       expected: /header exceeds the 8 KB limit/,
     },
     {
-      frame: `Content-Length: ${16 * 1024 * 1024 + 1}\\r\\n\\r\\n`,
+      frame: `Content-Length: ${16 * 1024 * 1024 + 1}\r\n\r\n`,
       expected: /message exceeds the 16 MB size limit/,
     },
   ];
