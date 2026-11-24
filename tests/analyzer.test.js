@@ -486,9 +486,12 @@ test("verifies all five partial code-quality rules with isolated runtime fixture
 
     assert.ok(
       byRule("duplicate-code").some(
-        (finding) => finding.filePath === "duplicate-b.ts",
+        (finding) =>
+          finding.filePath === "duplicate-b.ts" &&
+          finding.message ===
+            "Function body duplicates code in duplicate-a.ts.",
       ),
-      "Cross-file duplicate bodies should be reported at the later occurrence.",
+      "Cross-file duplicates should identify the source using a relative path.",
     );
     assert.ok(
       byRule("unreachable-code").some(
