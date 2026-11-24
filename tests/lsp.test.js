@@ -205,3 +205,51 @@ test("LSP rejects oversized frame headers and payload declarations", async () =>
     assert.match(stderr, expected);
   }
 });
+
+
+test("LSP accepts a maximum-length header when its delimiter is split", async () => {
+  const child = spawn(process.execPath, [cliPath, "lsp"], {
+    stdio: ["pipe", "pipe", "pipe"],
+    windowsHide: true,
+  });
+  let stderr = "";
+  child.stderr.setEncoding("utf8");
+  child.stderr.on("data", (chunk) => {
+    stderr += chunk;
+  });
+
+  const closed = new Promise((resolve, reject) => {
+    const timeout = setTimeout(() => {
+      child.kill();
+      reject(new Error("LSP server did not exit after a valid maximum header."));
+    }, 5000);
+    child.once("error", (error) => {
+      clearTimeout(timeout);
+      reject(error);
+    });
+    child.once("close", (code) => {
+      clearTimeout(timeout);
+      resolve(code);
+    });
+  });
+
+  const body = Buffer.from(
+    JSON.stringify({ jsonrpc: "2.0", method: "initialized" }),
+    "utf8",
+  );
+  const prefix = "Content-Length: " + body.length + "\r\nX-Pad: ";
+  const headerText = prefix + "x".repeat(8 * 1024 - Buffer.byteLength(prefix));
+  const frame = Buffer.concat([
+    Buffer.from(headerText + "\r\n\r\n", "ascii"),
+    body,
+  ]);
+  const split = Buffer.byteLength(headerText) + 2;
+  child.stdin.write(frame.subarray(0, split));
+  await new Promise((resolve) => setTimeout(resolve, 20));
+  child.stdin.end(frame.subarray(split));
+
+  const code = await closed;
+  assert.equal(code, 0, stderr);
+  assert.doesNotMatch(stderr, /header exceeds the 8 KB limit/);
+  assert.doesNotMatch(stderr, /Could not parse LSP message/);
+});
