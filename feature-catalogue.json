@@ -1,0 +1,2497 @@
+{
+  "schemaVersion": 1,
+  "source": "Pasted Cleanser feature catalogue and implementation specification.",
+  "numberedFeatureCount": 340,
+  "canonicalFeatureCount": 336,
+  "features": [
+    {
+      "id": 1,
+      "name": "Automatic code formatting",
+      "category": "Code Formatting Engine",
+      "status": "Implemented",
+      "notes": "Prettier formats JS/JSX/TS/TSX/MJS/CJS/MTS/CTS, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue."
+    },
+    {
+      "id": 2,
+      "name": "Indentation normalization",
+      "category": "Code Formatting Engine",
+      "status": "Implemented",
+      "notes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue."
+    },
+    {
+      "id": 3,
+      "name": "Tab-to-space conversion",
+      "category": "Code Formatting Engine",
+      "status": "Implemented",
+      "notes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue."
+    },
+    {
+      "id": 4,
+      "name": "Single/double quote normalization",
+      "category": "Code Formatting Engine",
+      "status": "Implemented",
+      "notes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue."
+    },
+    {
+      "id": 5,
+      "name": "Semicolon normalization",
+      "category": "Code Formatting Engine",
+      "status": "Implemented",
+      "notes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue."
+    },
+    {
+      "id": 6,
+      "name": "Trailing comma management",
+      "category": "Code Formatting Engine",
+      "status": "Implemented",
+      "notes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue."
+    },
+    {
+      "id": 7,
+      "name": "Whitespace cleanup",
+      "category": "Code Formatting Engine",
+      "status": "Implemented",
+      "notes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue."
+    },
+    {
+      "id": 8,
+      "name": "Blank-line normalization",
+      "category": "Code Formatting Engine",
+      "status": "Implemented",
+      "notes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue."
+    },
+    {
+      "id": 9,
+      "name": "Line-ending normalization",
+      "category": "Code Formatting Engine",
+      "status": "Implemented",
+      "notes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue."
+    },
+    {
+      "id": 10,
+      "name": "Maximum line-width enforcement",
+      "category": "Code Formatting Engine",
+      "status": "Implemented",
+      "notes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue."
+    },
+    {
+      "id": 11,
+      "name": "Bracket spacing",
+      "category": "Code Formatting Engine",
+      "status": "Implemented",
+      "notes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue."
+    },
+    {
+      "id": 12,
+      "name": "Operator spacing",
+      "category": "Code Formatting Engine",
+      "status": "Implemented",
+      "notes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue."
+    },
+    {
+      "id": 13,
+      "name": "Function spacing",
+      "category": "Code Formatting Engine",
+      "status": "Implemented",
+      "notes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue."
+    },
+    {
+      "id": 14,
+      "name": "Object formatting",
+      "category": "Code Formatting Engine",
+      "status": "Implemented",
+      "notes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue."
+    },
+    {
+      "id": 15,
+      "name": "Array formatting",
+      "category": "Code Formatting Engine",
+      "status": "Implemented",
+      "notes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue."
+    },
+    {
+      "id": 16,
+      "name": "Class formatting",
+      "category": "Code Formatting Engine",
+      "status": "Implemented",
+      "notes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue."
+    },
+    {
+      "id": 17,
+      "name": "Import formatting",
+      "category": "Code Formatting Engine",
+      "status": "Implemented",
+      "notes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue."
+    },
+    {
+      "id": 18,
+      "name": "Comment formatting",
+      "category": "Code Formatting Engine",
+      "status": "Implemented",
+      "notes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue."
+    },
+    {
+      "id": 19,
+      "name": "Consistent arrow-function formatting",
+      "category": "Code Formatting Engine",
+      "status": "Implemented",
+      "notes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue."
+    },
+    {
+      "id": 20,
+      "name": "Final newline enforcement",
+      "category": "Code Formatting Engine",
+      "status": "Implemented",
+      "notes": "Implemented by Prettier for JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue."
+    },
+    {
+      "id": 21,
+      "name": "Unused variable detection",
+      "category": "Code Quality Detection",
+      "status": "Implemented",
+      "notes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope."
+    },
+    {
+      "id": 22,
+      "name": "Unused function detection",
+      "category": "Code Quality Detection",
+      "status": "Implemented",
+      "notes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope."
+    },
+    {
+      "id": 23,
+      "name": "Unused imports detection",
+      "category": "Code Quality Detection",
+      "status": "Implemented",
+      "notes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope."
+    },
+    {
+      "id": 24,
+      "name": "Unused parameters detection",
+      "category": "Code Quality Detection",
+      "status": "Implemented",
+      "notes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope."
+    },
+    {
+      "id": 25,
+      "name": "Unused classes detection",
+      "category": "Code Quality Detection",
+      "status": "Implemented",
+      "notes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope."
+    },
+    {
+      "id": 26,
+      "name": "Unused constants detection",
+      "category": "Code Quality Detection",
+      "status": "Implemented",
+      "notes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope."
+    },
+    {
+      "id": 27,
+      "name": "Duplicate declaration detection",
+      "category": "Code Quality Detection",
+      "status": "Implemented",
+      "notes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope."
+    },
+    {
+      "id": 28,
+      "name": "Duplicate import detection",
+      "category": "Code Quality Detection",
+      "status": "Implemented",
+      "notes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope."
+    },
+    {
+      "id": 29,
+      "name": "Duplicate code detection",
+      "category": "Code Quality Detection",
+      "status": "Partial",
+      "notes": "Exact normalized function bodies are compared within one file; cross-file and near-duplicate detection remain."
+    },
+    {
+      "id": 30,
+      "name": "Dead code detection",
+      "category": "Code Quality Detection",
+      "status": "Partial",
+      "notes": "The analyzer reports unused local bindings and compiler-proven unreachable statements. Whole-file reachability and cross-module dead-code removal are not implemented."
+    },
+    {
+      "id": 31,
+      "name": "Unreachable code detection",
+      "category": "Code Quality Detection",
+      "status": "Implemented",
+      "notes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope."
+    },
+    {
+      "id": 32,
+      "name": "Empty function detection",
+      "category": "Code Quality Detection",
+      "status": "Implemented",
+      "notes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope."
+    },
+    {
+      "id": 33,
+      "name": "Empty block detection",
+      "category": "Code Quality Detection",
+      "status": "Implemented",
+      "notes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope."
+    },
+    {
+      "id": 34,
+      "name": "Empty catch block detection",
+      "category": "Code Quality Detection",
+      "status": "Implemented",
+      "notes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope."
+    },
+    {
+      "id": 35,
+      "name": "Redundant statements detection",
+      "category": "Code Quality Detection",
+      "status": "Partial",
+      "notes": "Detects final bare returns and standalone pure array or object literal expressions. VS Code can remove only comment-free pure literal statements; broader redundant-statement analysis is not implemented."
+    },
+    {
+      "id": 36,
+      "name": "Redundant conditions detection",
+      "category": "Code Quality Detection",
+      "status": "Partial",
+      "notes": "The analyzer detects constant conditions and repeated stable conditions in else-if chains; broader logical-equivalence analysis is not implemented."
+    },
+    {
+      "id": 37,
+      "name": "Unnecessary expressions detection",
+      "category": "Code Quality Detection",
+      "status": "Implemented",
+      "notes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope."
+    },
+    {
+      "id": 38,
+      "name": "Constant condition detection",
+      "category": "Code Quality Detection",
+      "status": "Implemented",
+      "notes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope."
+    },
+    {
+      "id": 39,
+      "name": "Unused labels detection",
+      "category": "Code Quality Detection",
+      "status": "Implemented",
+      "notes": "Implemented by deterministic TypeScript AST/compiler diagnostics; JS/TS-family scope."
+    },
+    {
+      "id": 40,
+      "name": "Unnecessary type declarations detection",
+      "category": "Code Quality Detection",
+      "status": "Partial",
+      "notes": "The analyzer reports redundant primitive annotations on mutable variables initialized from simple numeric, string, boolean, and bigint literals. Public API intent, contextual typing, const literal widening, and non-literal initializers are preserved; no annotations are removed automatically."
+    },
+    {
+      "id": 41,
+      "name": "var to let/const suggestions",
+      "category": "Code Optimization",
+      "status": "Implemented",
+      "notes": "The analyzer suggests let for reassigned or uninitialized var bindings and const when an initialized binding is not reassigned. Suggestions are informational; no automatic rewrite is applied."
+    },
+    {
+      "id": 42,
+      "name": "let to const conversion",
+      "category": "Code Optimization",
+      "status": "Implemented",
+      "notes": "Reports non-reassigned let bindings as suggestions; no source is silently rewritten."
+    },
+    {
+      "id": 43,
+      "name": "Template literal conversion",
+      "category": "Code Optimization",
+      "status": "Partial",
+      "notes": "The analyzer suggests template literals for TypeScript-confirmed string concatenations containing only primitive typed operands. VS Code offers a fix when every concatenation operand is a primitive literal; other suggestions remain review-only."
+    },
+    {
+      "id": 44,
+      "name": "Optional chaining conversion",
+      "category": "Code Optimization",
+      "status": "Partial",
+      "notes": "The analyzer suggests optional chaining for nullish comparisons against null around property or element access on the same local variable. Broader control-flow guard forms are not covered, and no source is rewritten."
+    },
+    {
+      "id": 45,
+      "name": "Nullish coalescing conversion",
+      "category": "Code Optimization",
+      "status": "Partial",
+      "notes": "The analyzer suggests ?? for loose null checks whose retained branch reads the same local variable. This avoids truthiness changes; strict equality patterns and non-local expressions are not covered, and no source is rewritten."
+    },
+    {
+      "id": 46,
+      "name": "Boolean expression simplification",
+      "category": "Code Optimization",
+      "status": "Partial",
+      "notes": "The analyzer identifies boolean true/false ternaries and VS Code can apply a comment-free boolean-preserving fix; broader boolean algebra simplification is not implemented."
+    },
+    {
+      "id": 47,
+      "name": "Redundant ternary simplification",
+      "category": "Code Optimization",
+      "status": "Implemented",
+      "notes": "Available in the current repository; see scope notes below."
+    },
+    {
+      "id": 48,
+      "name": "Nested condition simplification",
+      "category": "Code Optimization",
+      "status": "Partial",
+      "notes": "The analyzer reports repeated stable conditions in an else-if chain as a review suggestion. General nested-condition rewriting is not performed."
+    },
+    {
+      "id": 49,
+      "name": "Unnecessary else removal",
+      "category": "Code Optimization",
+      "status": "Implemented",
+      "notes": "Available in the current repository; see scope notes below."
+    },
+    {
+      "id": 50,
+      "name": "Duplicate condition elimination",
+      "category": "Code Optimization",
+      "status": "Partial",
+      "notes": "The analyzer reports repeated stable conditions in else-if chains. VS Code can remove a directly repeated, comment-free else-if branch while retaining its final else branch; broader branch rewriting is not covered."
+    },
+    {
+      "id": 51,
+      "name": "Unnecessary type assertion detection",
+      "category": "Code Optimization",
+      "status": "Partial",
+      "notes": "The analyzer reports TypeScript as/type assertions and non-null assertions when the compiler reports the same display type before and after. Broader type-flow analysis and automatic removal are not implemented."
+    },
+    {
+      "id": 52,
+      "name": "Redundant parentheses removal",
+      "category": "Code Optimization",
+      "status": "Partial",
+      "notes": "The analyzer reports redundant parentheses only around atomic identifiers and literals. It preserves grouped expressions and string literals used as expression statements because those may form directive prologues; no source is rewritten."
+    },
+    {
+      "id": 53,
+      "name": "Simplification of mathematical expressions",
+      "category": "Code Optimization",
+      "status": "Partial",
+      "notes": "The analyzer identifies constant literal expressions but does not rewrite algebraic identities or perform numeric simplification."
+    },
+    {
+      "id": 54,
+      "name": "Constant expression evaluation",
+      "category": "Code Optimization",
+      "status": "Partial",
+      "notes": "The analyzer reports literal-only arithmetic, comparisons, short-circuit logical and conditional expressions with their compile-time result without rewriting code. It does not fold variables, enums, macros, or project-specific constants."
+    },
+    {
+      "id": 55,
+      "name": "Safe string concatenation simplification",
+      "category": "Code Optimization",
+      "status": "Partial",
+      "notes": "The analyzer suggests template literals only when concatenation operands have primitive types. VS Code offers a fix for literal-only concatenations, preserving grouped constant expressions; identifier operands remain review-only."
+    },
+    {
+      "id": 56,
+      "name": "Redundant array operation detection",
+      "category": "Code Optimization",
+      "status": "Partial",
+      "notes": "Reports an identity-map candidate when its callback returns the same parameter; keeps findings informational because map still creates a new array."
+    },
+    {
+      "id": 57,
+      "name": "Unnecessary object property detection",
+      "category": "Code Optimization",
+      "status": "Partial",
+      "notes": "The analyzer suggests shorthand for matching identifier keys and values, excluding __proto__. VS Code offers a quick fix when no comment separates the key and value."
+    },
+    {
+      "id": 58,
+      "name": "Unnecessary spread operation detection",
+      "category": "Code Optimization",
+      "status": "Partial",
+      "notes": "The analyzer flags empty array/object literal spreads as review suggestions. VS Code removes a comment-free empty spread when it is the only array element or object property; other spread redundancy cases are not analyzed."
+    },
+    {
+      "id": 59,
+      "name": "Redundant return detection",
+      "category": "Code Optimization",
+      "status": "Implemented",
+      "notes": "Available in the current repository; see scope notes below."
+    },
+    {
+      "id": 60,
+      "name": "Unnecessary async/await detection",
+      "category": "Code Optimization",
+      "status": "Implemented",
+      "notes": "The analyzer reports direct return await in async functions when no surrounding try/catch/finally is present; async generators and control-flow cases needing special handling are skipped."
+    },
+    {
+      "id": 61,
+      "name": "Automatic import sorting",
+      "category": "Import and Dependency Management",
+      "status": "Partial",
+      "notes": "The analyzer reports consecutive type-only imports out of lexical order, and VS Code offers a quick fix for comment-free runs. Value and side-effect imports are never reordered."
+    },
+    {
+      "id": 62,
+      "name": "Import grouping",
+      "category": "Import and Dependency Management",
+      "status": "Partial",
+      "notes": "Reports missing blank lines at top-level import boundaries across built-in, package, alias, and relative groups. VS Code offers a comment-free fix that inserts a blank line without changing import order."
+    },
+    {
+      "id": 63,
+      "name": "Duplicate import merging",
+      "category": "Import and Dependency Management",
+      "status": "Partial",
+      "notes": "The analyzer reports duplicate module imports for review; it does not merge import declarations."
+    },
+    {
+      "id": 64,
+      "name": "Unused import removal",
+      "category": "Import and Dependency Management",
+      "status": "Partial",
+      "notes": "The analyzer detects unused imports with compiler symbols; automatic removal is not implemented."
+    },
+    {
+      "id": 65,
+      "name": "Import path normalization",
+      "category": "Import and Dependency Management",
+      "status": "Partial",
+      "notes": "Flags relative paths with interior dot or empty segments for review; resolver and symlink behavior prevent automatic normalization."
+    },
+    {
+      "id": 66,
+      "name": "Relative import consistency",
+      "category": "Import and Dependency Management",
+      "status": "Partial",
+      "notes": "Reports mixed extensionful and extensionless relative import styles in one file; leaves paths unchanged because TypeScript resolution may depend on them."
+    },
+    {
+      "id": 67,
+      "name": "Circular dependency detection",
+      "category": "Import and Dependency Management",
+      "status": "Implemented",
+      "notes": "Tarjan strongly connected components find cycles in configured local JS/TS modules."
+    },
+    {
+      "id": 68,
+      "name": "Broken import detection",
+      "category": "Import and Dependency Management",
+      "status": "Implemented",
+      "notes": "Unresolved relative JS/TS imports are reported; package names and alias configuration are outside scope."
+    },
+    {
+      "id": 69,
+      "name": "Missing dependency detection",
+      "category": "Import and Dependency Management",
+      "status": "Implemented",
+      "notes": "The read-only audit compares static JS/TS imports, re-exports, literal require(), and literal import() package names with root npm dependency sections; it ignores Node built-ins, relative imports, common aliases, URL schemes, and the VS Code host API when declared."
+    },
+    {
+      "id": 70,
+      "name": "Unused package detection",
+      "category": "Import and Dependency Management",
+      "status": "Partial",
+      "notes": "The audit reports candidate direct dependencies absent from scanned JS/TS imports and recognized package-script executables. Config-driven, generated, and dynamic references can be missed, so the result is informational."
+    },
+    {
+      "id": 71,
+      "name": "Duplicate dependency detection",
+      "category": "Import and Dependency Management",
+      "status": "Implemented",
+      "notes": "The read-only audit reports an npm package repeated across root dependency sections."
+    },
+    {
+      "id": 72,
+      "name": "Version conflict reporting",
+      "category": "Import and Dependency Management",
+      "status": "Implemented",
+      "notes": "The read-only audit warns when one npm package has different declared ranges across root dependency sections."
+    },
+    {
+      "id": 73,
+      "name": "Import graph visualization",
+      "category": "Import and Dependency Management",
+      "status": "Implemented",
+      "notes": "graph --format=mermaid emits a deterministic local module graph."
+    },
+    {
+      "id": 74,
+      "name": "Dependency tree generation",
+      "category": "Import and Dependency Management",
+      "status": "Implemented",
+      "notes": "graph emits deterministic tree, Mermaid, or JSON dependency views."
+    },
+    {
+      "id": 75,
+      "name": "Package lockfile consistency checks",
+      "category": "Import and Dependency Management",
+      "status": "Implemented",
+      "notes": "The read-only audit compares package name, version, and root dependency declarations between package.json and package-lock.json and reports malformed or orphaned lockfiles."
+    },
+    {
+      "id": 76,
+      "name": "Hardcoded API key detection",
+      "category": "Security and Risk Detection",
+      "status": "Implemented",
+      "notes": "Deterministic credential-name plus literal-value patterns; matched values are never printed."
+    },
+    {
+      "id": 77,
+      "name": "Hardcoded password detection",
+      "category": "Security and Risk Detection",
+      "status": "Implemented",
+      "notes": "Deterministic password-name plus literal-value patterns; placeholder values are ignored."
+    },
+    {
+      "id": 78,
+      "name": "Private key pattern detection",
+      "category": "Security and Risk Detection",
+      "status": "Implemented",
+      "notes": "Detects PEM private-key markers in source literals."
+    },
+    {
+      "id": 79,
+      "name": "Suspicious URL detection",
+      "category": "Security and Risk Detection",
+      "status": "Implemented",
+      "notes": "Detects executable URL schemes and embedded URL credentials."
+    },
+    {
+      "id": 80,
+      "name": "Unsafe eval() detection",
+      "category": "Security and Risk Detection",
+      "status": "Implemented",
+      "notes": "Detects direct eval calls."
+    },
+    {
+      "id": 81,
+      "name": "Unsafe dynamic code execution detection",
+      "category": "Security and Risk Detection",
+      "status": "Implemented",
+      "notes": "Detects Function constructor calls and constructions."
+    },
+    {
+      "id": 82,
+      "name": "Dangerous shell command detection",
+      "category": "Security and Risk Detection",
+      "status": "Implemented",
+      "notes": "Detects dynamic command arguments or shell-enabled options on recognized child_process APIs."
+    },
+    {
+      "id": 83,
+      "name": "Insecure HTTP usage detection",
+      "category": "Security and Risk Detection",
+      "status": "Implemented",
+      "notes": "Detects literal remote HTTP URLs and exempts localhost addresses."
+    },
+    {
+      "id": 84,
+      "name": "Weak cryptographic algorithm detection",
+      "category": "Security and Risk Detection",
+      "status": "Implemented",
+      "notes": "Detects md5 or sha1 arguments to createHash/createHmac calls."
+    },
+    {
+      "id": 85,
+      "name": "Insecure random number generation detection",
+      "category": "Security and Risk Detection",
+      "status": "Implemented",
+      "notes": "Detects Math.random calls; the rule does not infer whether the use is security-sensitive."
+    },
+    {
+      "id": 86,
+      "name": "SQL injection pattern detection",
+      "category": "Security and Risk Detection",
+      "status": "Implemented",
+      "notes": "Detects dynamic first arguments to query, execute, and raw calls."
+    },
+    {
+      "id": 87,
+      "name": "XSS-prone code pattern detection",
+      "category": "Security and Risk Detection",
+      "status": "Implemented",
+      "notes": "Detects innerHTML/outerHTML assignment and dangerouslySetInnerHTML attributes."
+    },
+    {
+      "id": 88,
+      "name": "Path traversal pattern detection",
+      "category": "Security and Risk Detection",
+      "status": "Implemented",
+      "notes": "Detects path.join/resolve with dynamic arguments named like request or file input."
+    },
+    {
+      "id": 89,
+      "name": "Unsafe deserialization detection",
+      "category": "Security and Risk Detection",
+      "status": "Implemented",
+      "notes": "Detects general deserialize/unserialize calls and vm execution methods."
+    },
+    {
+      "id": 90,
+      "name": "Insecure file permission detection",
+      "category": "Security and Risk Detection",
+      "status": "Implemented",
+      "notes": "Detects world-accessible numeric modes for common filesystem operations."
+    },
+    {
+      "id": 91,
+      "name": "Cyclomatic complexity measurement",
+      "category": "Code Complexity Analysis",
+      "status": "Implemented",
+      "notes": "The metrics report provides per-function and per-file cyclomatic complexity; the analyzer also reports functions above 10 and files above 100."
+    },
+    {
+      "id": 92,
+      "name": "Cognitive complexity measurement",
+      "category": "Code Complexity Analysis",
+      "status": "Implemented",
+      "notes": "The metrics report provides per-function and project cognitive complexity using deterministic branch and nesting weights; the analyzer reports functions above 15."
+    },
+    {
+      "id": 93,
+      "name": "Function length measurement",
+      "category": "Code Complexity Analysis",
+      "status": "Implemented",
+      "notes": "The metrics report lists each function's source-line span; the analyzer reports functions above 50 lines."
+    },
+    {
+      "id": 94,
+      "name": "Class length measurement",
+      "category": "Code Complexity Analysis",
+      "status": "Implemented",
+      "notes": "The metrics report lists class source-line spans; the analyzer reports classes above 100 lines."
+    },
+    {
+      "id": 95,
+      "name": "Nesting depth measurement",
+      "category": "Code Complexity Analysis",
+      "status": "Implemented",
+      "notes": "The metrics report lists per-function maximum control-flow nesting; the analyzer reports functions above four levels."
+    },
+    {
+      "id": 96,
+      "name": "Parameter count measurement",
+      "category": "Code Complexity Analysis",
+      "status": "Implemented",
+      "notes": "The metrics report lists function parameter counts; the analyzer reports functions with more than five parameters."
+    },
+    {
+      "id": 97,
+      "name": "Dependency count measurement",
+      "category": "Code Complexity Analysis",
+      "status": "Implemented",
+      "notes": "The metrics report counts distinct static imports, re-exports, and literal require calls per file and project; the analyzer reports files above 20 dependencies."
+    },
+    {
+      "id": 98,
+      "name": "File complexity measurement",
+      "category": "Code Complexity Analysis",
+      "status": "Implemented",
+      "notes": "The metrics report sums per-function cyclomatic complexity by file and across the project; the analyzer reports files above 100."
+    },
+    {
+      "id": 99,
+      "name": "Code duplication percentage",
+      "category": "Code Complexity Analysis",
+      "status": "Partial",
+      "notes": "The metrics report calculates percentages for exact repeated block-bodied functions with at least four statements in the same file; cross-file and near-duplicate matching remain out of scope."
+    },
+    {
+      "id": 100,
+      "name": "Maintainability index calculation",
+      "category": "Code Complexity Analysis",
+      "status": "Implemented",
+      "notes": "The metrics report provides a deterministic 0–100 classic Maintainability Index approximation from AST-based Halstead volume, cyclomatic complexity, and source lines, and documents its formula."
+    },
+    {
+      "id": 101,
+      "name": "Function relationship mapping",
+      "category": "Code Structure Analysis",
+      "status": "Partial",
+      "notes": "The metrics API records per-function syntactic call references and exposes an intra-file call graph. Calls are not fully resolved across files or dynamic dispatch."
+    },
+    {
+      "id": 102,
+      "name": "Class relationship mapping",
+      "category": "Code Structure Analysis",
+      "status": "Partial",
+      "notes": "The metrics API reports class extends/implements clauses and method names from syntax. It does not resolve transitive relationships across modules."
+    },
+    {
+      "id": 103,
+      "name": "Module dependency mapping",
+      "category": "Code Structure Analysis",
+      "status": "Implemented",
+      "notes": "The graph API and CLI map configured local import/export/require relationships."
+    },
+    {
+      "id": 104,
+      "name": "Circular reference analysis",
+      "category": "Code Structure Analysis",
+      "status": "Duplicate",
+      "notes": "Duplicate capability of #67 (circular dependency detection); keep one dependency-graph engine."
+    },
+    {
+      "id": 105,
+      "name": "Call graph generation",
+      "category": "Code Structure Analysis",
+      "status": "Partial",
+      "notes": "graph --format=callgraph emits Mermaid edges for uniquely named intra-file identifier calls; dynamic, ambiguous, and cross-file calls are omitted."
+    },
+    {
+      "id": 106,
+      "name": "Control flow graph generation",
+      "category": "Code Structure Analysis",
+      "status": "Partial",
+      "notes": "The metrics graph builds deterministic JavaScript and TypeScript nodes and edges for branches, loops, switch cases, returns, throws, and basic try/catch flow; exceptions and some labeled transfers remain approximate."
+    },
+    {
+      "id": 107,
+      "name": "Data flow analysis",
+      "category": "Code Structure Analysis",
+      "status": "Partial",
+      "notes": "The TypeScript checker tracks local symbol reads and writes for unused-binding and prefer-const findings. Full interprocedural data-flow graphs are not generated."
+    },
+    {
+      "id": 108,
+      "name": "Variable scope analysis",
+      "category": "Code Structure Analysis",
+      "status": "Partial",
+      "notes": "Compiler symbol scopes support duplicate-declaration and unused-binding analysis. Cleanser does not expose a standalone scope tree."
+    },
+    {
+      "id": 109,
+      "name": "Variable lifetime analysis",
+      "category": "Code Structure Analysis",
+      "status": "Partial",
+      "notes": "Metrics report declaration-to-last-reference source spans for parameters and locals; shadowing and runtime closure lifetimes are approximate and clearly described in the report algorithm."
+    },
+    {
+      "id": 110,
+      "name": "Export/import relationship analysis",
+      "category": "Code Structure Analysis",
+      "status": "Implemented",
+      "notes": "Static import and export relationships are represented as graph edges."
+    },
+    {
+      "id": 111,
+      "name": "Empty file detection",
+      "category": "Project Cleanup",
+      "status": "Implemented",
+      "notes": "Read-only project audit detects zero-byte regular files."
+    },
+    {
+      "id": 112,
+      "name": "Empty folder detection",
+      "category": "Project Cleanup",
+      "status": "Implemented",
+      "notes": "Read-only project audit reports empty directories outside skipped paths."
+    },
+    {
+      "id": 113,
+      "name": "Unused file detection",
+      "category": "Project Cleanup",
+      "status": "Partial",
+      "notes": "Audit reports JavaScript/TypeScript modules unreachable from resolvable package entrypoints; dynamic imports, framework conventions, direct script usage, and non-JS assets are not inferred, so findings are informational candidates only."
+    },
+    {
+      "id": 114,
+      "name": "Duplicate file detection",
+      "category": "Project Cleanup",
+      "status": "Implemented",
+      "notes": "Read-only project audit groups same-extension files by byte size and SHA-256; it reports exact content matches only."
+    },
+    {
+      "id": 115,
+      "name": "Unused asset detection",
+      "category": "Project Cleanup",
+      "status": "Implemented",
+      "notes": "Read-only project audit scans bounded JavaScript, TypeScript, markup, style, JSON, YAML, and documentation references for common image, audio, video, font, and PDF assets. Unreferenced assets are informational candidates only; dynamic paths and generated references may be missed, and no files are deleted."
+    },
+    {
+      "id": 116,
+      "name": "Orphaned configuration detection",
+      "category": "Project Cleanup",
+      "status": "Partial",
+      "notes": "Read-only audit reports root tsconfig.json or jsconfig.json as informational candidates only when matching sources, recognized TypeScript tools, and (for TypeScript) project references are absent. Editor-only, generated, and external-tool usage cannot be inferred."
+    },
+    {
+      "id": 117,
+      "name": "Temporary file detection",
+      "category": "Project Cleanup",
+      "status": "Implemented",
+      "notes": "Read-only project audit detects common editor and temporary-file suffixes."
+    },
+    {
+      "id": 118,
+      "name": "Backup file detection",
+      "category": "Project Cleanup",
+      "status": "Implemented",
+      "notes": "Read-only project audit detects backup suffixes and files under .cleanser-backups/."
+    },
+    {
+      "id": 119,
+      "name": "Build artifact detection",
+      "category": "Project Cleanup",
+      "status": "Implemented",
+      "notes": "Read-only project audit reports common build output directories and does not traverse them."
+    },
+    {
+      "id": 120,
+      "name": "Unnecessary log file detection",
+      "category": "Project Cleanup",
+      "status": "Implemented",
+      "notes": "Read-only project audit detects .log files."
+    },
+    {
+      "id": 121,
+      "name": "Unused test file detection",
+      "category": "Project Cleanup",
+      "status": "Partial",
+      "notes": "The read-only audit reports JS/TS files named *.test.*, *.spec.*, or under __tests__ when no common test or suite call is present. Dynamic test registration and other language runners are not detected."
+    },
+    {
+      "id": 122,
+      "name": "Missing .gitignore entry detection",
+      "category": "Project Cleanup",
+      "status": "Implemented",
+      "notes": "Audit reports missing ignore patterns for existing generated directories."
+    },
+    {
+      "id": 123,
+      "name": "Duplicate configuration detection",
+      "category": "Project Cleanup",
+      "status": "Implemented",
+      "notes": "Audit compares recognized configuration files by filename and SHA-256 content."
+    },
+    {
+      "id": 124,
+      "name": "Project structure analysis",
+      "category": "Project Cleanup",
+      "status": "Implemented",
+      "notes": "Audit reports file count, directory count, byte total, and extension counts."
+    },
+    {
+      "id": 125,
+      "name": "Workspace cleanup",
+      "category": "Project Cleanup",
+      "status": "Partial",
+      "notes": "Audit lists cleanup candidates without deleting them; interactive cleanup and approval are not implemented."
+    },
+    {
+      "id": 126,
+      "name": "Missing documentation detection",
+      "category": "Documentation and Comment Analysis",
+      "status": "Partial",
+      "notes": "JSDoc coverage checks exported functions, classes, interfaces, type aliases, enums, and variables; other declaration forms and languages remain outside scope."
+    },
+    {
+      "id": 127,
+      "name": "Missing function description detection",
+      "category": "Documentation and Comment Analysis",
+      "status": "Implemented",
+      "notes": "Exported function, method, and class descriptions are checked through the missing-function-documentation rule."
+    },
+    {
+      "id": 128,
+      "name": "Missing parameter documentation detection",
+      "category": "Documentation and Comment Analysis",
+      "status": "Implemented",
+      "notes": "Documented public functions are checked for missing @param tags on named parameters."
+    },
+    {
+      "id": 129,
+      "name": "Missing return documentation detection",
+      "category": "Documentation and Comment Analysis",
+      "status": "Implemented",
+      "notes": "Documented public functions that return a value are checked for @returns tags."
+    },
+    {
+      "id": 130,
+      "name": "Invalid JSDoc detection",
+      "category": "Documentation and Comment Analysis",
+      "status": "Partial",
+      "notes": "Public function JSDoc checks flag duplicate @param tags and names that do not match parameters; coverage also reports missing descriptions, parameter tags, and return tags. Other invalid-tag and declaration forms are not validated."
+    },
+    {
+      "id": 131,
+      "name": "Outdated TODO detection",
+      "category": "Documentation and Comment Analysis",
+      "status": "Implemented",
+      "notes": "Explicit TODO due dates in [due: YYYY-MM-DD] form are reported after the date passes."
+    },
+    {
+      "id": 132,
+      "name": "FIXME tracking",
+      "category": "Documentation and Comment Analysis",
+      "status": "Implemented",
+      "notes": "FIXME comments are reported with source locations."
+    },
+    {
+      "id": 133,
+      "name": "Duplicate comment detection",
+      "category": "Documentation and Comment Analysis",
+      "status": "Implemented",
+      "notes": "Repeated substantive comments are detected within each JS/TS file; short and license comments are excluded."
+    },
+    {
+      "id": 134,
+      "name": "Empty comment detection",
+      "category": "Documentation and Comment Analysis",
+      "status": "Implemented",
+      "notes": "Empty JS/TS comments are reported with source locations."
+    },
+    {
+      "id": 135,
+      "name": "Commented-out code detection",
+      "category": "Documentation and Comment Analysis",
+      "status": "Partial",
+      "notes": "Conservative syntax-shaped comment patterns flag likely disabled code; this heuristic can miss or misclassify prose."
+    },
+    {
+      "id": 136,
+      "name": "Documentation link validation",
+      "category": "Documentation and Comment Analysis",
+      "status": "Partial",
+      "notes": "Partial: local Markdown links are checked offline; remote URLs are not requested or validated."
+    },
+    {
+      "id": 137,
+      "name": "Broken internal reference detection",
+      "category": "Documentation and Comment Analysis",
+      "status": "Implemented",
+      "notes": "Missing local Markdown targets and heading references in linked Markdown documents are reported."
+    },
+    {
+      "id": 138,
+      "name": "Markdown formatting",
+      "category": "Documentation and Comment Analysis",
+      "status": "Implemented",
+      "notes": "Prettier formats Markdown files included by the project configuration."
+    },
+    {
+      "id": 139,
+      "name": "Markdown heading consistency",
+      "category": "Documentation and Comment Analysis",
+      "status": "Partial",
+      "notes": "ATX and Setext headings are checked for level jumps; generated heading semantics are not fully modeled."
+    },
+    {
+      "id": 140,
+      "name": "Documentation coverage reporting",
+      "category": "Documentation and Comment Analysis",
+      "status": "Partial",
+      "notes": "Partial: project audit reports Markdown document, heading, and local-link counts."
+    },
+    {
+      "id": 141,
+      "name": "Changed-file detection",
+      "category": "Git Intelligence",
+      "status": "Implemented",
+      "notes": "Git status/change inspection lists unstaged, staged, and untracked files."
+    },
+    {
+      "id": 142,
+      "name": "Staged-file detection",
+      "category": "Git Intelligence",
+      "status": "Implemented",
+      "notes": "Git changed --staged lists index changes using NUL-safe Git paths."
+    },
+    {
+      "id": 143,
+      "name": "Changed-line detection",
+      "category": "Git Intelligence",
+      "status": "Implemented",
+      "notes": "Git lines reports added-line ranges for staged or unstaged diffs."
+    },
+    {
+      "id": 144,
+      "name": "Git branch comparison",
+      "category": "Git Intelligence",
+      "status": "Implemented",
+      "notes": "Git compare <revision> reports the three-dot branch comparison against HEAD."
+    },
+    {
+      "id": 145,
+      "name": "Dirty working-tree protection",
+      "category": "Git Intelligence",
+      "status": "Implemented",
+      "notes": "Write operations can require a clean Git worktree and reject modified or untracked paths; clean supports the explicit --allow-dirty override."
+    },
+    {
+      "id": 146,
+      "name": "Automatic snapshots",
+      "category": "Git Intelligence",
+      "status": "Partial",
+      "notes": "Partial: formatter creates a first-original backup per file; versioned per-run snapshots are not stored."
+    },
+    {
+      "id": 147,
+      "name": "Safe rollback",
+      "category": "Git Intelligence",
+      "status": "Implemented",
+      "notes": "restore <file> --yes atomically restores a safe, regular project file from its Cleanser backup."
+    },
+    {
+      "id": 148,
+      "name": "Cleanup history",
+      "category": "Git Intelligence",
+      "status": "Partial",
+      "notes": "Partial: history lists original formatter backups; it is not a timestamped multi-run history."
+    },
+    {
+      "id": 149,
+      "name": "Git blame integration",
+      "category": "Git Intelligence",
+      "status": "Implemented",
+      "notes": "Git blame <file> uses the local Git repository and a validated project-relative path."
+    },
+    {
+      "id": 150,
+      "name": "Dedicated cleanup commits",
+      "category": "Git Intelligence",
+      "status": "Implemented",
+      "notes": "clean --commit creates a dedicated --only commit for tracked Cleanser-formatted files after requiring a clean Git tree; unrelated paths are guarded and backups are never committed."
+    },
+    {
+      "id": 151,
+      "name": "Pre-commit hooks",
+      "category": "Git Intelligence",
+      "status": "Implemented",
+      "notes": "cleanser hooks install pre-commit adds a managed, read-only check --changed hook; uninstall removes only a Cleanser-managed hook."
+    },
+    {
+      "id": 152,
+      "name": "Pre-push hooks",
+      "category": "Git Intelligence",
+      "status": "Implemented",
+      "notes": "cleanser hooks install pre-push adds a managed, read-only full-project check hook; uninstall removes only a Cleanser-managed hook."
+    },
+    {
+      "id": 153,
+      "name": "Git diff reports",
+      "category": "Git Intelligence",
+      "status": "Implemented",
+      "notes": "Git diff emits a local, no-color tracked-file diff without invoking external diff or text-conversion tools."
+    },
+    {
+      "id": 154,
+      "name": "Conflict detection",
+      "category": "Git Intelligence",
+      "status": "Implemented",
+      "notes": "Git conflicts lists paths in unresolved index-conflict state."
+    },
+    {
+      "id": 155,
+      "name": "Protected-file rules",
+      "category": "Git Intelligence",
+      "status": "Implemented",
+      "notes": "Project-relative safety.protected_paths globs can protect individual files and directory trees from cleanup; default exclusions protect dependency, Git, and backup paths."
+    },
+    {
+      "id": 156,
+      "name": "Syntax validation",
+      "category": "Testing and Verification",
+      "status": "Implemented",
+      "notes": "TypeScript parsing reports syntax errors in supported JS/TS module files without editing source."
+    },
+    {
+      "id": 157,
+      "name": "AST equivalence verification",
+      "category": "Testing and Verification",
+      "status": "Implemented",
+      "notes": "Before formatting writes, Cleanser compares normalized parser ASTs from Prettier's selected parser. Node location and raw formatting metadata are ignored; code and comment structure remain part of the comparison. A mismatch blocks the full write batch."
+    },
+    {
+      "id": 158,
+      "name": "Type checking integration",
+      "category": "Testing and Verification",
+      "status": "Partial",
+      "notes": "The read-only typecheck command uses the TypeScript project config, reports deterministic compiler diagnostics, forces noEmit, and supports JSON output. Project-reference build orchestration and non-TypeScript compiler integrations are not implemented."
+    },
+    {
+      "id": 159,
+      "name": "Compiler output comparison",
+      "category": "Testing and Verification",
+      "status": "Partial",
+      "notes": "Optional verify --compiler compares TypeScript-emitted JavaScript syntax trees for JS/TS files without running code; it does not resolve project dependencies or run a full compiler build."
+    },
+    {
+      "id": 160,
+      "name": "Unit test execution",
+      "category": "Testing and Verification",
+      "status": "Implemented",
+      "notes": "The npm test command discovers and runs the Node.js unit suite and then performs syntax checks on the CLI and VS Code extension."
+    },
+    {
+      "id": 161,
+      "name": "Integration test execution",
+      "category": "Testing and Verification",
+      "status": "Implemented",
+      "notes": "The Node.js test suite includes CLI, project workflow, configuration, watcher, and VS Code packaging integration coverage."
+    },
+    {
+      "id": 162,
+      "name": "Regression test execution",
+      "category": "Testing and Verification",
+      "status": "Partial",
+      "notes": "Regression cases run with npm test, but no separate baseline or historical snapshot regression runner is provided."
+    },
+    {
+      "id": 163,
+      "name": "Formatting verification",
+      "category": "Testing and Verification",
+      "status": "Implemented",
+      "notes": "check verifies whether configured files already match Prettier output without writing them."
+    },
+    {
+      "id": 164,
+      "name": "Transformation verification",
+      "category": "Testing and Verification",
+      "status": "Implemented",
+      "notes": "All changed formatter output is AST-verified before backups or writes; the same check is exposed in read-only previews. No semantic refactoring is automatically applied."
+    },
+    {
+      "id": 165,
+      "name": "Before/after comparison",
+      "category": "Testing and Verification",
+      "status": "Implemented",
+      "notes": "preview emits deterministic line-based before/after diffs without writing files."
+    },
+    {
+      "id": 166,
+      "name": "Automatic rollback on failure",
+      "category": "Testing and Verification",
+      "status": "Implemented",
+      "notes": "Formatting and safety checks complete before writes; if a later atomic replacement fails, Cleanser restores earlier writes from the in-memory originals and retains the original backups."
+    },
+    {
+      "id": 167,
+      "name": "Test coverage reporting",
+      "category": "Testing and Verification",
+      "status": "Implemented",
+      "notes": "npm run test:coverage uses Node.js built-in test coverage reporting for the complete discovered test suite."
+    },
+    {
+      "id": 168,
+      "name": "Test discovery",
+      "category": "Testing and Verification",
+      "status": "Implemented",
+      "notes": "Node.js test runner discovery executes the repository's tests/*.test.js files through npm test and npm run test:coverage."
+    },
+    {
+      "id": 169,
+      "name": "Snapshot testing",
+      "category": "Testing and Verification",
+      "status": "Implemented",
+      "notes": "The snapshot command stores SHA-256 digests of formatted project files, checks for added/removed/changed outputs, and updates only through an explicit --update option."
+    },
+    {
+      "id": 170,
+      "name": "Deterministic output verification",
+      "category": "Testing and Verification",
+      "status": "Implemented",
+      "notes": "The read-only verify command formats each configured file twice in memory and reports deterministic output, mismatches, and parser errors in text or JSON."
+    },
+    {
+      "id": 171,
+      "name": "Dry-run mode",
+      "category": "Advanced Safety System",
+      "status": "Implemented",
+      "notes": "Read-only check and analyze commands provide preview-like validation without writes."
+    },
+    {
+      "id": 172,
+      "name": "Diff preview",
+      "category": "Advanced Safety System",
+      "status": "Implemented",
+      "notes": "preview shows unified formatting diffs without writes; large files use a bounded full-file diff fallback."
+    },
+    {
+      "id": 173,
+      "name": "Interactive approval",
+      "category": "Advanced Safety System",
+      "status": "Implemented",
+      "notes": "clean --interactive asks for approval for every changed file; a missing or non-yes answer declines the change. Piped answers support deterministic scripts."
+    },
+    {
+      "id": 174,
+      "name": "Per-file approval",
+      "category": "Advanced Safety System",
+      "status": "Implemented",
+      "notes": "Interactive approvals apply independently per file. Declined files are not backed up or written; approved files retain transactional rollback protections."
+    },
+    {
+      "id": 175,
+      "name": "Per-rule approval",
+      "category": "Advanced Safety System",
+      "status": "Partial",
+      "notes": "VS Code exposes low-risk fixes as individually accepted quick-fix actions, and analysis rules support per-rule severity overrides; a persisted approval policy for every rule is not included."
+    },
+    {
+      "id": 176,
+      "name": "Risk classification",
+      "category": "Advanced Safety System",
+      "status": "Implemented",
+      "notes": "Deterministic change-risk labels classify AST-equivalent formatting as SAFE, unverified changes as LOW, and semantic, destructive, or AST-mismatched changes as REVIEW."
+    },
+    {
+      "id": 177,
+      "name": "Confidence classification",
+      "category": "Advanced Safety System",
+      "status": "Implemented",
+      "notes": "Confidence is HIGH when a parser comparison resolves equivalence, MEDIUM when no equivalence result is supplied, and LOW when the parser is unavailable. Interactive prompts include both risk and confidence."
+    },
+    {
+      "id": 178,
+      "name": "Backup creation",
+      "category": "Advanced Safety System",
+      "status": "Implemented",
+      "notes": "Backups are created before formatter writes when configured."
+    },
+    {
+      "id": 179,
+      "name": "Transactional file writes",
+      "category": "Advanced Safety System",
+      "status": "Implemented",
+      "notes": "Cleanser preflights all files, creates required backups before replacement, applies atomic replacements under a project lock, and attempts rollback if a batch write fails."
+    },
+    {
+      "id": 180,
+      "name": "Atomic replacement",
+      "category": "Advanced Safety System",
+      "status": "Implemented",
+      "notes": "Changed files are replaced atomically after formatting succeeds."
+    },
+    {
+      "id": 181,
+      "name": "File locking",
+      "category": "Advanced Safety System",
+      "status": "Implemented",
+      "notes": "Write runs acquire an exclusive .cleanser.lock file and release it after completion; existing locks stop overlapping Cleanser write runs with owner details when available."
+    },
+    {
+      "id": 182,
+      "name": "Symlink protection",
+      "category": "Advanced Safety System",
+      "status": "Implemented",
+      "notes": "Symlinked files and directories are skipped by project scanning."
+    },
+    {
+      "id": 183,
+      "name": "Path traversal protection",
+      "category": "Advanced Safety System",
+      "status": "Implemented",
+      "notes": "Project-relative paths and backup paths are checked against traversal."
+    },
+    {
+      "id": 184,
+      "name": "File integrity verification",
+      "category": "Advanced Safety System",
+      "status": "Partial",
+      "notes": "Partial: Cleanser verifies the source is still a safe regular file and unchanged before replacing it; durable hash manifests are not stored."
+    },
+    {
+      "id": 185,
+      "name": "Undo and redo",
+      "category": "Advanced Safety System",
+      "status": "Partial",
+      "notes": "Partial: undo <file> --yes restores the first original backup; redo and multi-step history are not available."
+    },
+    {
+      "id": 186,
+      "name": "Crash recovery",
+      "category": "Advanced Safety System",
+      "status": "Partial",
+      "notes": "Atomic replacement prevents partially written individual files, original backups remain available, and a process crash leaves an explicit lock file; automatic transaction journal replay is not implemented."
+    },
+    {
+      "id": 187,
+      "name": "Protected directories",
+      "category": "Advanced Safety System",
+      "status": "Implemented",
+      "notes": "Configuration safety.protected_paths patterns exclude matching files and directory trees from project cleanup; node_modules, .git, and Cleanser backups remain protected by default."
+    },
+    {
+      "id": 188,
+      "name": "Maximum-change limits",
+      "category": "Advanced Safety System",
+      "status": "Implemented",
+      "notes": "Configurable safety.maximum_changed_files and safety.maximum_change_bytes and CLI --max-files/--max-bytes limits reject the full batch before writes when exceeded."
+    },
+    {
+      "id": 189,
+      "name": "Read-only mode",
+      "category": "Advanced Safety System",
+      "status": "Implemented",
+      "notes": "check and analyze are read-only modes."
+    },
+    {
+      "id": 190,
+      "name": "Safe mode and aggressive mode",
+      "category": "Advanced Safety System",
+      "status": "Partial",
+      "notes": "Partial: safe mode is enforced and aggressive mode is explicitly rejected."
+    },
+    {
+      "id": 191,
+      "name": "JavaScript",
+      "category": "Multi-Language Support",
+      "status": "Implemented",
+      "notes": "JavaScript formatting and AST analysis are supported."
+    },
+    {
+      "id": 192,
+      "name": "TypeScript",
+      "category": "Multi-Language Support",
+      "status": "Implemented",
+      "notes": "TypeScript formatting and AST analysis are supported."
+    },
+    {
+      "id": 193,
+      "name": "JSX",
+      "category": "Multi-Language Support",
+      "status": "Implemented",
+      "notes": "JSX formatting and AST analysis are supported."
+    },
+    {
+      "id": 194,
+      "name": "TSX",
+      "category": "Multi-Language Support",
+      "status": "Implemented",
+      "notes": "TSX formatting and AST analysis are supported."
+    },
+    {
+      "id": 195,
+      "name": "Python",
+      "category": "Multi-Language Support",
+      "status": "Planned",
+      "notes": "Not implemented yet."
+    },
+    {
+      "id": 196,
+      "name": "C",
+      "category": "Multi-Language Support",
+      "status": "Planned",
+      "notes": "Not implemented yet."
+    },
+    {
+      "id": 197,
+      "name": "C++",
+      "category": "Multi-Language Support",
+      "status": "Planned",
+      "notes": "Not implemented yet."
+    },
+    {
+      "id": 198,
+      "name": "Rust",
+      "category": "Multi-Language Support",
+      "status": "Planned",
+      "notes": "Not implemented yet."
+    },
+    {
+      "id": 199,
+      "name": "Java",
+      "category": "Multi-Language Support",
+      "status": "Partial",
+      "notes": "Java formatting is available through the bundled Prettier Java plugin and is guarded by AST equivalence checks. General-purpose Java static analysis is not included."
+    },
+    {
+      "id": 200,
+      "name": "C#",
+      "category": "Multi-Language Support",
+      "status": "Planned",
+      "notes": "Not implemented yet."
+    },
+    {
+      "id": 201,
+      "name": "Go",
+      "category": "Multi-Language Support",
+      "status": "Planned",
+      "notes": "Not implemented yet."
+    },
+    {
+      "id": 202,
+      "name": "PHP",
+      "category": "Multi-Language Support",
+      "status": "Partial",
+      "notes": "PHP formatting is available through the bundled Prettier PHP plugin and is guarded by AST equivalence checks. General-purpose PHP static analysis is not included."
+    },
+    {
+      "id": 203,
+      "name": "Ruby",
+      "category": "Multi-Language Support",
+      "status": "Planned",
+      "notes": "Not implemented yet."
+    },
+    {
+      "id": 204,
+      "name": "Swift",
+      "category": "Multi-Language Support",
+      "status": "Planned",
+      "notes": "Not implemented yet."
+    },
+    {
+      "id": 205,
+      "name": "Kotlin",
+      "category": "Multi-Language Support",
+      "status": "Planned",
+      "notes": "Not implemented yet."
+    },
+    {
+      "id": 206,
+      "name": "Dart",
+      "category": "Multi-Language Support",
+      "status": "Planned",
+      "notes": "Not implemented yet."
+    },
+    {
+      "id": 207,
+      "name": "Lua",
+      "category": "Multi-Language Support",
+      "status": "Planned",
+      "notes": "Not implemented yet."
+    },
+    {
+      "id": 208,
+      "name": "HTML",
+      "category": "Multi-Language Support",
+      "status": "Implemented",
+      "notes": "Formatted by Prettier and available to the VS Code formatter."
+    },
+    {
+      "id": 209,
+      "name": "CSS",
+      "category": "Multi-Language Support",
+      "status": "Implemented",
+      "notes": "Formatted by Prettier and available to the VS Code formatter."
+    },
+    {
+      "id": 210,
+      "name": "SCSS",
+      "category": "Multi-Language Support",
+      "status": "Implemented",
+      "notes": "Formatted by Prettier and available to the VS Code formatter."
+    },
+    {
+      "id": 211,
+      "name": "JSON",
+      "category": "Multi-Language Support",
+      "status": "Implemented",
+      "notes": "Formatted by Prettier and available to the VS Code formatter."
+    },
+    {
+      "id": 212,
+      "name": "JSONC",
+      "category": "Multi-Language Support",
+      "status": "Implemented",
+      "notes": "Formatted by Prettier and available to the VS Code formatter."
+    },
+    {
+      "id": 213,
+      "name": "YAML",
+      "category": "Multi-Language Support",
+      "status": "Implemented",
+      "notes": "Formatted by Prettier and available to the VS Code formatter."
+    },
+    {
+      "id": 214,
+      "name": "TOML",
+      "category": "Multi-Language Support",
+      "status": "Partial",
+      "notes": "Offline TOML formatting is bundled; semantic TOML analysis is not provided."
+    },
+    {
+      "id": 215,
+      "name": "XML",
+      "category": "Multi-Language Support",
+      "status": "Partial",
+      "notes": "Offline XML and SVG formatting is bundled; semantic XML analysis is not provided."
+    },
+    {
+      "id": 216,
+      "name": "Markdown",
+      "category": "Multi-Language Support",
+      "status": "Implemented",
+      "notes": "Formatted by Prettier and available to the VS Code formatter."
+    },
+    {
+      "id": 217,
+      "name": "SQL",
+      "category": "Multi-Language Support",
+      "status": "Partial",
+      "notes": "Offline SQL formatting is bundled and write safety uses a default MySQL AST plus exact token preservation; unsupported dialects are safely refused. Database-schema analysis is not provided."
+    },
+    {
+      "id": 218,
+      "name": "Shell scripts",
+      "category": "Multi-Language Support",
+      "status": "Partial",
+      "notes": "Offline Bash, Zsh, KornShell, and Bats formatting is bundled; shell execution and semantic analysis are not performed."
+    },
+    {
+      "id": 219,
+      "name": "PowerShell",
+      "category": "Multi-Language Support",
+      "status": "Partial",
+      "notes": "Offline PowerShell formatting is bundled with alias rewriting and key sorting disabled; semantic analysis is not provided."
+    },
+    {
+      "id": 220,
+      "name": "Vue",
+      "category": "Multi-Language Support",
+      "status": "Implemented",
+      "notes": "Formatted by Prettier and available to the VS Code formatter."
+    },
+    {
+      "id": 221,
+      "name": "Svelte",
+      "category": "Multi-Language Support",
+      "status": "Partial",
+      "notes": "Offline Svelte formatting is bundled; framework-specific semantic analysis is not provided."
+    },
+    {
+      "id": 222,
+      "name": "Astro",
+      "category": "Multi-Language Support",
+      "status": "Partial",
+      "notes": "Offline Astro formatting is bundled; framework-specific semantic analysis is not provided."
+    },
+    {
+      "id": 223,
+      "name": "React analysis",
+      "category": "Framework and Ecosystem Support",
+      "status": "Partial",
+      "notes": "Project audit detects framework or build metadata from manifests and marker files only; framework-specific source analysis is not implemented."
+    },
+    {
+      "id": 224,
+      "name": "Next.js project analysis",
+      "category": "Framework and Ecosystem Support",
+      "status": "Partial",
+      "notes": "Project audit detects framework or build metadata from manifests and marker files only; framework-specific source analysis is not implemented."
+    },
+    {
+      "id": 225,
+      "name": "Vue project analysis",
+      "category": "Framework and Ecosystem Support",
+      "status": "Partial",
+      "notes": "Project audit detects framework or build metadata from manifests and marker files only; framework-specific source analysis is not implemented."
+    },
+    {
+      "id": 226,
+      "name": "Angular project analysis",
+      "category": "Framework and Ecosystem Support",
+      "status": "Partial",
+      "notes": "Project audit detects framework or build metadata from manifests and marker files only; framework-specific source analysis is not implemented."
+    },
+    {
+      "id": 227,
+      "name": "Svelte project analysis",
+      "category": "Framework and Ecosystem Support",
+      "status": "Partial",
+      "notes": "Project audit detects framework or build metadata from manifests and marker files only; framework-specific source analysis is not implemented."
+    },
+    {
+      "id": 228,
+      "name": "Node.js project analysis",
+      "category": "Framework and Ecosystem Support",
+      "status": "Partial",
+      "notes": "Project audit detects framework or build metadata from manifests and marker files only; framework-specific source analysis is not implemented."
+    },
+    {
+      "id": 229,
+      "name": "Express project analysis",
+      "category": "Framework and Ecosystem Support",
+      "status": "Partial",
+      "notes": "Project audit detects framework or build metadata from manifests and marker files only; framework-specific source analysis is not implemented."
+    },
+    {
+      "id": 230,
+      "name": "NestJS project analysis",
+      "category": "Framework and Ecosystem Support",
+      "status": "Partial",
+      "notes": "Project audit detects framework or build metadata from manifests and marker files only; framework-specific source analysis is not implemented."
+    },
+    {
+      "id": 231,
+      "name": "Django project analysis",
+      "category": "Framework and Ecosystem Support",
+      "status": "Partial",
+      "notes": "Project audit detects framework or build metadata from manifests and marker files only; framework-specific source analysis is not implemented."
+    },
+    {
+      "id": 232,
+      "name": "Flask project analysis",
+      "category": "Framework and Ecosystem Support",
+      "status": "Partial",
+      "notes": "Project audit detects framework or build metadata from manifests and marker files only; framework-specific source analysis is not implemented."
+    },
+    {
+      "id": 233,
+      "name": "Laravel project analysis",
+      "category": "Framework and Ecosystem Support",
+      "status": "Partial",
+      "notes": "Project audit detects framework or build metadata from manifests and marker files only; framework-specific source analysis is not implemented."
+    },
+    {
+      "id": 234,
+      "name": "Spring project analysis",
+      "category": "Framework and Ecosystem Support",
+      "status": "Partial",
+      "notes": "Project audit detects framework or build metadata from manifests and marker files only; framework-specific source analysis is not implemented."
+    },
+    {
+      "id": 235,
+      "name": ".NET project analysis",
+      "category": "Framework and Ecosystem Support",
+      "status": "Partial",
+      "notes": "Project audit detects framework or build metadata from manifests and marker files only; framework-specific source analysis is not implemented."
+    },
+    {
+      "id": 236,
+      "name": "Cargo project analysis",
+      "category": "Framework and Ecosystem Support",
+      "status": "Partial",
+      "notes": "Project audit detects framework or build metadata from manifests and marker files only; framework-specific source analysis is not implemented."
+    },
+    {
+      "id": 237,
+      "name": "Go module analysis",
+      "category": "Framework and Ecosystem Support",
+      "status": "Partial",
+      "notes": "Project audit detects framework or build metadata from manifests and marker files only; framework-specific source analysis is not implemented."
+    },
+    {
+      "id": 238,
+      "name": "CMake project analysis",
+      "category": "Framework and Ecosystem Support",
+      "status": "Partial",
+      "notes": "Project audit detects framework or build metadata from manifests and marker files only; framework-specific source analysis is not implemented."
+    },
+    {
+      "id": 239,
+      "name": ".cleanser.clns configuration",
+      "category": "Configuration System",
+      "status": "Implemented",
+      "notes": "Strict YAML-based .cleanser.clns configuration is supported."
+    },
+    {
+      "id": 240,
+      "name": "JSON configuration support",
+      "category": "Configuration System",
+      "status": "Implemented",
+      "notes": "Cleanser accepts strict .cleanser.json alongside .cleanser.clns, rejects duplicate JSON keys and ambiguous dual config files, and prevents init from creating a competing YAML config."
+    },
+    {
+      "id": 241,
+      "name": "YAML configuration support",
+      "category": "Configuration System",
+      "status": "Implemented",
+      "notes": "The project configuration uses validated YAML syntax."
+    },
+    {
+      "id": 242,
+      "name": "Configuration inheritance",
+      "category": "Configuration System",
+      "status": "Implemented",
+      "notes": "A config may extend one relative YAML or JSON config inside the project root; inherited sections merge predictably, cycles and traversal are rejected, and nesting is capped."
+    },
+    {
+      "id": 243,
+      "name": "Folder-specific configuration",
+      "category": "Configuration System",
+      "status": "Implemented",
+      "notes": "Ordered project-relative file-glob overrides apply folder-scoped formatting and analysis settings without requiring scattered nested config files."
+    },
+    {
+      "id": 244,
+      "name": "File-specific rules",
+      "category": "Configuration System",
+      "status": "Implemented",
+      "notes": "Each ordered file-glob override can set built-in analysis rules to off, info, warning, or error for matching files."
+    },
+    {
+      "id": 245,
+      "name": "Rule severity settings",
+      "category": "Configuration System",
+      "status": "Implemented",
+      "notes": "Built-in rule severity can be overridden to info, warning, or error."
+    },
+    {
+      "id": 246,
+      "name": "Rule enable/disable",
+      "category": "Configuration System",
+      "status": "Implemented",
+      "notes": "Built-in analysis rules can be disabled with off in configuration."
+    },
+    {
+      "id": 247,
+      "name": "Custom ignore patterns",
+      "category": "Configuration System",
+      "status": "Implemented",
+      "notes": "Configurable include/exclude glob patterns select project files."
+    },
+    {
+      "id": 248,
+      "name": "Preset configurations",
+      "category": "Configuration System",
+      "status": "Implemented",
+      "notes": "Built-in recommended, strict, and security presets are applied before per-rule overrides."
+    },
+    {
+      "id": 249,
+      "name": "Configuration validation",
+      "category": "Configuration System",
+      "status": "Implemented",
+      "notes": "Configuration schema, types, values, and unknown keys are validated."
+    },
+    {
+      "id": 250,
+      "name": "Configuration migration",
+      "category": "Configuration System",
+      "status": "Partial",
+      "notes": "config migrate converts between .cleanser.clns YAML and .cleanser.json while preserving validated settings and rolling back on validation failure. Schema-version migration is not available."
+    },
+    {
+      "id": 251,
+      "name": "Configuration diagnostics",
+      "category": "Configuration System",
+      "status": "Partial",
+      "notes": "Config loading gives actionable schema, inheritance, path and EditorConfig errors; doctor reports the selected config, override count, supported file count and discovered EditorConfig files. Editor integration and automatic repair suggestions remain."
+    },
+    {
+      "id": 252,
+      "name": "Prettier integration",
+      "category": "Configuration System",
+      "status": "Implemented",
+      "notes": "Prettier is an installed formatting engine with validated Cleanser options."
+    },
+    {
+      "id": 253,
+      "name": "EditorConfig integration",
+      "category": "Configuration System",
+      "status": "Partial",
+      "notes": "Cleanser reads cascading .editorconfig files and honors root, common glob sections, indentation, line endings, print width and final-newline settings. It does not trim whitespace inside string data; charset conversion and numeric brace ranges are not supported."
+    },
+    {
+      "id": 254,
+      "name": "ESLint integration",
+      "category": "Configuration System",
+      "status": "Implemented",
+      "notes": "cleanser eslint runs the ESLint API installed in the current project, renders deterministic text or JSON findings, and never installs dependencies or modifies files."
+    },
+    {
+      "id": 255,
+      "name": "Shared team configuration",
+      "category": "Configuration System",
+      "status": "Partial",
+      "notes": "Projects can safely extend a relative configuration file within the project root and layer local overrides. Remote shared packages and team-wide distribution are not implemented."
+    },
+    {
+      "id": 256,
+      "name": "clean command",
+      "category": "CLI Experience",
+      "status": "Implemented",
+      "notes": "Implemented as a local CLI command."
+    },
+    {
+      "id": 257,
+      "name": "check command",
+      "category": "CLI Experience",
+      "status": "Implemented",
+      "notes": "Implemented as a local CLI command."
+    },
+    {
+      "id": 258,
+      "name": "format command",
+      "category": "CLI Experience",
+      "status": "Implemented",
+      "notes": "format is a CLI alias for the safe clean command."
+    },
+    {
+      "id": 259,
+      "name": "analyze command",
+      "category": "CLI Experience",
+      "status": "Implemented",
+      "notes": "Implemented as a local CLI command."
+    },
+    {
+      "id": 260,
+      "name": "fix command",
+      "category": "CLI Experience",
+      "status": "Implemented",
+      "notes": "fix is a CLI alias for safe project formatting."
+    },
+    {
+      "id": 261,
+      "name": "undo command",
+      "category": "CLI Experience",
+      "status": "Implemented",
+      "notes": "undo is a CLI alias for restore and still requires --yes before replacing a file."
+    },
+    {
+      "id": 262,
+      "name": "history command",
+      "category": "CLI Experience",
+      "status": "Duplicate",
+      "notes": "Duplicate capability of #148 (cleanup history); expose one history service through CLI."
+    },
+    {
+      "id": 263,
+      "name": "init command",
+      "category": "CLI Experience",
+      "status": "Implemented",
+      "notes": "Implemented as a local CLI command."
+    },
+    {
+      "id": 264,
+      "name": "doctor command",
+      "category": "CLI Experience",
+      "status": "Implemented",
+      "notes": "doctor checks supported Node.js version, effective configuration, supported file count, overrides, and discovered EditorConfig files."
+    },
+    {
+      "id": 265,
+      "name": "report command",
+      "category": "CLI Experience",
+      "status": "Implemented",
+      "notes": "report emits deterministic Markdown, JSON, CSV, HTML, and SARIF findings."
+    },
+    {
+      "id": 266,
+      "name": "watch command",
+      "category": "CLI Experience",
+      "status": "Implemented",
+      "notes": "watch polls included-file metadata, formats only changed files with backups, and supports read-only --check mode."
+    },
+    {
+      "id": 267,
+      "name": "explain command",
+      "category": "CLI Experience",
+      "status": "Implemented",
+      "notes": "explain <rule-id> prints a built-in rule severity and explanation."
+    },
+    {
+      "id": 268,
+      "name": "config command",
+      "category": "CLI Experience",
+      "status": "Partial",
+      "notes": "config prints the validated effective configuration as JSON; editing and migrations are not included."
+    },
+    {
+      "id": 269,
+      "name": "rules command",
+      "category": "CLI Experience",
+      "status": "Implemented",
+      "notes": "Implemented as a local CLI command."
+    },
+    {
+      "id": 270,
+      "name": "version command",
+      "category": "CLI Experience",
+      "status": "Implemented",
+      "notes": "Implemented as a local CLI command."
+    },
+    {
+      "id": 271,
+      "name": "Progress indicators",
+      "category": "CLI Experience",
+      "status": "Implemented",
+      "notes": "Clean and check report deterministic per-file progress to terminal integrations and show a live count only when stdout is a terminal; quiet mode and redirected output stay clean."
+    },
+    {
+      "id": 272,
+      "name": "Color-coded output",
+      "category": "CLI Experience",
+      "status": "Implemented",
+      "notes": "CLI status output uses terminal colors when stdout is a terminal, FORCE_COLOR is set, or color is explicitly available; NO_COLOR and FORCE_COLOR=0 disable ANSI styling. Structured reports remain uncolored."
+    },
+    {
+      "id": 273,
+      "name": "Interactive terminal UI",
+      "category": "CLI Experience",
+      "status": "Partial",
+      "notes": "The clean command provides per-file interactive approval and safely declines when input closes. A richer full-screen terminal interface is not included."
+    },
+    {
+      "id": 274,
+      "name": "JSON output",
+      "category": "CLI Experience",
+      "status": "Implemented",
+      "notes": "Stable JSON output is implemented for analyzer findings."
+    },
+    {
+      "id": 275,
+      "name": "Quiet mode",
+      "category": "CLI Experience",
+      "status": "Implemented",
+      "notes": "clean and check support --quiet while preserving diagnostics and exit codes; watch can hide routine messages."
+    },
+    {
+      "id": 276,
+      "name": "Verbose mode",
+      "category": "CLI Experience",
+      "status": "Implemented",
+      "notes": "clean, check, and preview accept --verbose and include risk, confidence, and parser verification details. --quiet and --verbose are mutually exclusive where supported."
+    },
+    {
+      "id": 277,
+      "name": "VS Code extension",
+      "category": "IDE Integrations",
+      "status": "Implemented",
+      "notes": "VS Code formatting integration supports JS/JSX/TS/TSX, HTML, CSS, SCSS, JSON, JSONC, YAML, Markdown, and Vue."
+    },
+    {
+      "id": 278,
+      "name": "Format on save",
+      "category": "IDE Integrations",
+      "status": "Implemented",
+      "notes": "VS Code formats supported files on save when configured with trigger: onSave."
+    },
+    {
+      "id": 279,
+      "name": "Clean on save",
+      "category": "IDE Integrations",
+      "status": "Implemented",
+      "notes": "VS Code save events run configured formatting and schedule supported JS/TS analysis. Analysis reports diagnostics without rewriting semantic code; formatting is guarded by source-equivalence verification and backups."
+    },
+    {
+      "id": 280,
+      "name": "Quick fixes",
+      "category": "IDE Integrations",
+      "status": "Partial",
+      "notes": "VS Code offers safe fixes for object shorthand, redundant atomic parentheses, pure literal statements, empty spreads, boolean ternaries, literal concatenations, repeated else-if branches, import grouping, and consecutive type-only import ordering; other findings remain explanation-only."
+    },
+    {
+      "id": 281,
+      "name": "Code actions",
+      "category": "IDE Integrations",
+      "status": "Partial",
+      "notes": "VS Code exposes safe quick fixes for supported diagnostics and explanation actions for analyzer findings. Other diagnostics remain explanation-only."
+    },
+    {
+      "id": 282,
+      "name": "Inline diagnostics",
+      "category": "IDE Integrations",
+      "status": "Implemented",
+      "notes": "Analyzer findings appear as VS Code diagnostics after a supported JS/TS document is saved."
+    },
+    {
+      "id": 283,
+      "name": "Rule explanations",
+      "category": "IDE Integrations",
+      "status": "Partial",
+      "notes": "The CLI and VS Code diagnostic action share built-in rule descriptions; VS Code uses the current document's effective per-file severity, including for unsaved buffers."
+    },
+    {
+      "id": 284,
+      "name": "Diff preview",
+      "category": "IDE Integrations",
+      "status": "Implemented",
+      "notes": "VS Code provides a read-only side-by-side diff preview for the current supported file, using the unsaved editor buffer and requiring source-equivalence verification before showing output."
+    },
+    {
+      "id": 285,
+      "name": "File-level cleanup",
+      "category": "IDE Integrations",
+      "status": "Partial",
+      "notes": "VS Code can format a supported current file or apply all current non-overlapping safe analyzer fixes as one undoable edit. Analyzer fixes require the saved JS/TS file to remain unchanged during analysis."
+    },
+    {
+      "id": 286,
+      "name": "Selection-level cleanup",
+      "category": "IDE Integrations",
+      "status": "Implemented",
+      "notes": "VS Code and the stdio LSP expose range formatting; edits are checked against full-source AST equivalence."
+    },
+    {
+      "id": 287,
+      "name": "Workspace cleanup",
+      "category": "IDE Integrations",
+      "status": "Implemented",
+      "notes": "VS Code exposes a workspace cleanup command that processes every open workspace folder through the backed-up, atomic, source-equivalence-verified Cleanser project formatter. Disabled folders are skipped."
+    },
+    {
+      "id": 288,
+      "name": "Keyboard shortcuts",
+      "category": "IDE Integrations",
+      "status": "Implemented",
+      "notes": "VS Code contributes Ctrl+Alt+F (Cmd+Option+F on macOS) for current-file formatting."
+    },
+    {
+      "id": 289,
+      "name": "Status bar integration",
+      "category": "IDE Integrations",
+      "status": "Implemented",
+      "notes": "VS Code shows Cleanser status for supported files and exposes current-file formatting from the status bar."
+    },
+    {
+      "id": 290,
+      "name": "JetBrains integration",
+      "category": "IDE Integrations",
+      "status": "Partial",
+      "notes": "Compatible JetBrains, Neovim, and Sublime LSP clients can use the generic stdio formatter; there are no vendor-specific packages or setup wizards."
+    },
+    {
+      "id": 291,
+      "name": "Neovim integration",
+      "category": "IDE Integrations",
+      "status": "Partial",
+      "notes": "Compatible JetBrains, Neovim, and Sublime LSP clients can use the generic stdio formatter; there are no vendor-specific packages or setup wizards."
+    },
+    {
+      "id": 292,
+      "name": "Sublime Text integration",
+      "category": "IDE Integrations",
+      "status": "Partial",
+      "notes": "Compatible JetBrains, Neovim, and Sublime LSP clients can use the generic stdio formatter; there are no vendor-specific packages or setup wizards."
+    },
+    {
+      "id": 293,
+      "name": "LSP server",
+      "category": "IDE Integrations",
+      "status": "Implemented",
+      "notes": "cleanser lsp serves stdio JSON-RPC initialization, full document sync, and source-equivalence-checked formatting for included files inside the workspace. Diagnostics, code actions, and multi-root workspaces are not provided."
+    },
+    {
+      "id": 294,
+      "name": "GitHub Actions",
+      "category": "GitHub and CI/CD",
+      "status": "Partial",
+      "notes": "This repository has GitHub Actions for tests/releases; a reusable consumer-facing action is not provided."
+    },
+    {
+      "id": 295,
+      "name": "GitLab CI integration",
+      "category": "GitHub and CI/CD",
+      "status": "Partial",
+      "notes": "cleanser ci init gitlab creates a non-overwriting starter pipeline that installs dependencies, runs npm test, and runs npm run check; it does not operate a GitLab account or publish reports remotely."
+    },
+    {
+      "id": 296,
+      "name": "Bitbucket pipeline integration",
+      "category": "GitHub and CI/CD",
+      "status": "Partial",
+      "notes": "cleanser ci init bitbucket creates a non-overwriting pipeline starter that installs dependencies, runs npm test, and runs npm run check; it does not configure a Bitbucket account or upload reports remotely."
+    },
+    {
+      "id": 297,
+      "name": "Pull request reports",
+      "category": "GitHub and CI/CD",
+      "status": "Partial",
+      "notes": "pr-report --base=REF emits deterministic JSON or Markdown for committed changed paths, formatting debt, and analyzer findings; it does not post to GitHub."
+    },
+    {
+      "id": 298,
+      "name": "Pull request annotations",
+      "category": "GitHub and CI/CD",
+      "status": "Partial",
+      "notes": "Partial: SARIF results include stable rule IDs, severity, and locations; automated PR annotation publishing is not configured."
+    },
+    {
+      "id": 299,
+      "name": "CI failure on violations",
+      "category": "GitHub and CI/CD",
+      "status": "Implemented",
+      "notes": "Analyzer and security commands exit non-zero when warning or error findings are present."
+    },
+    {
+      "id": 300,
+      "name": "Changed-files-only checks",
+      "category": "GitHub and CI/CD",
+      "status": "Implemented",
+      "notes": "clean, check, analyze, report, security, and preview can limit work to Git changed files."
+    },
+    {
+      "id": 301,
+      "name": "Branch comparison",
+      "category": "GitHub and CI/CD",
+      "status": "Duplicate",
+      "notes": "Duplicate capability of #144 (branch comparison); share one Git comparison engine."
+    },
+    {
+      "id": 302,
+      "name": "PR cleanup summaries",
+      "category": "GitHub and CI/CD",
+      "status": "Implemented",
+      "notes": "pr-report includes changed-file formatting results, verification risk, analyzer severity totals, and per-file findings in deterministic local JSON or Markdown."
+    },
+    {
+      "id": 303,
+      "name": "Automatic issue reporting",
+      "category": "GitHub and CI/CD",
+      "status": "Planned",
+      "notes": "Not implemented yet."
+    },
+    {
+      "id": 304,
+      "name": "Machine-readable reports",
+      "category": "GitHub and CI/CD",
+      "status": "Implemented",
+      "notes": "Machine-readable JSON and CSV analyzer reports are available."
+    },
+    {
+      "id": 305,
+      "name": "SARIF output for supported findings",
+      "category": "GitHub and CI/CD",
+      "status": "Implemented",
+      "notes": "report --format=sarif emits SARIF 2.1.0 with deterministic rules and file locations."
+    },
+    {
+      "id": 306,
+      "name": "Parallel file processing",
+      "category": "Performance and Scalability",
+      "status": "Implemented",
+      "notes": "Clean operations prepare files with a bounded concurrency of four while preserving result and progress order; approved atomic writes remain sequential."
+    },
+    {
+      "id": 307,
+      "name": "Incremental scanning",
+      "category": "Performance and Scalability",
+      "status": "Partial",
+      "notes": "Partial: analyze, check, clean, report, security, and preview accept --changed; analyzer dependency mapping still scans the project."
+    },
+    {
+      "id": 308,
+      "name": "File caching",
+      "category": "Performance and Scalability",
+      "status": "Partial",
+      "notes": "A bounded in-process text cache validates file metadata before serving content and is used by formatting and analysis reads; it is not persisted between runs."
+    },
+    {
+      "id": 309,
+      "name": "AST caching",
+      "category": "Performance and Scalability",
+      "status": "Planned",
+      "notes": "Not implemented yet."
+    },
+    {
+      "id": 310,
+      "name": "Large-project optimization",
+      "category": "Performance and Scalability",
+      "status": "Partial",
+      "notes": "Formatting work runs with a bounded four-file concurrency pool and supports file/byte batch caps; analyzer-wide large-project scheduling is not yet implemented."
+    },
+    {
+      "id": 311,
+      "name": "Memory usage optimization",
+      "category": "Performance and Scalability",
+      "status": "Partial",
+      "notes": "Formatting concurrency and the bounded diff matrix avoid unbounded per-file diff memory growth; complete streaming and analysis memory profiling are not included."
+    },
+    {
+      "id": 312,
+      "name": "Streaming output",
+      "category": "Performance and Scalability",
+      "status": "Partial",
+      "notes": "TTY clean and check operations stream bounded, ordered progress callbacks while files are prepared. Analyzer, metrics, and audit commands still buffer structured findings before rendering."
+    },
+    {
+      "id": 313,
+      "name": "Monorepo support",
+      "category": "Performance and Scalability",
+      "status": "Partial",
+      "notes": "Root scans recurse into nested packages and path-based overrides apply per package. Workspace-local configuration and independent package dependency analysis are not resolved."
+    },
+    {
+      "id": 314,
+      "name": "Worker-based processing",
+      "category": "Performance and Scalability",
+      "status": "Planned",
+      "notes": "Not implemented yet."
+    },
+    {
+      "id": 315,
+      "name": "Cancellation support",
+      "category": "Performance and Scalability",
+      "status": "Implemented",
+      "notes": "CLI clean/check and the watcher pass AbortSignals into formatting; cancellation is checked during preparation and writes, and an interrupted batch rolls back earlier replacements. An individual atomic file replacement is allowed to finish before cancellation is observed."
+    },
+    {
+      "id": 316,
+      "name": "Resource limits",
+      "category": "Performance and Scalability",
+      "status": "Partial",
+      "notes": "Clean operations support configurable maximum changed-file and changed-byte limits, with CLI overrides. CPU, memory, and time budgets are not enforced."
+    },
+    {
+      "id": 317,
+      "name": "Benchmark suite",
+      "category": "Performance and Scalability",
+      "status": "Implemented",
+      "notes": "npm run benchmark creates a temporary project, warms the formatter once, measures repeated read-only clean runs, checks stable file counts, and prints run timings plus the median. CLEANSER_BENCH_FILES and CLEANSER_BENCH_RUNS set bounded fixture and sample counts."
+    },
+    {
+      "id": 318,
+      "name": "Performance profiling",
+      "category": "Performance and Scalability",
+      "status": "Implemented",
+      "notes": "npm run profile captures a V8 CPU profile while running the temporary-project benchmark, writes the .cpuprofile to the operating-system temporary directory, and reports its path with timing data. CLEANSER_BENCH_FILES and CLEANSER_BENCH_RUNS bound the run."
+    },
+    {
+      "id": 319,
+      "name": "Code health score",
+      "category": "Reporting, Extensibility and Community",
+      "status": "Implemented",
+      "notes": "The metrics report computes a documented 0–100 proxy: line-weighted average Maintainability Index minus two points per percentage point of exact duplicate lines, clamped to 0–100."
+    },
+    {
+      "id": 320,
+      "name": "Cleanup score",
+      "category": "Reporting, Extensibility and Community",
+      "status": "Implemented",
+      "notes": "The read-only score command combines formatting debt and JS/TS analyzer findings using a documented deterministic penalty formula, with JSON and changed-file output."
+    },
+    {
+      "id": 321,
+      "name": "Complexity reports",
+      "category": "Reporting, Extensibility and Community",
+      "status": "Implemented",
+      "notes": "The metrics command exports per-file and per-function complexity as text or deterministic JSON, including changed-file scans."
+    },
+    {
+      "id": 322,
+      "name": "Duplication reports",
+      "category": "Reporting, Extensibility and Community",
+      "status": "Implemented",
+      "notes": "The metrics command reports exact same-file duplicate function counts, lines, and percentages at file and project level for block-bodied functions with at least four statements; cross-file and near-duplicate detection are excluded."
+    },
+    {
+      "id": 323,
+      "name": "Security findings report",
+      "category": "Reporting, Extensibility and Community",
+      "status": "Implemented",
+      "notes": "security produces dedicated Markdown, JSON, CSV, HTML, or SARIF output for built-in security findings."
+    },
+    {
+      "id": 324,
+      "name": "HTML reports",
+      "category": "Reporting, Extensibility and Community",
+      "status": "Implemented",
+      "notes": "report --format=html emits a self-contained HTML table and escapes source-controlled report text."
+    },
+    {
+      "id": 325,
+      "name": "Markdown reports",
+      "category": "Reporting, Extensibility and Community",
+      "status": "Implemented",
+      "notes": "report emits a Markdown findings table by default or with --format=markdown."
+    },
+    {
+      "id": 326,
+      "name": "JSON reports",
+      "category": "Reporting, Extensibility and Community",
+      "status": "Implemented",
+      "notes": "Analyzer findings can be emitted as deterministic JSON."
+    },
+    {
+      "id": 327,
+      "name": "CSV reports",
+      "category": "Reporting, Extensibility and Community",
+      "status": "Implemented",
+      "notes": "report --format=csv emits escaped, deterministic CSV findings."
+    },
+    {
+      "id": 328,
+      "name": "Historical comparisons",
+      "category": "Reporting, Extensibility and Community",
+      "status": "Partial",
+      "notes": "Git compare/history/blame commands and pr-report --base=REF provide revision-based and changed-file comparisons; persistent historical trend storage is not included."
+    },
+    {
+      "id": 329,
+      "name": "Custom rule API",
+      "category": "Reporting, Extensibility and Community",
+      "status": "Partial",
+      "notes": "The cleanser/plugin-api export defines validated custom rules and runs them against source text to produce read-only findings. Built-in CLI analyzer registration is not provided."
+    },
+    {
+      "id": 330,
+      "name": "Plugin API",
+      "category": "Reporting, Extensibility and Community",
+      "status": "Partial",
+      "notes": "The public plugin API bundles validated rule descriptors and executes them when explicitly called by project code. Automatic plugin discovery and dependency installation are not provided."
+    },
+    {
+      "id": 331,
+      "name": "Plugin dependency management",
+      "category": "Reporting, Extensibility and Community",
+      "status": "Partial",
+      "notes": "Custom plugin descriptors can declare npm dependencies and compare them against package manifest dependency sections; dependencies are not installed automatically."
+    },
+    {
+      "id": 332,
+      "name": "Rule marketplace",
+      "category": "Reporting, Extensibility and Community",
+      "status": "Planned",
+      "notes": "Not implemented yet."
+    },
+    {
+      "id": 333,
+      "name": "Custom language adapters",
+      "category": "Reporting, Extensibility and Community",
+      "status": "Partial",
+      "notes": "Public defineLanguageAdapter API validates file extensions and requires a semantic verifier; automatic CLI plugin discovery and dependency installation are not included."
+    },
+    {
+      "id": 334,
+      "name": "Team presets",
+      "category": "Reporting, Extensibility and Community",
+      "status": "Duplicate",
+      "notes": "Uses the same preset registry as #248; shared team rule packs remain a separate planned delivery."
+    },
+    {
+      "id": 335,
+      "name": "Shared rule packs",
+      "category": "Reporting, Extensibility and Community",
+      "status": "Partial",
+      "notes": "A plugin can package multiple custom rules as a shareable JavaScript module through cleanser/plugin-api. A registry, remote distribution, and version manager are not provided."
+    },
+    {
+      "id": 336,
+      "name": "Public documentation",
+      "category": "Reporting, Extensibility and Community",
+      "status": "Partial",
+      "notes": "Partial: user-facing CLI help and package metadata exist; full public and API documentation is absent by request."
+    },
+    {
+      "id": 337,
+      "name": "Interactive playground",
+      "category": "Reporting, Extensibility and Community",
+      "status": "Partial",
+      "notes": "The playground command serves a loopback-only in-memory formatter for JavaScript, TypeScript, JSX, JSON, CSS, HTML, YAML, and Markdown with a 1 MB request limit; it is not deployed as a public site."
+    },
+    {
+      "id": 338,
+      "name": "Example projects",
+      "category": "Reporting, Extensibility and Community",
+      "status": "Partial",
+      "notes": "examples/javascript and examples/typescript provide minimal runnable source projects with Cleanser config; examples for all supported formatters and integration scenarios remain to be added."
+    },
+    {
+      "id": 339,
+      "name": "API documentation",
+      "category": "Reporting, Extensibility and Community",
+      "status": "Partial",
+      "notes": "The public plugin API declarations include JSDoc for types and functions; a generated standalone reference site is not included."
+    },
+    {
+      "id": 340,
+      "name": "Extension developer SDK",
+      "category": "Reporting, Extensibility and Community",
+      "status": "Partial",
+      "notes": "A typed plugin API export, runtime validation, type tests, and JavaScript/TypeScript examples form a small developer SDK; language adapters, dependency management, and a packaged guide are not included."
+    }
+  ],
+  "relationships": [
+    {
+      "relationship": "Duplicate",
+      "entries": [67, 104],
+      "decision": "One circular-dependency analysis implementation; expose findings in any relevant report."
+    },
+    {
+      "relationship": "Duplicate",
+      "entries": [148, 262],
+      "decision": "One cleanup-history store/service with CLI and other adapters."
+    },
+    {
+      "relationship": "Duplicate",
+      "entries": [144, 301],
+      "decision": "One branch-comparison engine reused by Git and CI."
+    },
+    {
+      "relationship": "Duplicate",
+      "entries": [248, 334],
+      "decision": "One preset registry; team presets can be distributed through shared packs."
+    },
+    {
+      "relationship": "Shared content, separate surface",
+      "entries": [267, 283],
+      "decision": "A common rule explanation catalogue powers CLI and IDE views."
+    },
+    {
+      "relationship": "Shared engine, separate surface",
+      "entries": [125, 287],
+      "decision": "Workspace cleanup engine and IDE invocation remain separate capabilities."
+    }
+  ],
+  "pdfRoadmap": [
+    {
+      "stage": "v0.2",
+      "featureRange": "F001–F050",
+      "areas": "Formatting foundation and core safe workflow"
+    },
+    {
+      "stage": "v0.3",
+      "featureRange": "F051–F100",
+      "areas": "Unused code, import analysis, and security foundations"
+    },
+    {
+      "stage": "v0.4",
+      "featureRange": "F101–F150",
+      "areas": "Complexity, structure, and project analysis"
+    },
+    {
+      "stage": "v0.5",
+      "featureRange": "F151–F200",
+      "areas": "Testing, safety, and language expansion"
+    },
+    {
+      "stage": "v0.6 and later",
+      "featureRange": "F201 onward",
+      "areas": "Remaining ecosystem, integrations, reporting, and extensibility"
+    }
+  ],
+  "compositeIdeas": [
+    {
+      "name": "Dependency Graph Explorer",
+      "composition": "Implemented base local graph: cycles, missing relative imports, Mermaid, tree, and JSON; package-manager graphs remain."
+    },
+    {
+      "name": "Refactoring Simulator",
+      "composition": "Composite of #157, #165, and #172; requires safe transformation previews."
+    },
+    {
+      "name": "Dead Code Confidence Analysis",
+      "composition": "Composite of #22, #30, #101, and #105; confidence must be rule-based and explained."
+    },
+    {
+      "name": "Complexity Heatmap",
+      "composition": "Composite of #91–#100 and #321."
+    },
+    {
+      "name": "Cleanup Timeline",
+      "composition": "Composite of #146, #148, #178, and #185."
+    },
+    {
+      "name": "Security Rule Engine",
+      "composition": "Composite of #76–#90 with explainable rule definitions."
+    },
+    {
+      "name": "AST Explorer",
+      "composition": "Implemented as CAT-341, a local bounded JSON view of JS/TS syntax trees."
+    },
+    {
+      "name": "Rule Playground",
+      "composition": "Composite of #329 and test/sandbox isolation."
+    },
+    {
+      "name": "Monorepo Intelligence",
+      "composition": "Composite of #313 and package/framework analysis."
+    },
+    {
+      "name": "Code Quality Trends",
+      "composition": "Composite of #319–#328 and persistent metric history."
+    }
+  ],
+  "additionalFeatures": [
+    {
+      "id": 341,
+      "name": "AST Explorer",
+      "status": "Implemented",
+      "notes": "ast <file> emits a bounded deterministic JSON syntax tree and parse diagnostics for local JS/TS files."
+    }
+  ]
+}

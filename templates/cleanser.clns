@@ -1,0 +1,97 @@
+# Cleanser project configuration
+# Schema version: 1
+# Formatting only; identifiers and program logic are not refactored.
+
+cleanser:
+  version: 1
+  enabled: true
+  mode: safe
+  trigger: onSave
+
+  files:
+    include:
+      - "**/*.js"
+      - "**/*.jsx"
+      - "**/*.ts"
+      - "**/*.tsx"
+      - "**/*.mjs"
+      - "**/*.cjs"
+      - "**/*.mts"
+      - "**/*.cts"
+      - "**/*.html"
+      - "**/*.css"
+      - "**/*.scss"
+      - "**/*.json"
+      - "**/*.jsonc"
+      - "**/*.yaml"
+      - "**/*.yml"
+      - "**/*.md"
+      - "**/*.vue"
+      - "**/*.toml"
+      - "**/*.xml"
+      - "**/*.svg"
+      - "**/*.sql"
+      - "**/*.svelte"
+      - "**/*.astro"
+      - "**/*.sh"
+      - "**/*.bash"
+      - "**/*.zsh"
+      - "**/*.ksh"
+      - "**/*.bats"
+      - "**/*.ps1"
+      - "**/*.psm1"
+      - "**/*.psd1"
+      - "**/*.java"
+      - "**/*.php"
+    exclude:
+      - "node_modules/**"
+      - "dist/**"
+      - "build/**"
+      - "coverage/**"
+      - ".git/**"
+      - ".cleanser-backups/**"
+
+  analysis:
+    preset: recommended
+    rules: {}
+
+  # Later matching overrides apply to one or more project-relative file globs.
+  overrides: []
+
+  formatting:
+    indentation: 2
+    normalize_line_endings: preserve
+    quote_style: double
+    semicolons: always
+
+  # Source-preservation settings are fixed in safe mode.
+  preservation:
+    variable_names: preserve
+    function_names: preserve
+    class_names: preserve
+    parameter_names: preserve
+    property_names: preserve
+    comments: preserve
+    strings: preserve
+    program_logic: preserve
+    public_api: preserve
+
+  # Cleanup options are reserved and must remain disabled.
+  cleanup:
+    remove_unused_variables: false
+    remove_unused_imports: false
+    remove_dead_code: false
+    remove_duplicate_code: false
+    simplify_expressions: false
+    reorder_imports: false
+
+  safety:
+    preview_before_destructive_changes: true
+    create_backup: true
+    require_clean_working_tree: false
+    skip_on_syntax_error: true
+    prevent_save_loops: true
+    never_overwrite_on_error: true
+    protected_paths: []
+    maximum_changed_files: null
+    maximum_change_bytes: null

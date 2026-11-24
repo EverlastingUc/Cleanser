@@ -1,0 +1,14 @@
+.git/**
+.github/**
+tests/**
+feature-catalogue.json
+.cleanser.clns
+.cleanser.json
+.cleanser-backups/**
+coverage/**
+*.log
+*.vsix
+.DS_Store
+.gitignore
+.editorconfig
+.vscode/**

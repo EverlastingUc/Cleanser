@@ -1,0 +1,30 @@
+name: Bug report
+description: Cleanser changed a file it should not have, crashed, or behaved unexpectedly.
+labels: [bug]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Include the command you ran (or the VS Code action) and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: A small source file plus your .cleanser.clns, if relevant.
+      render: text
+  - type: input
+    id: version
+    attributes:
+      label: Cleanser version
+      description: Output of `cleanser --version`
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Node.js version and operating system
+    validations:
+      required: true

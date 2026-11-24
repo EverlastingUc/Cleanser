@@ -1,0 +1,119 @@
+{
+  "name": "cleanser",
+  "version": "0.1.0",
+  "description": "Deterministic offline formatting and static analysis with bundled language formatters.",
+  "type": "module",
+  "exports": {
+    ".": "./vscode/extension.cjs",
+    "./plugin-api": {
+      "types": "./src/plugin-api.d.ts",
+      "import": "./src/plugin-api.js"
+    },
+    "./language-adapters": {
+      "types": "./src/language-adapters.d.ts",
+      "import": "./src/language-adapters.js"
+    }
+  },
+  "bin": {
+    "cleanser": "./src/cli.js"
+  },
+  "scripts": {
+    "clean": "node ./src/cli.js clean",
+    "check": "node ./src/cli.js check",
+    "analyze": "node ./src/cli.js analyze",
+    "rules": "node ./src/cli.js rules",
+    "test": "node --test && node --check src/cli.js && node --check vscode/extension.cjs && node ./node_modules/typescript/bin/tsc --noEmit --strict --target ES2022 --module NodeNext --moduleResolution NodeNext tests/plugin-api.types.ts",
+    "test:types": "node ./node_modules/typescript/bin/tsc --noEmit --strict --target ES2022 --module NodeNext --moduleResolution NodeNext tests/plugin-api.types.ts",
+    "test:coverage": "node --test --experimental-test-coverage",
+    "benchmark": "node ./scripts/benchmark.js",
+    "profile": "node ./scripts/profile.js",
+    "vscode:package": "vsce package"
+  },
+  "engines": {
+    "node": ">=20.11.0",
+    "vscode": "^1.90.0"
+  },
+  "dependencies": {
+    "@astrojs/compiler": "^2.13.1",
+    "@prettier/plugin-php": "^0.25.0",
+    "@prettier/plugin-xml": "^3.4.2",
+    "node-sql-parser": "^5.4.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-java": "^2.12.0",
+    "prettier-plugin-powershell": "^2.2.1",
+    "prettier-plugin-sh": "^0.20.2",
+    "prettier-plugin-sql": "^0.20.0",
+    "prettier-plugin-svelte": "^4.2.0",
+    "prettier-plugin-toml": "^4.1.0",
+    "svelte": "^5.59.1",
+    "typescript": "^5.9.3",
+    "yaml": "^2.8.1"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "main": "./vscode/extension.cjs",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "cleanser.formatCurrentFile",
+        "title": "Cleanser: Format Current File"
+      },
+      {
+        "command": "cleanser.explainRule",
+        "title": "Cleanser: Explain Analysis Rule"
+      },
+      {
+        "command": "cleanser.previewCurrentFile",
+        "title": "Cleanser: Preview Current File Formatting"
+      },
+      {
+        "command": "cleanser.applySafeFixesCurrentFile",
+        "title": "Cleanser: Apply Safe Fixes to Current File"
+      },
+      {
+        "command": "cleanser.cleanWorkspace",
+        "title": "Cleanser: Clean Workspace"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "cleanser.formatCurrentFile",
+        "key": "ctrl+alt+f",
+        "mac": "cmd+alt+f",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "displayName": "Cleanser",
+  "publisher": "everlastinguc",
+  "categories": [
+    "Formatters"
+  ],
+  "keywords": [
+    "formatter",
+    "prettier",
+    "javascript",
+    "typescript",
+    "static-analysis",
+    "safe-formatting"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EverlastingUc/old-mac-donald-had-a-farm.git"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "4.1.1"
+  },
+  "overrides": {
+    "@vscode/vsce": {
+      "minimatch": "11.0.1"
+    }
+  },
+  "homepage": "https://github.com/EverlastingUc/old-mac-donald-had-a-farm#readme",
+  "bugs": {
+    "url": "https://github.com/EverlastingUc/old-mac-donald-had-a-farm/issues"
+  }
+}
