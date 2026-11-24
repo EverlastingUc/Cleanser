@@ -160,7 +160,6 @@ test("LSP initializes and returns AST-verified formatting edits", async () => {
   }
 });
 
-
 test("LSP rejects oversized frame headers and payload declarations", async () => {
   const invalidFrames = [
     {
@@ -206,7 +205,6 @@ test("LSP rejects oversized frame headers and payload declarations", async () =>
   }
 });
 
-
 test("LSP accepts a maximum-length header when its delimiter is split", async () => {
   const child = spawn(process.execPath, [cliPath, "lsp"], {
     stdio: ["pipe", "pipe", "pipe"],
@@ -221,7 +219,9 @@ test("LSP accepts a maximum-length header when its delimiter is split", async ()
   const closed = new Promise((resolve, reject) => {
     const timeout = setTimeout(() => {
       child.kill();
-      reject(new Error("LSP server did not exit after a valid maximum header."));
+      reject(
+        new Error("LSP server did not exit after a valid maximum header."),
+      );
     }, 5000);
     child.once("error", (error) => {
       clearTimeout(timeout);
