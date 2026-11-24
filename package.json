@@ -50,7 +50,7 @@
     "typescript": "^5.9.3",
     "yaml": "^2.8.1"
   },
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "MIT",
   "main": "./vscode/extension.cjs",
   "activationEvents": [
     "onStartupFinished"
@@ -102,7 +102,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/EverlastingUc/old-mac-donald-had-a-farm.git"
+    "url": "https://github.com/EverlastingUc/Cleanser.git"
   },
   "devDependencies": {
     "@vscode/vsce": "4.1.1"
@@ -112,8 +112,8 @@
       "minimatch": "11.0.1"
     }
   },
-  "homepage": "https://github.com/EverlastingUc/old-mac-donald-had-a-farm#readme",
+  "homepage": "https://github.com/EverlastingUc/Cleanser#readme",
   "bugs": {
-    "url": "https://github.com/EverlastingUc/old-mac-donald-had-a-farm/issues"
+    "url": "https://github.com/EverlastingUc/Cleanser/issues"
   }
 }
