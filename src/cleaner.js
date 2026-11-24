@@ -1719,13 +1719,15 @@ async function createProjectLock(root) {
   };
 }
 
-export async function cleanProject(options = {}) {
-  const { root = process.cwd(), write = true } = options;
-  if (!write) return cleanProjectOperation(options);
+export async function withProjectWriteLock(root = process.cwd(), operation) {
+  if (typeof operation !== "function") {
+    throw new TypeError("A write operation callback is required.");
+  }
   const absoluteRoot = path.resolve(root);
   const rootStats = await fs.stat(absoluteRoot).catch((error) => {
     throw new Error(
       `Could not access project root "${absoluteRoot}": ${error.message}`,
+      { cause: error },
     );
   });
   if (!rootStats.isDirectory()) {
@@ -1733,8 +1735,14 @@ export async function cleanProject(options = {}) {
   }
   const release = await createProjectLock(absoluteRoot);
   try {
-    return await cleanProjectOperation(options);
+    return await operation();
   } finally {
     await release();
   }
+}
+
+export async function cleanProject(options = {}) {
+  const { root = process.cwd(), write = true } = options;
+  if (!write) return cleanProjectOperation(options);
+  return withProjectWriteLock(root, () => cleanProjectOperation(options));
 }
