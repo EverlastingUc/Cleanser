@@ -11,6 +11,7 @@ import {
 } from "./config.js";
 import {
   cleanProject,
+  withProjectWriteLock,
   collectProjectFiles,
   isIncludedPath,
   isSafeProjectFile,
@@ -1066,33 +1067,45 @@ function createApprovalFlow() {
 }
 
 async function init() {
-  const target = path.join(process.cwd(), CONFIG_FILE);
-  const jsonTarget = path.join(process.cwd(), CONFIG_JSON_FILE);
-  try {
-    await fs.lstat(jsonTarget);
-    throw new Error(
-      `${CONFIG_JSON_FILE} already exists. It was not changed and no YAML config was created.`,
-    );
-  } catch (error) {
-    if (error.code !== "ENOENT") throw error;
-  }
-  const template = await fs.readFile(
-    new URL("../templates/cleanser.clns", import.meta.url),
-    "utf8",
-  );
-
-  try {
-    await fs.writeFile(target, template, { encoding: "utf8", flag: "wx" });
-  } catch (error) {
-    if (error.code === "EEXIST") {
-      throw new Error(`${CONFIG_FILE} already exists. It was not changed.`);
+  return withProjectWriteLock(process.cwd(), async () => {
+    const target = path.join(process.cwd(), CONFIG_FILE);
+    const jsonTarget = path.join(process.cwd(), CONFIG_JSON_FILE);
+    try {
+      await fs.lstat(jsonTarget);
+      throw new Error(
+        CONFIG_JSON_FILE + " already exists. It was not changed and no YAML config was created.",
+      );
+    } catch (error) {
+      if (error.code !== "ENOENT") throw error;
     }
-    throw new Error(`Could not create ${CONFIG_FILE}: ${error.message}`, {
-      cause: error,
-    });
-  }
+    const template = await fs.readFile(
+      new URL("../templates/cleanser.clns", import.meta.url),
+      "utf8",
+    );
 
-  console.log(`Created ${CONFIG_FILE}`);
+    let handle;
+    let targetCreated = false;
+    try {
+      handle = await fs.open(target, "wx");
+      targetCreated = true;
+      await handle.writeFile(template, "utf8");
+      await handle.sync();
+      await handle.close();
+    } catch (error) {
+      await handle?.close().catch(() => {});
+      if (targetCreated) {
+        await fs.rm(target, { force: true }).catch(() => {});
+      }
+      if (error.code === "EEXIST") {
+        throw new Error(CONFIG_FILE + " already exists. It was not changed.");
+      }
+      throw new Error("Could not create " + CONFIG_FILE + ": " + error.message, {
+        cause: error,
+      });
+    }
+
+    console.log("Created " + CONFIG_FILE);
+  });
 }
 
 async function run() {
