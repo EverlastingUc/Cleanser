@@ -14,12 +14,12 @@ This pass reconciles every canonical catalogue entry with the implementation are
 
 The catalogue contains 340 numbered entries, of which 336 are canonical features and 4 are explicitly marked duplicates.
 
-| Catalogue status | Count | Interpretation in this audit |
-|---|---:|---|
-| Implemented | 206 | Implementation surface exists in its mapped source area; category-level tests are linked. This is not a per-feature runtime pass. |
-| Partial | 115 | A scoped implementation exists; the catalogue's limitations remain part of the feature definition. |
-| Planned | 15 | Not implemented, according to the catalogue. |
-| Duplicate | 4 | Repeated capability; excluded from the 336 canonical features. |
+| Catalogue status | Count | Interpretation in this audit                                                                                                      |
+| ---------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Implemented      | 206   | Implementation surface exists in its mapped source area; category-level tests are linked. This is not a per-feature runtime pass. |
+| Partial          | 115   | A scoped implementation exists; the catalogue's limitations remain part of the feature definition.                                |
+| Planned          | 15    | Not implemented, according to the catalogue.                                                                                      |
+| Duplicate        | 4     | Repeated capability; excluded from the 336 canonical features.                                                                    |
 
 No catalogue status was silently changed. In particular, a broad feature name is not treated as fully delivered when its own notes describe only metadata detection, suggestions, or a narrower subset.
 
@@ -29,27 +29,27 @@ All 336 canonical entries have an individual record in `FEATURE-VERIFICATION.jso
 
 The source/test evidence map covers these areas:
 
-| Category | Main implementation area | Relevant test suites |
-|---|---|---|
-| Code Formatting Engine | Cleaner, EditorConfig, semantic verification | cleaner, editorconfig |
-| Code Quality Detection | Analyzer, dependency graph, control flow | analyzer, dependency graph |
-| Code Optimization | Analyzer and safe fixes | analyzer, cleaner |
-| Import and Dependency Management | Analyzer, dependency graph, project audit | analyzer, dependency graph, project audit |
-| Security and Risk Detection | Analyzer, risk classification, safe writes | analyzer, risk, cleaner |
-| Code Complexity Analysis | Analyzer metrics and project metrics | analyzer, metrics |
-| Code Structure Analysis | Analyzer, control-flow/dependency graphs, metrics | analyzer, dependency graph, metrics |
-| Project Cleanup | Project audit, cleaner, dependency graph | project audit, cleaner, dependency graph |
-| Documentation and Comment Analysis | Documentation audit and project audit | documentation audit, project audit |
-| Git Intelligence | Git tools, backup history, hooks | git tools, history, hooks, CLI |
-| Testing and Verification | Type checking, compiler comparison, formatter verification, watcher | typecheck, compiler comparison, cleaner, watcher |
-| Advanced Safety System | Cleaner, risk, history, hooks | cleaner, risk, history, hooks, watcher |
-| Multi-Language Support | Cleaner formatter registry and language adapters | cleaner, language adapters |
-| Framework and Ecosystem Support | Framework detection and project audit | project audit |
-| Configuration System | Config loader, config migration, EditorConfig | config, config migration, editorconfig |
-| CLI Experience | CLI command implementation | CLI |
-| IDE Integrations | LSP, VS Code extension, analyzer and cleaner | LSP, analyzer, cleaner |
-| GitHub and CI/CD | CI templates, pull-request report, Git tools | CI, git tools, CLI |
-| Performance and Scalability | File cache, cleaner, analyzer, watcher | file-cache, cleaner, analyzer, watcher |
+| Category                               | Main implementation area                                                | Relevant test suites                                                            |
+| -------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Code Formatting Engine                 | Cleaner, EditorConfig, semantic verification                            | cleaner, editorconfig                                                           |
+| Code Quality Detection                 | Analyzer, dependency graph, control flow                                | analyzer, dependency graph                                                      |
+| Code Optimization                      | Analyzer and safe fixes                                                 | analyzer, cleaner                                                               |
+| Import and Dependency Management       | Analyzer, dependency graph, project audit                               | analyzer, dependency graph, project audit                                       |
+| Security and Risk Detection            | Analyzer, risk classification, safe writes                              | analyzer, risk, cleaner                                                         |
+| Code Complexity Analysis               | Analyzer metrics and project metrics                                    | analyzer, metrics                                                               |
+| Code Structure Analysis                | Analyzer, control-flow/dependency graphs, metrics                       | analyzer, dependency graph, metrics                                             |
+| Project Cleanup                        | Project audit, cleaner, dependency graph                                | project audit, cleaner, dependency graph                                        |
+| Documentation and Comment Analysis     | Documentation audit and project audit                                   | documentation audit, project audit                                              |
+| Git Intelligence                       | Git tools, backup history, hooks                                        | git tools, history, hooks, CLI                                                  |
+| Testing and Verification               | Type checking, compiler comparison, formatter verification, watcher     | typecheck, compiler comparison, cleaner, watcher                                |
+| Advanced Safety System                 | Cleaner, risk, history, hooks                                           | cleaner, risk, history, hooks, watcher                                          |
+| Multi-Language Support                 | Cleaner formatter registry and language adapters                        | cleaner, language adapters                                                      |
+| Framework and Ecosystem Support        | Framework detection and project audit                                   | project audit                                                                   |
+| Configuration System                   | Config loader, config migration, EditorConfig                           | config, config migration, editorconfig                                          |
+| CLI Experience                         | CLI command implementation                                              | CLI                                                                             |
+| IDE Integrations                       | LSP, VS Code extension, analyzer and cleaner                            | LSP, analyzer, cleaner                                                          |
+| GitHub and CI/CD                       | CI templates, pull-request report, Git tools                            | CI, git tools, CLI                                                              |
+| Performance and Scalability            | File cache, cleaner, analyzer, watcher                                  | file-cache, cleaner, analyzer, watcher                                          |
 | Reporting, Extensibility and Community | Metrics, plugin/language APIs, playground, score, snapshots, PR reports | metrics, plugin API, language adapters, playground, score, snapshots, git tools |
 
 The register validates that every evidence path exists in the audited repository tree. Evidence is intentionally labelled **category-level**: the codebase does not provide an isolated passing test for every single catalogue ID.
@@ -76,13 +76,13 @@ The latest test workflow for the audited revision is [run 45474716491](https://g
 Each matrix job ran the Node test suite and reported 213 tests:
 
 | Platform | Node | Passed | Failed |
-|---|---:|---:|---:|
-| Ubuntu | 20 | 212 | 1 |
-| Ubuntu | 22 | 212 | 1 |
-| macOS | 20 | 212 | 1 |
-| macOS | 22 | 212 | 1 |
-| Windows | 20 | 209 | 3 |
-| Windows | 22 | 209 | 3 |
+| -------- | ---- | ------ | ------ |
+| Ubuntu   | 20   | 212    | 1      |
+| Ubuntu   | 22   | 212    | 1      |
+| macOS    | 20   | 212    | 1      |
+| macOS    | 22   | 212    | 1      |
+| Windows  | 20   | 209    | 3      |
+| Windows  | 22   | 209    | 3      |
 
 All six jobs failed at `npm test`. The subsequent `npm run check` step was skipped, and the dependent VS Code packaging job was skipped. Therefore CI is **not green**, and the project is not release-ready based on this run.
 
