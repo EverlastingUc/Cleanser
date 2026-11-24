@@ -471,6 +471,7 @@ test("verifies all five partial code-quality rules with isolated runtime fixture
       "duplicate-code",
       "unreachable-code",
       "redundant-expression",
+      "redundant-return",
       "constant-condition",
       "repeated-branch-condition",
       "redundant-type-annotation",
