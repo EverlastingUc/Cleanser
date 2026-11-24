@@ -849,7 +849,7 @@ test("init respects an active Cleanser project write lock", async () => {
   await withTempProject(async (root) => {
     await fs.writeFile(
       path.join(root, ".cleanser.lock"),
-      JSON.stringify({ pid: 12345, startedAt: "test" }),
+      JSON.stringify({ pid: process.pid, startedAt: "test" }),
     );
     const result = runCli(["init"], root);
     assert.equal(result.status, 1);
