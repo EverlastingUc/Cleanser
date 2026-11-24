@@ -98,5 +98,7 @@ async function migrateConfigFormatOperation({ root = process.cwd(), to } = {}) {
 
 export async function migrateConfigFormat(options = {}) {
   const { root = process.cwd() } = options;
-  return withProjectWriteLock(root, () => migrateConfigFormatOperation(options));
+  return withProjectWriteLock(root, () =>
+    migrateConfigFormatOperation(options),
+  );
 }
