@@ -3272,6 +3272,7 @@ export async function analyzeProject({
     noLib: true,
     noResolve: true,
     allowUnreachableCode: false,
+    allowUnusedLabels: false,
     skipLibCheck: true,
     target: ts.ScriptTarget.Latest,
     module: ts.ModuleKind.ESNext,
