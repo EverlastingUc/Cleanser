@@ -59,7 +59,6 @@ test("configuration migration refuses to replace an existing target", async () =
   });
 });
 
-
 test("configuration migration respects the project write lock", async () => {
   await withProject(async (root) => {
     const sourcePath = path.join(root, ".cleanser.clns");
