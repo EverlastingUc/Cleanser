@@ -66,7 +66,7 @@ test("configuration migration respects the project write lock", async () => {
     const source = await fs.readFile(sourcePath, "utf8");
     await fs.writeFile(
       path.join(root, ".cleanser.lock"),
-      JSON.stringify({ pid: 12345, startedAt: "test" }),
+      JSON.stringify({ pid: process.pid, startedAt: "test" }),
     );
 
     await assert.rejects(
