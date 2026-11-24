@@ -83,53 +83,87 @@ function minimalTextEdit(source, formatted) {
 function createMessageParser(onMessage, onError) {
   let buffer = Buffer.alloc(0);
   let failed = false;
+
+  const append = (chunk, start, end) => {
+    if (end <= start) return;
+    const part = chunk.subarray(start, end);
+    buffer = buffer.length === 0 ? part : Buffer.concat([buffer, part]);
+  };
+
+  const fail = (message) => {
+    failed = true;
+    buffer = Buffer.alloc(0);
+    onError(message);
+  };
+
   return (chunk) => {
     if (failed) return;
-    buffer = Buffer.concat([buffer, chunk]);
+    let offset = 0;
+
     while (true) {
-      const headerEnd = buffer.indexOf(HEADER_END);
+      let headerEnd = buffer.indexOf(HEADER_END);
       if (headerEnd < 0) {
-        if (buffer.length > MAX_HEADER_BYTES) {
-          failed = true;
-          buffer = Buffer.alloc(0);
-          onError("LSP message header exceeds the 8 KB limit.");
+        if (offset >= chunk.length) return;
+        const capacity = MAX_HEADER_BYTES + 1 - buffer.length;
+        if (capacity <= 0) {
+          fail("LSP message header exceeds the 8 KB limit.");
+          return;
         }
-        return;
+        const nextOffset = Math.min(chunk.length, offset + capacity);
+        append(chunk, offset, nextOffset);
+        offset = nextOffset;
+        headerEnd = buffer.indexOf(HEADER_END);
+        if (headerEnd < 0) {
+          if (buffer.length > MAX_HEADER_BYTES) {
+            fail("LSP message header exceeds the 8 KB limit.");
+          }
+          return;
+        }
       }
+
       if (headerEnd > MAX_HEADER_BYTES) {
-        failed = true;
-        buffer = Buffer.alloc(0);
-        onError("LSP message header exceeds the 8 KB limit.");
+        fail("LSP message header exceeds the 8 KB limit.");
         return;
       }
+
       const header = buffer.subarray(0, headerEnd).toString("ascii");
       const lengthMatch = header.match(/(?:^|\r\n)content-length:\s*(\d+)/i);
+      const messageStart = headerEnd + HEADER_END.length;
       if (!lengthMatch) {
-        buffer = buffer.subarray(headerEnd + HEADER_END.length);
+        buffer = buffer.subarray(messageStart);
         onError("LSP message is missing Content-Length.");
         continue;
       }
+
       const contentLength = Number(lengthMatch[1]);
       if (!Number.isSafeInteger(contentLength) || contentLength < 0) {
-        buffer = buffer.subarray(headerEnd + HEADER_END.length);
+        buffer = buffer.subarray(messageStart);
         onError("LSP Content-Length must be a non-negative safe integer.");
         continue;
       }
       if (contentLength > MAX_MESSAGE_BYTES) {
-        failed = true;
-        buffer = Buffer.alloc(0);
-        onError("LSP message exceeds the 16 MB size limit.");
+        fail("LSP message exceeds the 16 MB size limit.");
         return;
       }
-      const messageStart = headerEnd + HEADER_END.length;
+
       const messageEnd = messageStart + contentLength;
-      if (buffer.length < messageEnd) return;
+      if (buffer.length < messageEnd) {
+        if (offset >= chunk.length) return;
+        const nextOffset = Math.min(
+          chunk.length,
+          offset + messageEnd - buffer.length,
+        );
+        append(chunk, offset, nextOffset);
+        offset = nextOffset;
+        if (buffer.length < messageEnd) return;
+      }
+
       const body = buffer.subarray(messageStart, messageEnd).toString("utf8");
       buffer = buffer.subarray(messageEnd);
       try {
         onMessage(JSON.parse(body));
       } catch (error) {
-        onError(`Could not parse LSP message: ${error.message}`);
+        onError("Could not parse LSP message: " + error.message);
       }
     }
   };
