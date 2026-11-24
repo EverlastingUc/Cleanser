@@ -58,3 +58,22 @@ test("configuration migration refuses to replace an existing target", async () =
     assert.equal(await fs.readFile(targetPath, "utf8"), target);
   });
 });
+
+
+test("configuration migration respects the project write lock", async () => {
+  await withProject(async (root) => {
+    const sourcePath = path.join(root, ".cleanser.clns");
+    const source = await fs.readFile(sourcePath, "utf8");
+    await fs.writeFile(
+      path.join(root, ".cleanser.lock"),
+      JSON.stringify({ pid: 12345, startedAt: "test" }),
+    );
+
+    await assert.rejects(
+      migrateConfigFormat({ root, to: "json" }),
+      /Another Cleanser write operation holds \.cleanser\.lock/,
+    );
+    assert.equal(await fs.readFile(sourcePath, "utf8"), source);
+    await assert.rejects(fs.access(path.join(root, ".cleanser.json")));
+  });
+});
