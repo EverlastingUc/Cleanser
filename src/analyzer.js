@@ -3199,13 +3199,17 @@ function analyzeCrossFileDuplicateCode(sourceFiles, root) {
           .trim();
         const previous = firstByBody.get(normalizedBody);
         if (previous && previous.filePath !== sourceFile.fileName) {
+          const previousFilePath = path
+            .relative(root, previous.filePath)
+            .split(path.sep)
+            .join("/");
           findings.push(
             createFinding(
               sourceFile,
               root,
               "duplicate-code",
               node.name ?? node,
-              `Function body duplicates code in ${previous.filePath}.`,
+              `Function body duplicates code in ${previousFilePath}.`,
             ),
           );
         } else if (!previous) {
