@@ -110,7 +110,6 @@ test("restore CLI requires explicit confirmation before replacing a file", async
   });
 });
 
-
 test("restore refuses to race an active Cleanser write operation", async () => {
   await withProject(async (root) => {
     await fs.mkdir(path.join(root, ".cleanser-backups"));
