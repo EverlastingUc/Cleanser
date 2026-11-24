@@ -1083,26 +1083,15 @@ async function init() {
       "utf8",
     );
 
-    let handle;
-    let targetCreated = false;
     try {
-      handle = await fs.open(target, "wx");
-      targetCreated = true;
-      await handle.writeFile(template, "utf8");
-      await handle.sync();
-      await handle.close();
+      await fs.writeFile(target, template, { encoding: "utf8", flag: "wx" });
     } catch (error) {
-      await handle?.close().catch(() => {});
-      if (targetCreated) {
-        await fs.rm(target, { force: true }).catch(() => {});
-      }
       if (error.code === "EEXIST") {
         throw new Error(`${CONFIG_FILE} already exists. It was not changed.`);
       }
-      throw new Error(
-        `Could not create ${CONFIG_FILE}: ${error.message}`,
-        { cause: error },
-      );
+      throw new Error(`Could not create ${CONFIG_FILE}: ${error.message}`, {
+        cause: error,
+      });
     }
 
     console.log(`Created ${CONFIG_FILE}`);
