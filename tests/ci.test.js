@@ -38,7 +38,7 @@ test("CI starter generation respects the project write lock", async () => {
   try {
     await fs.writeFile(
       path.join(root, ".cleanser.lock"),
-      JSON.stringify({ pid: 12345, startedAt: "test" }),
+      JSON.stringify({ pid: process.pid, startedAt: "test" }),
     );
     await assert.rejects(
       createCiConfig({ root, provider: "gitlab" }),
