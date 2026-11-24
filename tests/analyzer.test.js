@@ -461,6 +461,10 @@ test("verifies all five partial code-quality rules with isolated runtime fixture
       byRule("unreachable-code").some((finding) => finding.filePath === "dead.ts"),
     );
     assert.ok(
+      byRule("unused-parameter").some((finding) => finding.filePath === "dead.ts"),
+      "Parameters of exported functions should still be checked for unused bindings.",
+    );
+    assert.ok(
       byRule("redundant-type-annotation").some(
         (finding) => finding.filePath === "types.ts",
       ),
