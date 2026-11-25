@@ -341,7 +341,7 @@ const RULES = Object.freeze([
     id: "duplicate-code",
     severity: "warning",
     description:
-      "A function body exactly duplicates another substantial body in this file.",
+      "A function body exactly duplicates another substantial body in the project.",
   },
   {
     id: "broken-import",

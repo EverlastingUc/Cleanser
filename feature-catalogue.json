@@ -205,7 +205,7 @@
       "name": "Duplicate code detection",
       "category": "Code Quality Detection",
       "status": "Partial",
-      "notes": "Exact normalized function bodies are compared across project files; near-duplicate detection remains out of scope."
+      "notes": "Exact normalized function bodies are compared within and across project files; near-duplicate detection remains out of scope."
     },
     {
       "id": 30,
