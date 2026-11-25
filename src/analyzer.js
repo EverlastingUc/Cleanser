@@ -915,6 +915,60 @@ export function getSafeQuickFix(source, filePath, ruleId, start, end) {
     }
   }
 
+  if (ruleId === "duplicate-import" && ts.isStringLiteralLike(candidate)) {
+    const current = candidate.parent;
+    if (
+      ts.isImportDeclaration(current) &&
+      current.moduleSpecifier === candidate &&
+      current.importClause?.namedBindings &&
+      ts.isNamedImports(current.importClause.namedBindings) &&
+      !current.importClause.name &&
+      !current.assertClause &&
+      !current.attributes
+    ) {
+      const statements = sourceFile.statements;
+      const currentIndex = statements.indexOf(current);
+      const previous = statements[currentIndex - 1];
+      if (
+        previous &&
+        ts.isImportDeclaration(previous) &&
+        previous.moduleSpecifier.text === candidate.text &&
+        previous.importClause?.namedBindings &&
+        ts.isNamedImports(previous.importClause.namedBindings) &&
+        !previous.importClause.name &&
+        previous.importClause.isTypeOnly === current.importClause.isTypeOnly &&
+        !previous.assertClause &&
+        !previous.attributes
+      ) {
+        const firstBindings = previous.importClause.namedBindings;
+        const secondBindings = current.importClause.namedBindings;
+        const localNames = new Set(
+          firstBindings.elements.map((element) => element.name.text),
+        );
+        const hasCollision = secondBindings.elements.some((element) =>
+          localNames.has(element.name.text),
+        );
+        const separator = source.slice(previous.end, current.getStart(sourceFile));
+        if (
+          !hasCollision &&
+          /^[\t \r\n]*$/u.test(separator) &&
+          !hasCommentTrivia(sourceFile, previous.getStart(sourceFile), current.end)
+        ) {
+          const elements = [...firstBindings.elements, ...secondBindings.elements]
+            .map((element) => element.getText(sourceFile));
+          const typeOnly = previous.importClause.isTypeOnly;
+          const semicolon = source.slice(previous.end - 1, previous.end) === ";";
+          return {
+            start: previous.getStart(sourceFile),
+            end: current.end,
+            newText: "import" + (typeOnly ? " type" : "") + " { " + elements.join(", ") + " } from " + previous.moduleSpecifier.getText(sourceFile) + (semicolon ? ";" : ""),
+            title: "Merge duplicate named imports",
+          };
+        }
+      }
+    }
+  }
+
   if (ruleId === "prefer-template-literal") {
     const operands = [];
     if (
