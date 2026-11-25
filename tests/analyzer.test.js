@@ -1052,6 +1052,53 @@ test("safe quick fixes cover only comment-free, low-risk source suggestions", ()
   assert.equal(groupedQuickFix?.title, "Separate import groups");
   assert.equal(groupedQuickFix?.newText, "\n\n");
 
+  const duplicateNamedImports =
+    'import { first } from "shared";\nimport { second as renamed } from "shared";';
+  const duplicateImportStart = duplicateNamedImports.lastIndexOf('"shared"');
+  assert.deepEqual(
+    getSafeQuickFix(
+      duplicateNamedImports,
+      "sample.ts",
+      "duplicate-import",
+      duplicateImportStart,
+      duplicateImportStart + '"shared"'.length,
+    ),
+    {
+      start: 0,
+      end: duplicateNamedImports.length,
+      newText: 'import { first, second as renamed } from "shared";',
+      title: "Merge duplicate named imports",
+    },
+  );
+
+  const duplicateWithCollision =
+    'import { value } from "shared";\nimport { value as value } from "shared";';
+  const collisionStart = duplicateWithCollision.lastIndexOf('"shared"');
+  assert.equal(
+    getSafeQuickFix(
+      duplicateWithCollision,
+      "sample.ts",
+      "duplicate-import",
+      collisionStart,
+      collisionStart + '"shared"'.length,
+    ),
+    undefined,
+  );
+
+  const duplicateWithComment =
+    'import { first } from "shared";\n// keep this comment\nimport { second } from "shared";';
+  const commentStart = duplicateWithComment.lastIndexOf('"shared"');
+  assert.equal(
+    getSafeQuickFix(
+      duplicateWithComment,
+      "sample.ts",
+      "duplicate-import",
+      commentStart,
+      commentStart + '"shared"'.length,
+    ),
+    undefined,
+  );
+
   const literalConcatenation = 'const label = "item: " + 3 + true;';
   const concatenationStart = literalConcatenation.indexOf('"item: "');
   assert.deepEqual(
