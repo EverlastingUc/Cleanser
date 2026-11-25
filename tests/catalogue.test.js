@@ -17,10 +17,10 @@ test("feature catalogue has one documented status for every numbered feature", a
 
   assert.equal(catalogue.numberedFeatureCount, 341);
   assert.equal(catalogue.canonicalFeatureCount, 337);
-  assert.equal(entries.length, 340);
+  assert.equal(entries.length, 341);
   assert.deepEqual(
     entries.map((entry) => entry.id),
-    Array.from({ length: 340 }, (_, index) => index + 1),
+    Array.from({ length: 341 }, (_, index) => index + 1),
   );
   assert.ok(
     entries.every(
