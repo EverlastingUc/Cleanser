@@ -1149,7 +1149,7 @@
       "category": "Import and Dependency Management",
       "catalogueStatus": "Partial",
       "reviewOutcome": "partial-scope-documented; evidence-paths-linked",
-      "catalogueScopeNotes": "The analyzer reports duplicate module imports for review; it does not merge import declarations.",
+      "catalogueScopeNotes": "The analyzer reports duplicate module imports. A conservative quick fix merges adjacent, comment-free named imports from the same module when import modes match and local bindings do not collide; default, namespace, side-effect, attributed, non-adjacent, and collision cases remain review-only.",
       "sourceEvidence": [
         "src/analyzer.js",
         "src/dependency-graph.js",
@@ -1160,8 +1160,8 @@
         "tests/dependency-graph.test.js",
         "tests/project-audit.test.js"
       ],
-      "evidenceGranularity": "category-level; this does not assert an isolated passing test for this individual feature",
-      "runtimeVerification": "not_individually_verified"
+      "evidenceGranularity": "feature-level; dedicated duplicate-import quick-fix assertions cover safe merge and rejection cases",
+      "runtimeVerification": "pending-ci"
     },
     {
       "id": 64,
