@@ -205,14 +205,14 @@
       "name": "Duplicate code detection",
       "category": "Code Quality Detection",
       "status": "Partial",
-      "notes": "Exact normalized function bodies are compared within and across project files; near-duplicate detection remains out of scope."
+      "notes": "Exact and alpha-renamed function bodies are compared across files; literal-only structural clones are reported as informational near duplicates. Other token-level clone variations are not inferred."
     },
     {
       "id": 30,
       "name": "Dead code detection",
       "category": "Code Quality Detection",
       "status": "Partial",
-      "notes": "The analyzer reports unused local bindings and compiler-proven unreachable statements. Whole-file reachability and cross-module dead-code removal are not implemented."
+      "notes": "Static package entry points enable conservative reachability checks for orphan source modules. Wildcard exports, dynamic loaders, framework routes, and individual unused exported members remain outside this analysis."
     },
     {
       "id": 31,
@@ -247,14 +247,14 @@
       "name": "Redundant statements detection",
       "category": "Code Quality Detection",
       "status": "Partial",
-      "notes": "Detects final bare returns and standalone pure array or object literal expressions. VS Code can remove only comment-free pure literal statements; broader redundant-statement analysis is not implemented."
+      "notes": "Detects final bare returns, pure constant/void expression statements, and standalone empty statements. Empty statements used directly as control-flow bodies are preserved."
     },
     {
       "id": 36,
       "name": "Redundant conditions detection",
       "category": "Code Quality Detection",
       "status": "Partial",
-      "notes": "The analyzer detects constant conditions and repeated stable conditions in else-if chains; broader logical-equivalence analysis is not implemented."
+      "notes": "Detects constant conditions, stable contradictions such as x && !x, and commutative stable equivalence in else-if chains. General theorem proving and side-effectful expressions are excluded."
     },
     {
       "id": 37,
@@ -282,7 +282,7 @@
       "name": "Unnecessary type declarations detection",
       "category": "Code Quality Detection",
       "status": "Partial",
-      "notes": "The analyzer reports redundant primitive annotations on mutable variables initialized from simple numeric, string, boolean, and bigint literals. Public API intent, contextual typing, const literal widening, and non-literal initializers are preserved; no annotations are removed automatically."
+      "notes": "Detects redundant primitive annotations on non-exported mutable bindings with simple literals or pure constant initializers when the checker confirms the widened primitive type. Exported declarations, const widening, calls, and side effects are preserved."
     },
     {
       "id": 41,
@@ -2388,32 +2388,50 @@
   "relationships": [
     {
       "relationship": "Duplicate",
-      "entries": [67, 104],
+      "entries": [
+        67,
+        104
+      ],
       "decision": "One circular-dependency analysis implementation; expose findings in any relevant report."
     },
     {
       "relationship": "Duplicate",
-      "entries": [148, 262],
+      "entries": [
+        148,
+        262
+      ],
       "decision": "One cleanup-history store/service with CLI and other adapters."
     },
     {
       "relationship": "Duplicate",
-      "entries": [144, 301],
+      "entries": [
+        144,
+        301
+      ],
       "decision": "One branch-comparison engine reused by Git and CI."
     },
     {
       "relationship": "Duplicate",
-      "entries": [248, 334],
+      "entries": [
+        248,
+        334
+      ],
       "decision": "One preset registry; team presets can be distributed through shared packs."
     },
     {
       "relationship": "Shared content, separate surface",
-      "entries": [267, 283],
+      "entries": [
+        267,
+        283
+      ],
       "decision": "A common rule explanation catalogue powers CLI and IDE views."
     },
     {
       "relationship": "Shared engine, separate surface",
-      "entries": [125, 287],
+      "entries": [
+        125,
+        287
+      ],
       "decision": "Workspace cleanup engine and IDE invocation remain separate capabilities."
     }
   ],
