@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "source": "Pasted Cleanser feature catalogue and implementation specification.",
-  "numberedFeatureCount": 340,
-  "canonicalFeatureCount": 336,
+  "numberedFeatureCount": 341,
+  "canonicalFeatureCount": 337,
   "features": [
     {
       "id": 1,
@@ -2383,37 +2383,62 @@
       "category": "Reporting, Extensibility and Community",
       "status": "Partial",
       "notes": "A typed plugin API export, runtime validation, type tests, and JavaScript/TypeScript examples form a small developer SDK; language adapters, dependency management, and a packaged guide are not included."
+    },
+    {
+      "id": 341,
+      "name": "Regular expression denial-of-service risk detection",
+      "category": "Security and Risk Detection",
+      "status": "Implemented",
+      "notes": "Reports regex literals with nested quantifiers or repeated alternatives that may cause excessive backtracking; heuristic only, with regression coverage for risky and simple patterns."
     }
   ],
   "relationships": [
     {
       "relationship": "Duplicate",
-      "entries": [67, 104],
+      "entries": [
+        67,
+        104
+      ],
       "decision": "One circular-dependency analysis implementation; expose findings in any relevant report."
     },
     {
       "relationship": "Duplicate",
-      "entries": [148, 262],
+      "entries": [
+        148,
+        262
+      ],
       "decision": "One cleanup-history store/service with CLI and other adapters."
     },
     {
       "relationship": "Duplicate",
-      "entries": [144, 301],
+      "entries": [
+        144,
+        301
+      ],
       "decision": "One branch-comparison engine reused by Git and CI."
     },
     {
       "relationship": "Duplicate",
-      "entries": [248, 334],
+      "entries": [
+        248,
+        334
+      ],
       "decision": "One preset registry; team presets can be distributed through shared packs."
     },
     {
       "relationship": "Shared content, separate surface",
-      "entries": [267, 283],
+      "entries": [
+        267,
+        283
+      ],
       "decision": "A common rule explanation catalogue powers CLI and IDE views."
     },
     {
       "relationship": "Shared engine, separate surface",
-      "entries": [125, 287],
+      "entries": [
+        125,
+        287
+      ],
       "decision": "Workspace cleanup engine and IDE invocation remain separate capabilities."
     }
   ],
