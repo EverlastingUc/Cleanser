@@ -271,6 +271,12 @@ const RULES = Object.freeze([
     description: "Math.random is not suitable for security-sensitive values.",
   },
   {
+    id: "regex-dos-risk",
+    severity: "warning",
+    description:
+      "A regular expression contains nested or overlapping repetition that may cause excessive backtracking.",
+  },
+  {
     id: "sql-injection-risk",
     severity: "warning",
     description: "A dynamic value is interpolated into a SQL query string.",
@@ -1651,6 +1657,15 @@ function isPlausibleCredential(value) {
   );
 }
 
+function hasNestedRegexQuantifier(value) {
+  const source = value.startsWith("/") ? value.slice(1, value.lastIndexOf("/")) : value;
+  const quantifiedGroup =
+    /\\((?:\\\\.|[^()\\\\])*(?:[*+]|\\{\\d+,?\\d*\\})(?:\\\\.|[^()\\\\])*\\)(?:[*+]|\\{\\d+,?\\d*\\})/u;
+  const repeatedAlternation =
+    /\\((?:\\\\.|[^()\\\\])*\\|(?:\\\\.|[^()\\\\])*\\)(?:[*+]|\\{\\d+,?\\d*\\})/u;
+  return quantifiedGroup.test(source) || repeatedAlternation.test(source);
+}
+
 function containsPrivateKey(value) {
   const match = value.match(
     /-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----\s*([A-Za-z0-9+/=\r\n]+)\s*-----END (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/,
@@ -2773,6 +2788,13 @@ function analyzeTree(sourceFile, root, checker, findings) {
       ["innerHTML", "outerHTML"].includes(node.left.name.text)
     ) {
       push("xss-risk", node.left.name);
+    }
+
+    if (
+      ts.isRegularExpressionLiteral(node) &&
+      hasNestedRegexQuantifier(node.text)
+    ) {
+      push("regex-dos-risk", node);
     }
 
     if (
