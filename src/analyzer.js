@@ -628,11 +628,7 @@ export function getSafeQuickFix(source, filePath, ruleId, start, end) {
     (ruleId === "prefer-nullish-coalescing" ||
       ruleId === "prefer-optional-chain") &&
     ts.isConditionalExpression(candidate) &&
-    !hasCommentTrivia(
-      sourceFile,
-      candidate.getStart(sourceFile),
-      candidate.end,
-    )
+    !hasCommentTrivia(sourceFile, candidate.getStart(sourceFile), candidate.end)
   ) {
     let condition = candidate.condition;
     while (ts.isParenthesizedExpression(condition)) {
@@ -652,8 +648,7 @@ export function getSafeQuickFix(source, filePath, ruleId, start, end) {
             ? condition.right
             : undefined;
       if (isNullishCheck && identifier) {
-        const checksForNullish =
-          operator === ts.SyntaxKind.EqualsEqualsToken;
+        const checksForNullish = operator === ts.SyntaxKind.EqualsEqualsToken;
         const retained = checksForNullish
           ? candidate.whenFalse
           : candidate.whenTrue;
