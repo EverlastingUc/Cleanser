@@ -10,6 +10,12 @@ The analyzer reports `regex-dos-risk` for regular-expression literals containing
 
 The heuristic intentionally targets a narrow syntax pattern. It can miss risky expressions and can flag patterns that are safe under a particular input bound or engine. It does not rewrite regular expressions.
 
+## DOM HTML insertion sinks
+
+The existing `xss-risk` rule also reports non-literal values passed to `insertAdjacentHTML`, `document.write`, and `document.writeln`. Literal HTML strings are excluded from these call-based checks.
+
+This is a sink-oriented heuristic, not taint analysis: it does not trace whether a value originates from an attacker or has been safely sanitized. Review each finding in its application context.
+
 ## Existing security checks retained
 
 The analyzer continues to cover credential-like literals, PEM private-key blocks, suspicious URL schemes and embedded credentials, remote cleartext HTTP, dynamic code execution, shell invocation, weak hashes, insecure randomness, dynamic SQL, HTML injection sinks, path traversal indicators, unsafe deserialization, and permissive file modes.
