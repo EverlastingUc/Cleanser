@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import fs from "node:fs/promises";
 import { builtinModules } from "node:module";
 import path from "node:path";
@@ -2026,6 +2027,7 @@ export function inspectSourceMetrics(source, filePath = "source.ts") {
   const classes = [];
   const dependencies = new Set();
   const duplicateBodies = new Set();
+  const duplicateCandidates = [];
   const printer = ts.createPrinter({ removeComments: true });
   const operatorKinds = new Set();
   const operandValues = new Set();
@@ -2078,6 +2080,10 @@ export function inspectSourceMetrics(source, filePath = "source.ts") {
           node.body,
           sourceFile,
         );
+        duplicateCandidates.push({
+          signature: createHash("sha256").update(body).digest("hex"),
+          lineCount: span.lineCount,
+        });
         if (duplicateBodies.has(body)) {
           duplicateFunctionCount++;
           duplicateLines += lineSpan(node).lineCount;
@@ -2243,6 +2249,7 @@ export function inspectSourceMetrics(source, filePath = "source.ts") {
       duplicateLines,
       percentage:
         lineCount === 0 ? 0 : Math.min(100, (duplicateLines / lineCount) * 100),
+      candidates: duplicateCandidates,
     },
     halstead: {
       operatorCount,
