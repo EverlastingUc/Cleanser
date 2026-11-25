@@ -443,7 +443,7 @@
       "name": "Duplicate import merging",
       "category": "Import and Dependency Management",
       "status": "Partial",
-      "notes": "The analyzer reports duplicate module imports for review; it does not merge import declarations."
+      "notes": "The analyzer reports duplicate module imports. A conservative quick fix merges adjacent, comment-free named imports from the same module when import modes match and local bindings do not collide; default, namespace, side-effect, attributed, non-adjacent, and collision cases remain review-only."
     },
     {
       "id": 64,
