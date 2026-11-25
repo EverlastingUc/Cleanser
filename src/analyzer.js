@@ -948,11 +948,18 @@ export function getSafeQuickFix(source, filePath, ruleId, start, end) {
         const hasCollision = secondBindings.elements.some((element) =>
           localNames.has(element.name.text),
         );
-        const separator = source.slice(previous.end, current.getStart(sourceFile));
+        const separator = source.slice(
+          previous.end,
+          current.getStart(sourceFile),
+        );
         if (
           !hasCollision &&
           /^[\t \r\n]*$/u.test(separator) &&
-          !hasCommentTrivia(sourceFile, previous.getStart(sourceFile), current.end)
+          !hasCommentTrivia(
+            sourceFile,
+            previous.getStart(sourceFile),
+            current.end,
+          )
         ) {
           const elements = [
             ...firstBindings.elements,
