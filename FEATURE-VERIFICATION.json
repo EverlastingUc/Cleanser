@@ -6266,15 +6266,64 @@
     "testedCommit": "cfd41a77950968b1b90490f0a7e1d8c92122f1ba",
     "status": "success",
     "matrix": [
-      {"platform":"ubuntu-latest","node":"20","tests":222,"passed":222,"failed":0,"skipped":0},
-      {"platform":"ubuntu-latest","node":"22","tests":222,"passed":222,"failed":0,"skipped":0},
-      {"platform":"macos-latest","node":"20","tests":222,"passed":222,"failed":0,"skipped":0},
-      {"platform":"macos-latest","node":"22","tests":222,"passed":222,"failed":0,"skipped":0},
-      {"platform":"windows-latest","node":"20","tests":222,"passed":221,"failed":0,"skipped":1},
-      {"platform":"windows-latest","node":"22","tests":222,"passed":221,"failed":0,"skipped":1}
+      {
+        "platform": "ubuntu-latest",
+        "node": "20",
+        "tests": 222,
+        "passed": 222,
+        "failed": 0,
+        "skipped": 0
+      },
+      {
+        "platform": "ubuntu-latest",
+        "node": "22",
+        "tests": 222,
+        "passed": 222,
+        "failed": 0,
+        "skipped": 0
+      },
+      {
+        "platform": "macos-latest",
+        "node": "20",
+        "tests": 222,
+        "passed": 222,
+        "failed": 0,
+        "skipped": 0
+      },
+      {
+        "platform": "macos-latest",
+        "node": "22",
+        "tests": 222,
+        "passed": 222,
+        "failed": 0,
+        "skipped": 0
+      },
+      {
+        "platform": "windows-latest",
+        "node": "20",
+        "tests": 222,
+        "passed": 221,
+        "failed": 0,
+        "skipped": 1
+      },
+      {
+        "platform": "windows-latest",
+        "node": "22",
+        "tests": 222,
+        "passed": 221,
+        "failed": 0,
+        "skipped": 1
+      }
     ],
     "formatting": "81 files scanned; 0 changes required in every matrix job",
-    "coverage": {"tests":222,"passed":222,"failed":0,"line":91.27,"branch":82.39,"function":92.80},
+    "coverage": {
+      "tests": 222,
+      "passed": 222,
+      "failed": 0,
+      "line": 91.27,
+      "branch": 82.39,
+      "function": 92.8
+    },
     "package": {
       "npmAudit": "passed",
       "vscodePackage": "passed",
