@@ -239,7 +239,7 @@ test("detects nested and overlapping regex quantifiers without flagging simple p
       "const overlapping = /(a|aa)+$/;",
       "const bounded = /^[a-z]{1,12}$/;",
       "const simple = /^[a-z]+$/;",
-    ].join("\\n");
+    ].join("\n");
     await fs.writeFile(path.join(root, "regex-risk.ts"), source);
 
     const findings = await analyzeProject({ root, config: DEFAULT_CONFIG });
