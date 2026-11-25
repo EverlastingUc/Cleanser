@@ -206,7 +206,7 @@ test("counts exact duplicate function bodies across project files", async () => 
       "  const third = second - 1;",
       "  return third;",
       "}",
-    ].join("\\n");
+    ].join("\n");
     await fs.writeFile(path.join(root, "alpha.ts"), body("alpha"));
     await fs.writeFile(path.join(root, "beta.ts"), body("beta"));
 
