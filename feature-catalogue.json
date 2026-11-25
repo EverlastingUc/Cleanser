@@ -2395,50 +2395,32 @@
   "relationships": [
     {
       "relationship": "Duplicate",
-      "entries": [
-        67,
-        104
-      ],
+      "entries": [67, 104],
       "decision": "One circular-dependency analysis implementation; expose findings in any relevant report."
     },
     {
       "relationship": "Duplicate",
-      "entries": [
-        148,
-        262
-      ],
+      "entries": [148, 262],
       "decision": "One cleanup-history store/service with CLI and other adapters."
     },
     {
       "relationship": "Duplicate",
-      "entries": [
-        144,
-        301
-      ],
+      "entries": [144, 301],
       "decision": "One branch-comparison engine reused by Git and CI."
     },
     {
       "relationship": "Duplicate",
-      "entries": [
-        248,
-        334
-      ],
+      "entries": [248, 334],
       "decision": "One preset registry; team presets can be distributed through shared packs."
     },
     {
       "relationship": "Shared content, separate surface",
-      "entries": [
-        267,
-        283
-      ],
+      "entries": [267, 283],
       "decision": "A common rule explanation catalogue powers CLI and IDE views."
     },
     {
       "relationship": "Shared engine, separate surface",
-      "entries": [
-        125,
-        287
-      ],
+      "entries": [125, 287],
       "decision": "Workspace cleanup engine and IDE invocation remain separate capabilities."
     }
   ],
