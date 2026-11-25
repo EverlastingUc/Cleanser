@@ -175,7 +175,7 @@ test("reports deterministic security patterns without printing secret values", a
       'import { exec as run } from "node:child_process";',
       'const apiKey = "k_live_A8hK9vZmQ2pL0xT7";',
       'const password = "correct-horse-battery-42";',
-      `const signingKey = "-----BEGIN PRIVATE KEY-----\\n${"A".repeat(80)}\\n-----END PRIVATE KEY-----";`,
+      `const signingKey = "-----BEGIN PRIVATE KEY-----\n${"A".repeat(80)}\n-----END PRIVATE KEY-----";`,
       'const redirect = "javascript:alert(1)";',
       'const credentialUrl = "https://alice:secret@example.com";',
       'const remote = "http://example.com/api";',
@@ -436,7 +436,7 @@ test("verifies all five partial code-quality rules with isolated runtime fixture
         "  const thirdStep = secondStep + 1;",
         "  return thirdStep;",
         "}",
-      ].join("\\n"),
+      ].join("\n"),
     );
     await fs.writeFile(
       path.join(root, "dead.ts"),
@@ -466,7 +466,7 @@ test("verifies all five partial code-quality rules with isolated runtime fixture
     );
     await fs.writeFile(
       path.join(root, "types.ts"),
-      "let count: number = 1;\\nlet total: number = 1 + 2;\\nexport let publicCount: number = 1;",
+      "let count: number = 1;\nlet total: number = 1 + 2;\nexport let publicCount: number = 1;",
     );
 
     const findings = await analyzeProject({ root, config: DEFAULT_CONFIG });
@@ -546,7 +546,7 @@ test("detects unreachable source modules only from static package entry points",
     await fs.mkdir(path.join(root, "src", "routes"), { recursive: true });
     await fs.writeFile(
       path.join(root, "src", "index.ts"),
-      'import { live } from "./live.js";\\nexport { live };',
+      'import { live } from "./live.js";\nexport { live };',
     );
     await fs.writeFile(
       path.join(root, "src", "live.ts"),
@@ -581,7 +581,7 @@ test("detects redundant void literals and standalone empty statements only", asy
         "  if (flag);",
         "  return;",
         "}",
-      ].join("\\n"),
+      ].join("\n"),
     );
     const findings = await analyzeProject({ root, config: DEFAULT_CONFIG });
     const redundant = findings.filter(
@@ -607,7 +607,7 @@ test("recognizes equivalent stable conditions and boolean contradictions", async
         "  if (getFlag() && getOtherFlag()) return 7;",
         "  return 8;",
         "}",
-      ].join("\\n"),
+      ].join("\n"),
     );
     const findings = await analyzeProject({ root, config: DEFAULT_CONFIG });
     assert.equal(

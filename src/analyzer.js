@@ -1383,7 +1383,7 @@ function normalizeStableCondition(node, sourceFile, printer) {
         ts.SyntaxKind.ExclamationEqualsToken,
         ts.SyntaxKind.ExclamationEqualsEqualsToken,
       ].includes(node.operatorToken.kind) &&
-      compareText(left, right) > 0
+      left > right
     ) {
       [left, right] = [right, left];
     }
@@ -3352,7 +3352,7 @@ function analyzeCrossFileDuplicateCode(sourceFiles, root, checker) {
         node.body.statements.length >= 4
       ) {
         const fingerprint = getFunctionBodyFingerprint(node, sourceFile, checker);
-        if (fingerprint.tokenCount >= 30) {
+        if (fingerprint.tokenCount >= 20) {
           const previous = firstByShape.get(fingerprint.shape);
           if (previous) {
             const previousFilePath = path
