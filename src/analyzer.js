@@ -2978,7 +2978,9 @@ function analyzeTree(sourceFile, root, checker, findings) {
       }
       if (
         ["write", "writeln"].includes(calleeName) &&
-        ["document", "window.document", "globalThis.document"].includes(receiver) &&
+        ["document", "window.document", "globalThis.document"].includes(
+          receiver,
+        ) &&
         node.arguments[0] &&
         hasDynamicValue(node.arguments[0])
       ) {
