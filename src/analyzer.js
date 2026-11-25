@@ -2969,6 +2969,22 @@ function analyzeTree(sourceFile, root, checker, findings) {
         push("sql-injection-risk", node.arguments[0]);
       }
       if (
+        calleeName === "insertAdjacentHTML" &&
+        receiver.length > 0 &&
+        node.arguments[1] &&
+        hasDynamicValue(node.arguments[1])
+      ) {
+        push("xss-risk", node.arguments[1]);
+      }
+      if (
+        ["write", "writeln"].includes(calleeName) &&
+        ["document", "window.document", "globalThis.document"].includes(receiver) &&
+        node.arguments[0] &&
+        hasDynamicValue(node.arguments[0])
+      ) {
+        push("xss-risk", node.arguments[0]);
+      }
+      if (
         isChildProcessCall(node, childProcessBindings) &&
         (hasShellEnabledOptions(node) ||
           (node.arguments[0] && hasDynamicValue(node.arguments[0])))
