@@ -1092,6 +1092,82 @@ test("safe quick fixes cover only comment-free, low-risk source suggestions", ()
     undefined,
   );
 
+  const nullishFallback = "const result = value == null ? buildFallback() : value;";
+  const nullishStart = nullishFallback.indexOf("value == null");
+  assert.deepEqual(
+    getSafeQuickFix(
+      nullishFallback,
+      "sample.ts",
+      "prefer-nullish-coalescing",
+      nullishStart,
+      nullishFallback.length - 1,
+    ),
+    {
+      start: nullishStart,
+      end: nullishFallback.length - 1,
+      newText: "value ?? buildFallback()",
+      title: "Use nullish coalescing",
+    },
+  );
+
+  const optionalAccess = "const result = user != null ? user.profile : void 0;";
+  const optionalStart = optionalAccess.indexOf("user != null");
+  assert.deepEqual(
+    getSafeQuickFix(
+      optionalAccess,
+      "sample.ts",
+      "prefer-optional-chain",
+      optionalStart,
+      optionalAccess.length - 1,
+    ),
+    {
+      start: optionalStart,
+      end: optionalAccess.length - 1,
+      newText: "user?.profile",
+      title: "Use optional chaining",
+    },
+  );
+
+  const optionalElement = "const result = user == null ? void 0 : user[key];";
+  const optionalElementStart = optionalElement.indexOf("user == null");
+  assert.equal(
+    getSafeQuickFix(
+      optionalElement,
+      "sample.ts",
+      "prefer-optional-chain",
+      optionalElementStart,
+      optionalElement.length - 1,
+    )?.newText,
+    "user?.[key]",
+  );
+
+  const strictNullish = "const result = value === null ? fallback : value;";
+  const strictStart = strictNullish.indexOf("value === null");
+  assert.equal(
+    getSafeQuickFix(
+      strictNullish,
+      "sample.ts",
+      "prefer-nullish-coalescing",
+      strictStart,
+      strictNullish.length - 1,
+    ),
+    undefined,
+  );
+
+  const commentedNullish =
+    "const result = value == null ? /* preserve */ fallback : value;";
+  const commentedStart = commentedNullish.indexOf("value == null");
+  assert.equal(
+    getSafeQuickFix(
+      commentedNullish,
+      "sample.ts",
+      "prefer-nullish-coalescing",
+      commentedStart,
+      commentedNullish.length - 1,
+    ),
+    undefined,
+  );
+
   const repeatedBranch =
     "if (ready) start(); else if (ready) stop(); else retry();";
   const repeatedConditionStart = repeatedBranch.lastIndexOf("ready");
