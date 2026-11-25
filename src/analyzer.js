@@ -954,10 +954,13 @@ export function getSafeQuickFix(source, filePath, ruleId, start, end) {
           /^[\t \r\n]*$/u.test(separator) &&
           !hasCommentTrivia(sourceFile, previous.getStart(sourceFile), current.end)
         ) {
-          const elements = [...firstBindings.elements, ...secondBindings.elements]
-            .map((element) => element.getText(sourceFile));
+          const elements = [
+            ...firstBindings.elements,
+            ...secondBindings.elements,
+          ].map((element) => element.getText(sourceFile));
           const typeOnly = previous.importClause.isTypeOnly;
-          const semicolon = source.slice(previous.end - 1, previous.end) === ";";
+          const semicolon =
+            source.slice(previous.end - 1, previous.end) === ";";
           return {
             start: previous.getStart(sourceFile),
             end: current.end,
