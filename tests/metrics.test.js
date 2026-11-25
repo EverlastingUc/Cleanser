@@ -197,16 +197,19 @@ test("estimates lexical variable reference lifetimes deterministically", () => {
 });
 
 test("counts exact duplicate function bodies across project files", async () => {
-  const root = await fs.mkdtemp(path.join(os.tmpdir(), "cleanser-cross-file-duplicates-"));
+  const root = await fs.mkdtemp(
+    path.join(os.tmpdir(), "cleanser-cross-file-duplicates-"),
+  );
   try {
-    const body = (name) => [
-      `export function ${name}(value: number) {`,
-      "  const first = value + 1;",
-      "  const second = first * 2;",
-      "  const third = second - 1;",
-      "  return third;",
-      "}",
-    ].join("\n");
+    const body = (name) =>
+      [
+        `export function ${name}(value: number) {`,
+        "  const first = value + 1;",
+        "  const second = first * 2;",
+        "  const third = second - 1;",
+        "  return third;",
+        "}",
+      ].join("\n");
     await fs.writeFile(path.join(root, "alpha.ts"), body("alpha"));
     await fs.writeFile(path.join(root, "beta.ts"), body("beta"));
 
@@ -224,14 +227,8 @@ test("counts exact duplicate function bodies across project files", async () => 
     assert.equal(report.summary.duplicateFunctionCount, 1);
     assert.equal(report.summary.duplicateLines, 6);
     assert.ok(report.summary.duplicationPercentage > 0);
-    assert.equal(
-      Object.hasOwn(alpha.metrics.duplication, "candidates"),
-      false,
-    );
-    assert.equal(
-      Object.hasOwn(beta.metrics.duplication, "candidates"),
-      false,
-    );
+    assert.equal(Object.hasOwn(alpha.metrics.duplication, "candidates"), false);
+    assert.equal(Object.hasOwn(beta.metrics.duplication, "candidates"), false);
   } finally {
     await fs.rm(root, { recursive: true, force: true });
   }
