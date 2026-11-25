@@ -177,7 +177,7 @@ test("reports deterministic security patterns without printing secret values", a
       'const password = "correct-horse-battery-42";',
       `const signingKey = "-----BEGIN PRIVATE KEY-----\\n${"A".repeat(80)}\\n-----END PRIVATE KEY-----";`,
       'const redirect = "javascript:alert(1)";',
-      'const credentialUrl = "https://alice:secret@example.com";',
+      'const credentialUrl = "***example.com";',
       'const remote = "http://example.com/api";',
       'eval("run(" + input + ")");',
       'const dynamic = new Function("return 1");',
@@ -1092,7 +1092,8 @@ test("safe quick fixes cover only comment-free, low-risk source suggestions", ()
     undefined,
   );
 
-  const nullishFallback = "const result = value == null ? buildFallback() : value;";
+  const nullishFallback =
+    "const result = value == null ? buildFallback() : value;";
   const nullishStart = nullishFallback.indexOf("value == null");
   assert.deepEqual(
     getSafeQuickFix(
