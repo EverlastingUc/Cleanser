@@ -232,6 +232,29 @@ test("reports deterministic security patterns without printing secret values", a
   });
 });
 
+test("detects nested and overlapping regex quantifiers without flagging simple patterns", async () => {
+  await withProject(async (root) => {
+    const source = [
+      "const nested = /(a+)+$/;",
+      "const overlapping = /(a|aa)+$/;",
+      "const bounded = /^[a-z]{1,12}$/;",
+      "const simple = /^[a-z]+$/;",
+    ].join("\\n");
+    await fs.writeFile(path.join(root, "regex-risk.ts"), source);
+
+    const findings = await analyzeProject({ root, config: DEFAULT_CONFIG });
+    const regexFindings = findings.filter(
+      (finding) => finding.ruleId === "regex-dos-risk",
+    );
+
+    assert.equal(regexFindings.length, 2);
+    assert.deepEqual(
+      regexFindings.map((finding) => finding.line),
+      [1, 2],
+    );
+  });
+});
+
 test("analyzes dated TODOs, FIXME markers, duplicate and empty comments, and commented code", async () => {
   await withProject(async (root) => {
     const source = [
