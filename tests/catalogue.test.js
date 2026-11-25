@@ -15,8 +15,8 @@ test("feature catalogue has one documented status for every numbered feature", a
   const catalogue = await readCatalogue();
   const entries = catalogue.features;
 
-  assert.equal(catalogue.numberedFeatureCount, 340);
-  assert.equal(catalogue.canonicalFeatureCount, 336);
+  assert.equal(catalogue.numberedFeatureCount, 341);
+  assert.equal(catalogue.canonicalFeatureCount, 337);
   assert.equal(entries.length, 340);
   assert.deepEqual(
     entries.map((entry) => entry.id),
