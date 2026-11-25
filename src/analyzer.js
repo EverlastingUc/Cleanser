@@ -625,6 +625,84 @@ export function getSafeQuickFix(source, filePath, ruleId, start, end) {
   if (!candidate) return undefined;
 
   if (
+    (ruleId === "prefer-nullish-coalescing" ||
+      ruleId === "prefer-optional-chain") &&
+    ts.isConditionalExpression(candidate) &&
+    !hasCommentTrivia(
+      sourceFile,
+      candidate.getStart(sourceFile),
+      candidate.end,
+    )
+  ) {
+    let condition = candidate.condition;
+    while (ts.isParenthesizedExpression(condition)) {
+      condition = condition.expression;
+    }
+    if (ts.isBinaryExpression(condition)) {
+      const operator = condition.operatorToken.kind;
+      const isNullishCheck =
+        operator === ts.SyntaxKind.EqualsEqualsToken ||
+        operator === ts.SyntaxKind.ExclamationEqualsToken;
+      const identifier =
+        ts.isIdentifier(condition.left) &&
+        condition.right.kind === ts.SyntaxKind.NullKeyword
+          ? condition.left
+          : ts.isIdentifier(condition.right) &&
+              condition.left.kind === ts.SyntaxKind.NullKeyword
+            ? condition.right
+            : undefined;
+      if (isNullishCheck && identifier) {
+        const checksForNullish =
+          operator === ts.SyntaxKind.EqualsEqualsToken;
+        const retained = checksForNullish
+          ? candidate.whenFalse
+          : candidate.whenTrue;
+        const fallback = checksForNullish
+          ? candidate.whenTrue
+          : candidate.whenFalse;
+        if (
+          ruleId === "prefer-nullish-coalescing" &&
+          ts.isIdentifier(retained) &&
+          retained.text === identifier.text
+        ) {
+          return {
+            start: candidate.getStart(sourceFile),
+            end: candidate.end,
+            newText: `${identifier.getText(sourceFile)} ?? ${fallback.getText(sourceFile)}`,
+            title: "Use nullish coalescing",
+          };
+        }
+        const isVoidZero =
+          ts.isVoidExpression(fallback) &&
+          ts.isNumericLiteral(fallback.expression) &&
+          Number(fallback.expression.text) === 0;
+        if (
+          ruleId === "prefer-optional-chain" &&
+          isVoidZero &&
+          ((ts.isPropertyAccessExpression(retained) &&
+            ts.isIdentifier(retained.expression) &&
+            retained.expression.text === identifier.text &&
+            !retained.questionDotToken) ||
+            (ts.isElementAccessExpression(retained) &&
+              ts.isIdentifier(retained.expression) &&
+              retained.expression.text === identifier.text &&
+              !retained.questionDotToken))
+        ) {
+          const access = ts.isPropertyAccessExpression(retained)
+            ? `?.${retained.name.getText(sourceFile)}`
+            : `?.[${retained.argumentExpression.getText(sourceFile)}]`;
+          return {
+            start: candidate.getStart(sourceFile),
+            end: candidate.end,
+            newText: `${identifier.getText(sourceFile)}${access}`,
+            title: "Use optional chaining",
+          };
+        }
+      }
+    }
+  }
+
+  if (
     ruleId === "object-shorthand" &&
     ts.isPropertyAssignment(candidate) &&
     ts.isIdentifier(candidate.name) &&
