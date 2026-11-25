@@ -1660,12 +1660,11 @@ function isPlausibleCredential(value) {
 function hasNestedRegexQuantifier(value) {
   const source = value.startsWith("/") ? value.slice(1, value.lastIndexOf("/")) : value;
   const quantifiedGroup =
-    /\\((?:\\\\.|[^()\\\\])*(?:[*+]|\\{\\d+,?\\d*\\})(?:\\\\.|[^()\\\\])*\\)(?:[*+]|\\{\\d+,?\\d*\\})/u;
+    /\((?:\\.|[^()\\])*(?:[*+]|\{\d+,?\d*\})(?:\\.|[^()\\])*\)(?:[*+]|\{\d+,?\d*\})/u;
   const repeatedAlternation =
-    /\\((?:\\\\.|[^()\\\\])*\\|(?:\\\\.|[^()\\\\])*\\)(?:[*+]|\\{\\d+,?\\d*\\})/u;
+    /\((?:\\.|[^()\\])*\|(?:\\.|[^()\\])*\)(?:[*+]|\{\d+,?\d*\})/u;
   return quantifiedGroup.test(source) || repeatedAlternation.test(source);
 }
-
 function containsPrivateKey(value) {
   const match = value.match(
     /-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----\s*([A-Za-z0-9+/=\r\n]+)\s*-----END (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/,
