@@ -255,6 +255,31 @@ test("detects nested and overlapping regex quantifiers without flagging simple p
   });
 });
 
+test("detects dynamic HTML passed to DOM insertion methods but ignores static markup", async () => {
+  await withProject(async (root) => {
+    const source = [
+      "const userInput = getInput();",
+      'element.insertAdjacentHTML("beforeend", userInput);',
+      "document.write(userInput);",
+      "document.writeln(userInput);",
+      'element.insertAdjacentHTML("beforeend", "<p>static</p>");',
+      'document.write("<p>static</p>");',
+    ].join("\\n");
+    await fs.writeFile(path.join(root, "dom-xss.ts"), source);
+
+    const findings = await analyzeProject({ root, config: DEFAULT_CONFIG });
+    const xssFindings = findings.filter(
+      (finding) => finding.ruleId === "xss-risk",
+    );
+
+    assert.equal(xssFindings.length, 3);
+    assert.deepEqual(
+      xssFindings.map((finding) => finding.line),
+      [2, 3, 4],
+    );
+  });
+});
+
 test("analyzes dated TODOs, FIXME markers, duplicate and empty comments, and commented code", async () => {
   await withProject(async (root) => {
     const source = [
