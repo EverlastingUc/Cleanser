@@ -54,6 +54,7 @@ test("uses compiler symbols to find unused declarations without flagging exports
       "export {};",
       "export const publicValue = 1;",
       "const unusedValue = 2;",
+      "let unusedMutableValue = 3;",
       "function unusedFunction(_ignored: string, used: number) { return used; }",
       "class UnusedClass {}",
     ].join("\n");
@@ -66,10 +67,37 @@ test("uses compiler symbols to find unused declarations without flagging exports
 
     assert.deepEqual(
       unused.map((finding) => finding.ruleId),
-      ["unused-constant", "unused-function", "unused-class"],
+      ["unused-constant", "unused-variable", "unused-function", "unused-class"],
     );
     assert.ok(unused.every((finding) => finding.filePath === "sample.ts"));
     assert.equal(await fs.readFile(file, "utf8"), source);
+  });
+});
+
+test("detects empty function and empty catch bodies independently", async () => {
+  await withProject(async (root) => {
+    const source = [
+      "export function emptyFunction() {}",
+      "export function handlesFailure() {",
+      "  try {",
+      "    throw new Error('failure');",
+      "  } catch (error) {}",
+      "}",
+    ].join("\n");
+    await fs.writeFile(path.join(root, "empty-bodies.ts"), source);
+
+    const findings = await analyzeProject({ root, config: DEFAULT_CONFIG });
+    const ruleIds = findings.map((finding) => finding.ruleId);
+
+    assert.equal(
+      ruleIds.filter((ruleId) => ruleId === "empty-function").length,
+      1,
+    );
+    assert.equal(
+      ruleIds.filter((ruleId) => ruleId === "empty-catch").length,
+      1,
+    );
+    assert.equal(ruleIds.includes("empty-block"), false);
   });
 });
 
@@ -147,7 +175,7 @@ test("reports deterministic security patterns without printing secret values", a
       'import { exec as run } from "node:child_process";',
       'const apiKey = "k_live_A8hK9vZmQ2pL0xT7";',
       'const password = "correct-horse-battery-42";',
-      `const signingKey = "-----BEGIN PRIVATE KEY-----\\n${"A".repeat(80)}\\n-----END PRIVATE KEY-----";`,
+      `const signingKey = "-----BEGIN PRIVATE KEY-----\n${"A".repeat(80)}\n-----END PRIVATE KEY-----";`,
       'const redirect = "javascript:alert(1)";',
       'const credentialUrl = "https://alice:secret@example.com";',
       'const remote = "http://example.com/api";',
@@ -372,6 +400,231 @@ test("measures conservative function, class, dependency, and duplication thresho
     ]) {
       assert.ok(ruleIds.has(ruleId), `Expected metric finding ${ruleId}.`);
     }
+  });
+});
+
+test("verifies all five partial code-quality rules with isolated runtime fixtures", async () => {
+  await withProject(async (root) => {
+    await fs.writeFile(
+      path.join(root, "duplicate-a.ts"),
+      [
+        "export function first(value: number) {",
+        "  const one = value + 1;",
+        "  const two = one + 1;",
+        "  const three = two + 1;",
+        "  return three;",
+        "}",
+      ].join("\n"),
+    );
+    await fs.writeFile(
+      path.join(root, "duplicate-b.ts"),
+      [
+        "export function second(input: number) {",
+        "  const firstStep = input + 1;",
+        "  const secondStep = firstStep + 1;",
+        "  const thirdStep = secondStep + 1;",
+        "  return thirdStep;",
+        "}",
+      ].join("\n"),
+    );
+    await fs.writeFile(
+      path.join(root, "duplicate-c.ts"),
+      [
+        "export function third(input: number) {",
+        "  const firstStep = input + 2;",
+        "  const secondStep = firstStep + 1;",
+        "  const thirdStep = secondStep + 1;",
+        "  return thirdStep;",
+        "}",
+      ].join("\n"),
+    );
+    await fs.writeFile(
+      path.join(root, "dead.ts"),
+      "export function dead(unusedParameter: number) { return 1; const unreachable = 2; }",
+    );
+    await fs.writeFile(
+      path.join(root, "empty-block.ts"),
+      "export function emptyBlock(flag: boolean) { if (flag) {} }",
+    );
+    await fs.writeFile(
+      path.join(root, "unused-label.ts"),
+      "export function labels() { unusedLabel: { 1; } }",
+    );
+    await fs.writeFile(
+      path.join(root, "redundant.ts"),
+      "export function redundant() { 1 + 2; return; }",
+    );
+    await fs.writeFile(
+      path.join(root, "conditions.ts"),
+      [
+        "export function conditions(flag: boolean) {",
+        "  if (true) return 1;",
+        "  if (flag) return 2; else if (flag) return 3;",
+        "  return 4;",
+        "}",
+      ].join("\n"),
+    );
+    await fs.writeFile(
+      path.join(root, "types.ts"),
+      "let count: number = 1;\nlet total: number = 1 + 2;\nexport let publicCount: number = 1;",
+    );
+
+    const findings = await analyzeProject({ root, config: DEFAULT_CONFIG });
+    const byRule = (ruleId) =>
+      findings.filter((finding) => finding.ruleId === ruleId);
+
+    for (const ruleId of [
+      "duplicate-code",
+      "unreachable-code",
+      "redundant-expression",
+      "redundant-return",
+      "constant-condition",
+      "repeated-branch-condition",
+      "redundant-type-annotation",
+      "unused-parameter",
+      "empty-block",
+      "unused-label",
+    ]) {
+      assert.ok(
+        byRule(ruleId).length > 0,
+        `Expected runtime evidence for ${ruleId}.`,
+      );
+    }
+
+    assert.ok(
+      byRule("duplicate-code").some(
+        (finding) =>
+          finding.filePath === "duplicate-b.ts" &&
+          finding.message ===
+            "Function body duplicates code in duplicate-a.ts.",
+      ),
+      "Cross-file duplicates should identify the source using a relative path.",
+    );
+    assert.ok(
+      byRule("unreachable-code").some(
+        (finding) => finding.filePath === "dead.ts",
+      ),
+    );
+    assert.ok(
+      byRule("unused-parameter").some(
+        (finding) => finding.filePath === "dead.ts",
+      ),
+      "Parameters of exported functions should still be checked for unused bindings.",
+    );
+    assert.equal(
+      byRule("redundant-type-annotation").filter(
+        (finding) => finding.filePath === "types.ts",
+      ).length,
+      2,
+    );
+    assert.equal(
+      byRule("redundant-type-annotation").some(
+        (finding) => finding.filePath === "types.ts" && finding.line === 3,
+      ),
+      false,
+      "Exported variables retain explicit annotations as public API intent.",
+    );
+    assert.ok(
+      byRule("duplicate-code").some(
+        (finding) =>
+          finding.filePath === "duplicate-c.ts" &&
+          finding.severity === "info" &&
+          finding.message.includes("literal values differ"),
+      ),
+      "Literal-only structural clones should be informational findings.",
+    );
+  });
+});
+
+test("detects unreachable source modules only from static package entry points", async () => {
+  await withProject(async (root) => {
+    await fs.writeFile(
+      path.join(root, "package.json"),
+      JSON.stringify({ main: "src/index.js" }),
+    );
+    await fs.mkdir(path.join(root, "src"), { recursive: true });
+    await fs.mkdir(path.join(root, "src", "routes"), { recursive: true });
+    await fs.writeFile(
+      path.join(root, "src", "index.ts"),
+      'import { live } from "./live.js";\nexport { live };',
+    );
+    await fs.writeFile(
+      path.join(root, "src", "live.ts"),
+      "export function live() { return true; }",
+    );
+    await fs.writeFile(
+      path.join(root, "src", "orphan.ts"),
+      "export function orphan() { return false; }",
+    );
+    await fs.writeFile(
+      path.join(root, "src", "routes", "home.ts"),
+      "export function route() { return true; }",
+    );
+    const findings = await analyzeProject({ root, config: DEFAULT_CONFIG });
+    assert.deepEqual(
+      findings
+        .filter((finding) => finding.ruleId === "unreachable-module")
+        .map((finding) => finding.filePath),
+      ["src/orphan.ts"],
+    );
+  });
+});
+
+test("detects redundant void literals and standalone empty statements only", async () => {
+  await withProject(async (root) => {
+    await fs.writeFile(
+      path.join(root, "no-ops.ts"),
+      [
+        "export function noOps(flag: boolean) {",
+        "  void 0;",
+        "  ;",
+        "  if (flag);",
+        "  return;",
+        "}",
+      ].join("\n"),
+    );
+    const findings = await analyzeProject({ root, config: DEFAULT_CONFIG });
+    const redundant = findings.filter(
+      (finding) =>
+        finding.ruleId === "redundant-expression" &&
+        finding.filePath === "no-ops.ts",
+    );
+    assert.equal(redundant.length, 2);
+    assert.ok(redundant.some((finding) => finding.message.includes("empty statement")));
+  });
+});
+
+test("recognizes equivalent stable conditions and boolean contradictions", async () => {
+  await withProject(async (root) => {
+    await fs.writeFile(
+      path.join(root, "equivalent-conditions.ts"),
+      [
+        "export function equivalent(left: number, right: number, ready: boolean, active: boolean, flag: boolean) {",
+        "  if (left === right) return 1; else if (right === left) return 2;",
+        "  if (ready && active) return 3; else if (active && ready) return 4;",
+        "  if (flag && !flag) return 5;",
+        "  if (flag || !flag) return 6;",
+        "  if (getFlag() && getOtherFlag()) return 7;",
+        "  return 8;",
+        "}",
+      ].join("\n"),
+    );
+    const findings = await analyzeProject({ root, config: DEFAULT_CONFIG });
+    assert.equal(
+      findings.filter(
+        (finding) =>
+          finding.ruleId === "repeated-branch-condition" &&
+          finding.filePath === "equivalent-conditions.ts",
+      ).length,
+      2,
+    );
+    const constants = findings.filter(
+      (finding) =>
+        finding.ruleId === "constant-condition" &&
+        finding.filePath === "equivalent-conditions.ts",
+    );
+    assert.ok(constants.some((finding) => finding.message.includes("always false")));
+    assert.ok(constants.some((finding) => finding.message.includes("always true")));
   });
 });
 

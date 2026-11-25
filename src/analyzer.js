@@ -98,6 +98,12 @@ const RULES = Object.freeze([
     description: "The compiler can prove this statement cannot run.",
   },
   {
+    id: "unreachable-module",
+    severity: "info",
+    description:
+      "A source module is not reachable from any static package entry point.",
+  },
+  {
     id: "unused-label",
     severity: "warning",
     description: "A label is declared but no break or continue uses it.",
@@ -170,7 +176,7 @@ const RULES = Object.freeze([
     id: "redundant-type-annotation",
     severity: "info",
     description:
-      "A primitive type annotation matches the type inferred for a mutable literal binding.",
+      "A primitive annotation repeats the type of a pure constant initializer.",
   },
   {
     id: "redundant-parentheses",
@@ -341,7 +347,7 @@ const RULES = Object.freeze([
     id: "duplicate-code",
     severity: "warning",
     description:
-      "A function body exactly duplicates another substantial body in this file.",
+      "A function body exactly or structurally duplicates another substantial project body.",
   },
   {
     id: "broken-import",
@@ -1278,6 +1284,7 @@ function isPureLiteralExpression(node) {
   }
   if (
     ts.isNumericLiteral(node) ||
+    ts.isBigIntLiteral(node) ||
     ts.isStringLiteralLike(node) ||
     node.kind === ts.SyntaxKind.TrueKeyword ||
     node.kind === ts.SyntaxKind.FalseKeyword ||
@@ -1287,6 +1294,9 @@ function isPureLiteralExpression(node) {
   }
   if (ts.isPrefixUnaryExpression(node)) {
     return isPureLiteralExpression(node.operand);
+  }
+  if (ts.isVoidExpression(node)) {
+    return isPureLiteralExpression(node.expression);
   }
   if (ts.isArrayLiteralExpression(node)) {
     return node.elements.every(
@@ -1355,6 +1365,76 @@ function isStableCondition(node) {
     );
   }
   return false;
+}
+
+function normalizeStableCondition(node, sourceFile, printer) {
+  if (ts.isParenthesizedExpression(node)) {
+    return normalizeStableCondition(node.expression, sourceFile, printer);
+  }
+  if (ts.isBinaryExpression(node) && isStableCondition(node)) {
+    let left = normalizeStableCondition(node.left, sourceFile, printer);
+    let right = normalizeStableCondition(node.right, sourceFile, printer);
+    if (
+      [
+        ts.SyntaxKind.AmpersandAmpersandToken,
+        ts.SyntaxKind.BarBarToken,
+        ts.SyntaxKind.EqualsEqualsToken,
+        ts.SyntaxKind.EqualsEqualsEqualsToken,
+        ts.SyntaxKind.ExclamationEqualsToken,
+        ts.SyntaxKind.ExclamationEqualsEqualsToken,
+      ].includes(node.operatorToken.kind) &&
+      left > right
+    ) {
+      [left, right] = [right, left];
+    }
+    return `(${left}${node.operatorToken.getText(sourceFile)}${right})`;
+  }
+  if (ts.isPrefixUnaryExpression(node) && isStableCondition(node)) {
+    return `${node.operator}${normalizeStableCondition(node.operand, sourceFile, printer)}`;
+  }
+  return printer
+    .printNode(ts.EmitHint.Expression, node, sourceFile)
+    .replace(/\\s+/gu, "");
+}
+
+function unwrapCondition(node) {
+  let current = node;
+  while (ts.isParenthesizedExpression(current)) current = current.expression;
+  return current;
+}
+
+function getStableTautologyResult(node) {
+  if (
+    !ts.isBinaryExpression(node) ||
+    ![
+      ts.SyntaxKind.AmpersandAmpersandToken,
+      ts.SyntaxKind.BarBarToken,
+    ].includes(node.operatorToken.kind) ||
+    !isStableCondition(node)
+  ) return undefined;
+
+  const left = unwrapCondition(node.left);
+  const right = unwrapCondition(node.right);
+  const leftOperand =
+    ts.isPrefixUnaryExpression(left) &&
+    left.operator === ts.SyntaxKind.ExclamationToken
+      ? unwrapCondition(left.operand)
+      : undefined;
+  const rightOperand =
+    ts.isPrefixUnaryExpression(right) &&
+    right.operator === ts.SyntaxKind.ExclamationToken
+      ? unwrapCondition(right.operand)
+      : undefined;
+  const printer = ts.createPrinter();
+  const matches =
+    (leftOperand &&
+      normalizeStableCondition(leftOperand, node.getSourceFile(), printer) ===
+        normalizeStableCondition(right, node.getSourceFile(), printer)) ||
+    (rightOperand &&
+      normalizeStableCondition(rightOperand, node.getSourceFile(), printer) ===
+        normalizeStableCondition(left, node.getSourceFile(), printer));
+  if (!matches) return undefined;
+  return node.operatorToken.kind === ts.SyntaxKind.BarBarToken;
 }
 
 function hasAsyncModifier(node) {
@@ -2101,7 +2181,6 @@ function analyzeTree(sourceFile, root, checker, findings) {
   };
   const seenImports = new Map();
   const dependencies = new Set();
-  const duplicateBodies = new Map();
   const printer = ts.createPrinter({ removeComments: true });
   let fileComplexity = 0;
   const childProcessBindings = getChildProcessBindings(sourceFile);
@@ -2193,18 +2272,19 @@ function analyzeTree(sourceFile, root, checker, findings) {
       !node.initializer ||
       !ts.isIdentifier(node.name) ||
       !ts.isVariableDeclarationList(node.parent) ||
-      (node.parent.flags & ts.NodeFlags.Const) !== 0
+      (node.parent.flags & ts.NodeFlags.Const) !== 0 ||
+      isExportedBinding(node.name, sourceFile, checker)
     ) {
       return false;
     }
 
-    if (
-      !REDUNDANT_PRIMITIVE_INITIALIZERS.get(node.type.kind)?.has(
-        node.initializer.kind,
-      )
-    ) {
-      return false;
-    }
+    const simpleLiteral = REDUNDANT_PRIMITIVE_INITIALIZERS.get(
+      node.type.kind,
+    )?.has(node.initializer.kind);
+    const pureConstant =
+      isPureLiteralExpression(node.initializer) &&
+      evaluateConstant(node.initializer) !== undefined;
+    if (!simpleLiteral && !pureConstant) return false;
 
     const declaredType = checker.getTypeFromTypeNode(node.type);
     const inferredType = checker.getBaseTypeOfLiteralType(
@@ -2212,7 +2292,7 @@ function analyzeTree(sourceFile, root, checker, findings) {
     );
     if (
       (declaredType.flags | inferredType.flags) &
-      (ts.TypeFlags.Any | ts.TypeFlags.Unknown)
+      (ts.TypeFlags.Any | ts.TypeFlags.Unknown | ts.TypeFlags.Never)
     ) {
       return false;
     }
@@ -2487,20 +2567,24 @@ function analyzeTree(sourceFile, root, checker, findings) {
     }
 
     if (ts.isIfStatement(node) && isStableCondition(node.expression)) {
-      const conditionText = printer
-        .printNode(ts.EmitHint.Expression, node.expression, sourceFile)
-        .trim();
+      const conditionKey = normalizeStableCondition(
+        node.expression,
+        sourceFile,
+        printer,
+      );
       let child = node;
       let ancestor = node.parent;
       while (ts.isIfStatement(ancestor) && ancestor.elseStatement === child) {
-        const earlierText = printer
-          .printNode(ts.EmitHint.Expression, ancestor.expression, sourceFile)
-          .trim();
-        if (conditionText === earlierText) {
+        const earlierKey = normalizeStableCondition(
+          ancestor.expression,
+          sourceFile,
+          printer,
+        );
+        if (conditionKey === earlierKey) {
           push(
             "repeated-branch-condition",
             node.expression,
-            "This stable condition already appeared in an earlier branch of the same else-if chain.",
+            "This condition is logically equivalent to an earlier stable condition in the same else-if chain.",
           );
           break;
         }
@@ -2728,23 +2812,6 @@ function analyzeTree(sourceFile, root, checker, findings) {
         );
       }
 
-      if (ts.isBlock(node.body) && node.body.statements.length >= 4) {
-        const bodyText = printer.printNode(
-          ts.EmitHint.Unspecified,
-          node.body,
-          sourceFile,
-        );
-        const previous = duplicateBodies.get(bodyText);
-        if (previous) {
-          push(
-            "duplicate-code",
-            functionNode,
-            "Function body duplicates an earlier function in this file.",
-          );
-        } else {
-          duplicateBodies.set(bodyText, functionNode);
-        }
-      }
     }
 
     if (
@@ -2865,12 +2932,18 @@ function analyzeTree(sourceFile, root, checker, findings) {
       const condition = ts.isForStatement(node)
         ? node.condition
         : node.expression;
-      if (condition && evaluateConstant(condition) !== undefined) {
-        push(
-          "constant-condition",
-          condition,
-          `This condition is always ${Boolean(evaluateConstant(condition)) ? "true" : "false"}.`,
-        );
+      if (condition) {
+        const evaluated = evaluateConstant(condition);
+        const tautology = getStableTautologyResult(condition);
+        const constantResult =
+          evaluated !== undefined ? Boolean(evaluated) : tautology;
+        if (constantResult !== undefined) {
+          push(
+            "constant-condition",
+            condition,
+            `This condition is always ${constantResult ? "true" : "false"}.`,
+          );
+        }
       }
     }
 
@@ -2887,7 +2960,22 @@ function analyzeTree(sourceFile, root, checker, findings) {
       isPureLiteralExpression(node.expression) &&
       !ts.isStringLiteralLike(node.expression)
     ) {
-      push("redundant-expression", node.expression);
+      push(
+        "redundant-expression",
+        node.expression,
+        "This pure literal or constant expression has no observable effect.",
+      );
+    }
+
+    if (
+      ts.isEmptyStatement(node) &&
+      (ts.isBlock(node.parent) || ts.isSourceFile(node.parent))
+    ) {
+      push(
+        "redundant-expression",
+        node,
+        "This standalone empty statement has no effect and can be removed.",
+      );
     }
 
     if (
@@ -3085,7 +3173,11 @@ function collectUnusedBindings(
     if (ruleId === "unused-parameter" && name.text.startsWith("_")) return;
     if (!moduleLike && isTopLevelDeclaration(name, sourceFile)) return;
     const symbol = checker.getSymbolAtLocation(name);
-    if (symbol && !isExportedBinding(name, sourceFile, checker)) {
+    if (
+      symbol &&
+      (ruleId === "unused-parameter" ||
+        !isExportedBinding(name, sourceFile, checker))
+    ) {
       candidates.push({ name, symbol, ruleId });
     }
   }
@@ -3175,6 +3267,264 @@ export function listRules() {
   return RULES.map((rule) => ({ ...rule }));
 }
 
+function getFunctionBodyFingerprint(functionNode, sourceFile, checker) {
+  const localSymbols = new Set();
+  const addLocalName = (name) => {
+    if (!name) return;
+    if (ts.isIdentifier(name)) {
+      const symbol = checker.getSymbolAtLocation(name);
+      if (symbol) localSymbols.add(symbol);
+    } else if (ts.isObjectBindingPattern(name) || ts.isArrayBindingPattern(name)) {
+      for (const element of name.elements) {
+        if (ts.isBindingElement(element)) addLocalName(element.name);
+      }
+    }
+  };
+  for (const parameter of functionNode.parameters ?? []) addLocalName(parameter.name);
+  function collectLocals(node) {
+    if (
+      ts.isVariableDeclaration(node) ||
+      ts.isParameter(node) ||
+      ts.isFunctionDeclaration(node) ||
+      ts.isClassDeclaration(node) ||
+      ts.isTypeParameterDeclaration(node)
+    ) addLocalName(node.name);
+    if (ts.isCatchClause(node) && node.variableDeclaration) {
+      addLocalName(node.variableDeclaration.name);
+    }
+    ts.forEachChild(node, collectLocals);
+  }
+  collectLocals(functionNode.body);
+
+  const localIndexes = new Map();
+  const exactTokens = [];
+  const shapeTokens = [];
+  function visit(node) {
+    if (ts.isIdentifier(node)) {
+      const parent = node.parent;
+      const isPropertyName =
+        (ts.isPropertyAccessExpression(parent) && parent.name === node) ||
+        (ts.isPropertyAssignment(parent) && parent.name === node) ||
+        (ts.isMethodDeclaration(parent) && parent.name === node) ||
+        (ts.isPropertyDeclaration(parent) && parent.name === node) ||
+        (ts.isShorthandPropertyAssignment(parent) && parent.name === node);
+      const symbol = isPropertyName ? undefined : checker.getSymbolAtLocation(node);
+      let value = node.text;
+      if (symbol && localSymbols.has(symbol)) {
+        if (!localIndexes.has(symbol)) localIndexes.set(symbol, localIndexes.size);
+        value = `$local${localIndexes.get(symbol)}`;
+      }
+      exactTokens.push(`identifier:${value}`);
+      shapeTokens.push(`identifier:${value}`);
+      return;
+    }
+    if (
+      ts.isStringLiteralLike(node) ||
+      ts.isNumericLiteral(node) ||
+      ts.isBigIntLiteral(node)
+    ) {
+      exactTokens.push(`literal:${node.kind}:${node.text}`);
+      shapeTokens.push(`literal:${node.kind}`);
+      return;
+    }
+    exactTokens.push(`kind:${node.kind}`);
+    shapeTokens.push(`kind:${node.kind}`);
+    ts.forEachChild(node, visit);
+  }
+  visit(functionNode.body);
+  return {
+    exact: exactTokens.join("|"),
+    shape: shapeTokens.join("|"),
+    tokenCount: shapeTokens.length,
+  };
+}
+
+function analyzeCrossFileDuplicateCode(sourceFiles, root, checker) {
+  const firstByShape = new Map();
+  const findings = [];
+  for (const sourceFile of sourceFiles) {
+    if (sourceFile.parseDiagnostics.length > 0) continue;
+    function visit(node) {
+      if (
+        ts.isFunctionLike(node) &&
+        node.body &&
+        ts.isBlock(node.body) &&
+        node.body.statements.length >= 4
+      ) {
+        const fingerprint = getFunctionBodyFingerprint(node, sourceFile, checker);
+        if (fingerprint.tokenCount >= 20) {
+          const previous = firstByShape.get(fingerprint.shape);
+          if (previous) {
+            const previousFilePath = path
+              .relative(root, previous.filePath)
+              .split(path.sep)
+              .join("/");
+            const exactMatch = previous.exact === fingerprint.exact;
+            findings.push(
+              createFinding(
+                sourceFile,
+                root,
+                "duplicate-code",
+                node.name ?? node,
+                exactMatch
+                  ? `Function body duplicates code in ${previousFilePath}.`
+                  : `Function body is structurally similar to code in ${previousFilePath}; literal values differ.`,
+                exactMatch ? "warning" : "info",
+              ),
+            );
+          } else {
+            firstByShape.set(fingerprint.shape, {
+              exact: fingerprint.exact,
+              filePath: sourceFile.fileName,
+            });
+          }
+        }
+      }
+      ts.forEachChild(node, visit);
+    }
+    visit(sourceFile);
+  }
+  return findings;
+}
+
+function isReachabilityCandidate(filePath) {
+  const normalized = filePath.split(path.sep).join("/");
+  const segments = normalized.split("/");
+  if (!["src", "lib", "server", "client"].includes(segments[0])) return false;
+  if (segments.some((segment) =>
+    ["app", "api", "pages", "routes", "test", "tests", "__tests__", "fixtures", "examples"].includes(segment.toLowerCase())
+  )) return false;
+  return !/\.(?:test|spec)\.[^.]+$/iu.test(normalized);
+}
+
+function collectPackageEntryValues(value, values, hasWildcard) {
+  if (typeof value === "string") {
+    if (value.includes("*")) hasWildcard.value = true;
+    else if (
+      !path.isAbsolute(value) &&
+      !value.split(/[\\/]/u).includes("..") &&
+      !/^[a-z][a-z0-9+.-]*:/iu.test(value)
+    ) values.add(value);
+    return;
+  }
+  if (Array.isArray(value)) {
+    for (const entry of value) collectPackageEntryValues(entry, values, hasWildcard);
+  } else if (value && typeof value === "object") {
+    for (const entry of Object.values(value)) collectPackageEntryValues(entry, values, hasWildcard);
+  }
+}
+
+function resolveEntrySourceFiles(root, entries, sourceFiles) {
+  const byPath = new Map(sourceFiles.map((sourceFile) => [
+    path.normalize(path.resolve(sourceFile.fileName)),
+    sourceFile,
+  ]));
+  const found = new Set();
+  const extensions = [".js", ".jsx", ".ts", ".tsx", ".mjs", ".cjs", ".mts", ".cts"];
+  for (const entry of entries) {
+    const target = path.resolve(root, entry);
+    const extension = path.extname(target).toLowerCase();
+    const candidates = [target];
+    if (extension === ".js") {
+      candidates.push(target.slice(0, -extension.length) + ".ts");
+      candidates.push(target.slice(0, -extension.length) + ".tsx");
+    } else if (extension === ".jsx") {
+      candidates.push(target.slice(0, -extension.length) + ".tsx");
+      candidates.push(target.slice(0, -extension.length) + ".ts");
+    } else if (extension === ".mjs") {
+      candidates.push(target.slice(0, -extension.length) + ".mts");
+    } else if (extension === ".cjs") {
+      candidates.push(target.slice(0, -extension.length) + ".cts");
+    } else if (!extension) {
+      for (const candidateExtension of extensions) {
+        candidates.push(target + candidateExtension);
+        candidates.push(path.join(target, `index${candidateExtension}`));
+      }
+    }
+    for (const candidate of candidates) {
+      const sourceFile = byPath.get(path.normalize(candidate));
+      if (sourceFile) found.add(path.relative(root, sourceFile.fileName).split(path.sep).join("/"));
+    }
+  }
+  return found;
+}
+
+async function analyzeUnreachableModules(sourceFiles, root, dependencyGraph, findings) {
+  let manifest;
+  try {
+    manifest = JSON.parse(await fs.readFile(path.join(root, "package.json"), "utf8"));
+  } catch {
+    return;
+  }
+  if (!manifest || typeof manifest !== "object" || Array.isArray(manifest)) return;
+  const entryValues = new Set();
+  const hasWildcard = { value: false };
+  for (const field of ["main", "module", "browser", "types", "typings", "exports", "bin"]) {
+    collectPackageEntryValues(manifest[field], entryValues, hasWildcard);
+  }
+  if (hasWildcard.value || entryValues.size === 0) return;
+
+  let usesDynamicLoading = false;
+  for (const sourceFile of sourceFiles) {
+    function visit(node) {
+      if (
+        ts.isCallExpression(node) &&
+        (node.expression.kind === ts.SyntaxKind.ImportKeyword ||
+          (ts.isIdentifier(node.expression) && node.expression.text === "require")) &&
+        (!node.arguments[0] || !ts.isStringLiteralLike(node.arguments[0]))
+      ) usesDynamicLoading = true;
+      if (
+        ts.isCallExpression(node) &&
+        ts.isPropertyAccessExpression(node.expression) &&
+        node.expression.name.text === "glob" &&
+        node.expression.expression.getText(sourceFile).startsWith("import.meta")
+      ) usesDynamicLoading = true;
+      ts.forEachChild(node, visit);
+    }
+    visit(sourceFile);
+    if (usesDynamicLoading) break;
+  }
+  if (usesDynamicLoading) return;
+
+  const entryPoints = resolveEntrySourceFiles(root, entryValues, sourceFiles);
+  if (entryPoints.size === 0) return;
+  const reachable = new Set(entryPoints);
+  const adjacency = new Map(dependencyGraph.nodes.map((node) => [node, []]));
+  for (const edge of dependencyGraph.edges) {
+    if (edge.targetPath && adjacency.has(edge.sourcePath)) {
+      adjacency.get(edge.sourcePath).push(edge.targetPath);
+    }
+  }
+  const queue = [...entryPoints];
+  for (let index = 0; index < queue.length; index++) {
+    for (const target of adjacency.get(queue[index]) ?? []) {
+      if (!reachable.has(target)) {
+        reachable.add(target);
+        queue.push(target);
+      }
+    }
+  }
+  const sourceByRelativePath = new Map(sourceFiles.map((sourceFile) => [
+    path.relative(root, sourceFile.fileName).split(path.sep).join("/"),
+    sourceFile,
+  ]));
+  for (const filePath of dependencyGraph.nodes) {
+    if (reachable.has(filePath) || !isReachabilityCandidate(filePath)) continue;
+    const sourceFile = sourceByRelativePath.get(filePath);
+    if (!sourceFile) continue;
+    findings.push(
+      createFinding(
+        sourceFile,
+        root,
+        "unreachable-module",
+        sourceFile,
+        `Module "${filePath}" is not reachable from the static package entry points.`,
+        "info",
+      ),
+    );
+  }
+}
+
 export async function analyzeProject({
   root = process.cwd(),
   config,
@@ -3224,6 +3574,8 @@ export async function analyzeProject({
     noLib: true,
     noResolve: true,
     allowUnreachableCode: false,
+    // Ask TypeScript to report labels that are never targeted by break/continue.
+    allowUnusedLabels: false,
     skipLibCheck: true,
     target: ts.ScriptTarget.Latest,
     module: ts.ModuleKind.ESNext,
@@ -3299,10 +3651,20 @@ export async function analyzeProject({
     );
   }
 
+  findings.push(
+    ...analyzeCrossFileDuplicateCode(sourceFiles, absoluteRoot, checker),
+  );
+
   const dependencyGraph = await buildDependencyGraph({
     root: absoluteRoot,
     config,
   });
+  await analyzeUnreachableModules(
+    sourceFiles,
+    absoluteRoot,
+    dependencyGraph,
+    findings,
+  );
   for (const brokenImport of dependencyGraph.brokenImports) {
     const sourceFile = sourceFileByPath.get(
       path.normalize(path.resolve(absoluteRoot, brokenImport.sourcePath)),
