@@ -264,7 +264,7 @@ test("detects dynamic HTML passed to DOM insertion methods but ignores static ma
       "document.writeln(userInput);",
       'element.insertAdjacentHTML("beforeend", "<p>static</p>");',
       'document.write("<p>static</p>");',
-    ].join("\\n");
+    ].join("\n");
     await fs.writeFile(path.join(root, "dom-xss.ts"), source);
 
     const findings = await analyzeProject({ root, config: DEFAULT_CONFIG });
