@@ -164,6 +164,32 @@ export async function reportProjectMetrics({
   }
 
   files.sort((left, right) => compareText(left.filePath, right.filePath));
+
+  // Count exact duplicate function bodies across the complete analyzed project.
+  // Sorting file paths first makes the canonical occurrence deterministic.
+  const firstDuplicateOccurrence = new Set();
+  for (const file of files) {
+    if (!file.metrics) continue;
+    const candidates = file.metrics.duplication.candidates ?? [];
+    let duplicateFunctionCount = 0;
+    let duplicateLines = 0;
+    for (const candidate of candidates) {
+      if (firstDuplicateOccurrence.has(candidate.signature)) {
+        duplicateFunctionCount++;
+        duplicateLines += candidate.lineCount;
+      } else {
+        firstDuplicateOccurrence.add(candidate.signature);
+      }
+    }
+    file.metrics.duplication.duplicateFunctionCount = duplicateFunctionCount;
+    file.metrics.duplication.duplicateLines = duplicateLines;
+    file.metrics.duplication.percentage =
+      file.metrics.lineCount === 0
+        ? 0
+        : Math.min(100, (duplicateLines / file.metrics.lineCount) * 100);
+    delete file.metrics.duplication.candidates;
+  }
+
   const validMetrics = files.flatMap((file) =>
     file.metrics ? [file.metrics] : [],
   );
@@ -202,7 +228,7 @@ export async function reportProjectMetrics({
       codeHealthScore:
         "The line-weighted average maintainability index minus two points for each percentage point of duplicate lines, clamped to 0–100; it is a documented code-health proxy, not a quality guarantee.",
       duplication:
-        "Exact repeated block-bodied functions with at least four statements within each file after TypeScript printer normalization; cross-file and near-duplicate matches are excluded.",
+        "Exact repeated block-bodied functions with at least four statements across all analyzed files after TypeScript printer normalization; only occurrences after the first are counted, and near-duplicate matches are excluded.",
       variableLifetime:
         "Reports the source-line span from a parameter or local declaration to its last same-name reference in the function text. Shadowed names and runtime closure lifetimes can widen or shorten this estimate.",
     },
