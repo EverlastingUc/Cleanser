@@ -961,7 +961,14 @@ export function getSafeQuickFix(source, filePath, ruleId, start, end) {
           return {
             start: previous.getStart(sourceFile),
             end: current.end,
-            newText: "import" + (typeOnly ? " type" : "") + " { " + elements.join(", ") + " } from " + previous.moduleSpecifier.getText(sourceFile) + (semicolon ? ";" : ""),
+            newText:
+              "import" +
+              (typeOnly ? " type" : "") +
+              " { " +
+              elements.join(", ") +
+              " } from " +
+              previous.moduleSpecifier.getText(sourceFile) +
+              (semicolon ? ";" : ""),
             title: "Merge duplicate named imports",
           };
         }
